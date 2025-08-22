@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija | DP.PORTFOLIO</title>
+    <!-- Dynamic SEO will be handled by JavaScript for specific category -->
+    <meta name="description" content="Peržiūrėkite Dominikphotofficial nuotraukų galeriją. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
+    <meta name="keywords" content="fotografija, portfolio, dominikphotofficial, meninė fotografija, nuotraukos, nuotraukų galerija, kadrai, minimalistinė fotografija, stilinga fotografija">
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/gallery.html"> <!-- General canonical for gallery page -->
+    <meta name="author" content="Dominikphotofficial">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Dp.png">
+
+    <!-- Google Fonts: Jost -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container">
+            <h1 class="site-title">DP.PORTFOLIO</h1>
+            <p class="site-tagline">Atraskite unikalumą kiekviename kadre.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="full-gallery-page" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="container">
+                <a href="index.html" class="back-to-categories">Grįžti į kategorijas</a>
+                <h2 class="section-title gallery-page-title" id="galleryPageTitle">Kraunama galerija...</h2>
+                <div class="image-grid" id="galleryImageGrid">
+                    <!-- Gallery images will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <div class="container">
+            <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS for gallery page -->
+    <script src="script-gallery.js"></script>
+</body>
+</html>
