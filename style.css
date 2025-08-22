@@ -1,12 +1,12 @@
+/* Global variables and resets */
 :root {
-    --primary-color: #113939;
-    --background-color: #ffffff;
-    --text-color: #113939;
-    --light-text-color: #f0f0f0;
-    --overlay-bg: rgba(17, 57, 57, 0.8);
+    --primary-color: #113939; /* Deep teal */
+    --background-color: #ffffff; /* Pure white */
+    --text-color: #113939; /* Deep teal for text */
+    --light-text-color: #f0f0f0; /* Off-white for contrast on dark backgrounds */
+    --overlay-bg: rgba(17, 57, 57, 0.85); /* Slightly darker overlay */
 }
 
-/* Base styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,17 +22,19 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scroll from AOS */
+    -webkit-font-smoothing: antialiased; /* Better font rendering */
+    -moz-osx-font-smoothing: grayscale; /* Better font rendering */
+    overflow-x: hidden; /* Prevent horizontal scroll from AOS animations */
 }
 
+/* Reusable container for consistent layout */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* Typography styles */
 h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
     font-weight: 600;
@@ -48,10 +50,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-title {
-    font-size: 3.5em;
+    font-size: 3.5em; /* Large and prominent */
     font-weight: 700;
     position: relative;
-    display: inline-block;
+    display: inline-block; /* For the underline effect */
     color: var(--primary-color);
     margin-bottom: 10px;
 }
@@ -62,9 +64,14 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
     bottom: -10px;
     transform: translateX(-50%);
-    width: 60px;
+    width: 60px; /* Initial width */
     height: 3px;
     background-color: var(--primary-color);
+    transition: width 0.3s ease; /* Smooth hover effect */
+}
+
+.site-title:hover::after {
+    width: 100%; /* Expands on hover */
 }
 
 .site-tagline {
@@ -74,18 +81,18 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 20px;
 }
 
-/* Section Titles */
-.section-title, .gallery-title { /* Added .gallery-title here for consistent styling */
+/* Section titles with consistent styling */
+.section-title, .gallery-title {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 40px;
     position: relative;
-    display: inline-block; /* To center the pseudo-element */
+    display: inline-block;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.section-title::after, .gallery-title::after { /* Added .gallery-title here */
+.section-title::after, .gallery-title::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -94,6 +101,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 80px;
     height: 3px;
     background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after, .gallery-title:hover::after {
+    width: 100px;
 }
 
 /* About Section */
@@ -112,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Gallery Sections (for index.html) */
 .gallery-sections {
     padding: 80px 0;
-    background-color: #f8f8f8; /* Slightly off-white for contrast */
+    background-color: #f8f8f8; /* Slightly off-white for visual separation */
 }
 
 /* Category Grid */
@@ -123,10 +135,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 50px;
 }
 
-/* Link element as category item */
+/* Styling for category cover links */
 .gallery-item-link {
-    text-decoration: none; /* Remove underline from link */
+    text-decoration: none;
     color: inherit;
+    display: block; /* Ensure the whole area is clickable */
 }
 
 .gallery-item {
@@ -136,20 +149,30 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Added a fixed aspect ratio container to ensure uniform grid item height,
+       while image itself will 'contain' within it. */
+    padding-bottom: 66.66%; /* 3:2 aspect ratio (height is 2/3 of width) */
+    height: 0; /* Important for padding-bottom hack */
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Lift effect on hover */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 250px; /* Fixed height for covers */
-    object-fit: cover;
+    height: 100%; /* Fill the aspect ratio container */
+    object-fit: contain; /* IMPORTANT: Show full image, no cropping */
+    background-color: var(--background-color); /* Fill empty space with white */
     display: block;
+    transition: transform 0.5s ease; /* Smooth scale on hover, if desired. Currently off. */
 }
 
+/* Overlay for category titles */
 .overlay {
     position: absolute;
     top: 0;
@@ -188,22 +211,35 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    /* Removed margin-top: 50px here, will add conditionally in JS if it has content */
+}
+
+.image-grid .image-wrapper { /* New wrapper for individual images */
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Maintain aspect ratio for each image in the grid */
+    padding-bottom: 66.66%; /* Example: 3:2 aspect ratio. Adjust as needed or remove for dynamic height. */
+    height: 0; /* Essential for padding-bottom hack */
+    background-color: var(--background-color); /* Background for gaps */
+}
+
+.image-grid .image-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .image-grid img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 300px; /* Fixed height for gallery images */
-    object-fit: cover; /* Ensures images fill the space without distortion */
-    border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow, no thick border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.image-grid img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Fill the wrapper */
+    object-fit: contain; /* IMPORTANT: Show full image, no cropping */
+    display: block;
+    border-radius: 6px; /* Apply border-radius to the image itself */
 }
 
 .hidden {
@@ -263,10 +299,10 @@ h1, h2, h3, h4, h5, h6 {
 .lightbox-content {
     max-width: 90%;
     max-height: 90%;
-    object-fit: contain;
-    /* Removed border: 5px solid white; */
-    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Kept a subtle shadow */
+    object-fit: contain; /* Show full image in lightbox */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Subtle shadow */
     animation: fadeIn 0.3s ease-out;
+    background-color: var(--background-color); /* Background for potential gaps in lightbox */
 }
 
 @keyframes fadeIn {
@@ -296,12 +332,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
-    .gallery-item img {
-        height: 200px; /* Adjusted height for covers on smaller screens */
-    }
-    .image-grid img {
-        height: 200px; /* Adjusted height for gallery images on smaller screens */
-    }
+    /* `padding-bottom` on `.gallery-item` handles responsive height */
     .overlay h3 {
         font-size: 1.5em;
     }
@@ -309,6 +340,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 15px;
     }
+    /* `padding-bottom` on `.image-wrapper` handles responsive height */
 }
 
 @media (max-width: 480px) {
@@ -331,12 +363,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    .gallery-item img {
-        height: 180px; /* Adjusted height for covers on very small screens */
-    }
-    .image-grid img {
-        height: 180px; /* Adjusted height for gallery images on very small screens */
-    }
+    /* `padding-bottom` on `.gallery-item` handles responsive height */
     .overlay h3 {
         font-size: 1.3em;
     }
@@ -344,6 +371,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
         gap: 10px;
     }
+    /* `padding-bottom` on `.image-wrapper` handles responsive height */
     .back-to-categories {
         font-size: 1em;
         padding: 10px 20px;
