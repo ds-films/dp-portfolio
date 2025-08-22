@@ -6,6 +6,9 @@
     <title>DP.PORTFOLIO</title>
     <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
     <meta name="keywords" content="fotografija, portfolio, dominikphotofficial, galerija, kadrai, emocijos, atmosfera, minimalizmas, stilius, nuoširdumas, Lietuva, Baltoji Kielė, Gėlės, Gandras, Šventa, VDU Botanikos Sodas, CIRKLIŠKIS">
+    
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/index.html">
 
     <!-- Jost šriftas iš Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +18,11 @@
 </head>
 <body>
     <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="https://i.postimg.cc/rmmVKyzd/Dp.png" alt="DP.PORTFOLIO logotipas" class="site-logo">
+            </a>
+        </div>
         <h1>DP.PORTFOLIO</h1>
     </header>
 
@@ -28,30 +36,29 @@
         <section id="categories" class="fade-in">
             <h2 class="section-title">Visos kategorijos</h2>
             <div class="category-grid">
-                <!-- Nuorodos į gallery.html su ID -->
+                <!-- Kategorijos kortelės su viršelio nuotraukomis -->
                 <a href="gallery.html?id=baltoji-kiele" class="category-card">
-                    <img src="https://i.postimg.cc/KYbYwNkK/bird-01.jpg" alt="Baltoji Kielė - paukštis">
+                    <img src="https://i.postimg.cc/KYbYwNkK/bird-01.jpg" alt="Baltoji Kielė - paukščių fotografija">
                     <h3>Baltoji Kielė</h3>
                 </a>
                 <a href="gallery.html?id=cirkliskis-lietuva" class="category-card">
-                    <img src="https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg" alt="Cirkliškis, Lietuva - kraštovaizdis">
+                    <img src="https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg" alt="Cirkliškis, Lietuva - gamtos kraštovaizdžiai">
                     <h3>CIRKLIŠKIS | LIETUVA</h3>
                 </a>
                 <a href="gallery.html?id=geles" class="category-card">
-                    <img src="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" alt="Gėlės - makro fotografija">
+                    <img src="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" alt="Gėlės - makro ir portretinė gėlių fotografija">
                     <h3>Gėlės</h3>
                 </a>
                 <a href="gallery.html?id=gandras" class="category-card">
-                    <img src="https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg" alt="Gandras - paukštis">
+                    <img src="https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg" alt="Gandras - laukinės gamtos paukščių fotografija">
                     <h3>Gandras</h3>
                 </a>
                 <a href="gallery.html?id=sventa-lietuva" class="category-card">
-                    <!-- assuming sventa-01.jpg has a valid URL like others -->
-                    <img src="https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg" alt="Šventa, Lietuva - gamtos peizažas"> 
+                    <img src="https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg" alt="Šventa, Lietuva - Lietuvos gamtos grožis"> 
                     <h3>ŠVENTA | LIETUVA</h3>
                 </a>
                 <a href="gallery.html?id=vdu-botanikos-sodas" class="category-card">
-                    <img src="https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg" alt="VDU Botanikos Sodas - augalai">
+                    <img src="https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg" alt="VDU Botanikos Sodas - augalų ir sodo architektūros fotografija">
                     <h3>VDU | Botanikos Sodas</h3>
                 </a>
             </div>
@@ -62,7 +69,7 @@
         <p>&copy; <span id="current-year"></span> DP.PORTFOLIO. Visos teisės saugomos.</p>
     </footer>
 
-    <!-- Animacijos skriptas pagrindiniame puslapyje -->
+    <!-- Animacijos skriptas (šis skriptas valdo footerio metus ir potencialiai kitas bendras animacijas) -->
     <script src="script.js"></script>
 </body>
 </html>
