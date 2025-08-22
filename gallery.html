@@ -3,39 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerija | DP.PORTFOLIO</title>
-    <meta name="description" content="Naršykite Dominikphotofficial fotografijų galeriją. Atraskite detales ir įkvėpimą kiekviename kadre.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title id="gallery-title">Galerija | DP.PORTFOLIO</title>
+    <meta name="description" content="Peržiūrėkite Dominikphotofficial nuotraukų galeriją. Stilingi ir atmosferiniai kadrai, kurie atspindi unikalias akimirkas.">
+    <meta name="keywords" content="Dominikphotofficial, fotografija, galerija, nuotraukos, menas, kadrai, emocijos, atmosfera, minimalizmas, stilius, Lietuva">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/Dp.png" type="image/png">
 </head>
 <body>
-
-    <header class="main-header">
-        <a href="index.html" class="back-link">&lt; Grįžti į pagrindinį</a>
-        <h1 class="gallery-title"></h1>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/Dp.png" alt="DP.PORTFOLIO Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#about">Apie mane</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact">Kontaktai</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="gallery-main">
-        <div class="gallery-container" id="gallery-container">
-            <!-- Nuotraukos bus įkeltos čia per JavaScript -->
-        </div>
+    <main>
+        <section class="gallery-page-section">
+            <div class="container">
+                <h2 id="current-gallery-title"></h2>
+                <a href="index.html#portfolio" class="back-to-portfolio link-highlight">&larr; Grįžti į Portfolio</a>
+                <div class="gallery-grid" id="gallery-grid-container">
+                    <!-- Images will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2025 DP.PORTFOLIO by Dominikphotofficial. Visos teisės saugomos.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 DP.PORTFOLIO by Dominikphotofficial. Visos teisės saugomos.</p>
+        </div>
     </footer>
 
-    <!-- Lightbox, jei norėsite atidaryti nuotraukas per visą ekraną -->
-    <div id="lightbox" class="lightbox">
-        <span class="close-btn">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" src="">
-        <a class="prev-btn">&#10094;</a>
-        <a class="next-btn">&#10095;</a>
-    </div>
-
     <script src="script.js"></script>
+    <script>
+        // Дополнительный скрипт для этой страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const category = params.get('category');
+            const galleryTitleElement = document.getElementById('current-gallery-title');
+            const galleryGridContainer = document.getElementById('gallery-grid-container');
+            const pageTitleElement = document.getElementById('gallery-title');
+
+            const imageCategories = {
+                baltoji_kiele: {
+                    title: "Baltoji kielė",
+                    images: [
+                        "images/baltoji_kiele/bird-01.jpg", "images/baltoji_kiele/bird-02.jpg", "images/baltoji_kiele/bird-03.jpg",
+                        "images/baltoji_kiele/bird-04.jpg", "images/baltoji_kiele/bird-05.jpg", "images/baltoji_kiele/bird-06.jpg",
+                        "images/baltoji_kiele/bird-07.jpg", "images/baltoji_kiele/bird-08.jpg"
+                    ]
+                },
+                cirkliskis_lithuania: {
+                    title: "CIRKLIŠKIS | LITHUANIA",
+                    images: [
+                        "images/cirkliskis_lithuania/cirkliskis-01.jpg", "images/cirkliskis_lithuania/cirkliskis-02.jpg",
+                        "images/cirkliskis_lithuania/cirkliskis-03.jpg", "images/cirkliskis_lithuania/cirkliskis-04.jpg",
+                        "images/cirkliskis_lithuania/cirkliskis-05.jpg", "images/cirkliskis_lithuania/cirkliskis-06.jpg",
+                        "images/cirkliskis_lithuania/cirkliskis-07.jpg", "images/cirkliskis_lithuania/cirkliskis-08.jpg",
+                        "images/cirkliskis_lithuania/cirkliskis-09.jpg", "images/cirkliskis_lithuania/cirkliskis-10-Glorija-Jancauskaite.jpg",
+                        "images/cirkliskis_lithuania/cirkliskis-11.jpg", "images/cirkliskis_lithuania/cirkliskis-12.jpg",
+                        "images/cirkliskis_lithuania/cirkliskis-13.jpg", "images/cirkliskis_lithuania/cirkliskis-14.jpg",
+                        "images/cirkliskis_lithuania/Egle.jpg"
+                    ]
+                },
+                geles: {
+                    title: "Gėlės",
+                    images: [
+                        "images/geles/Flower-01.jpg", "images/geles/Flower-02.jpg", "images/geles/Flower-03.jpg",
+                        "images/geles/Flower-04.jpg", "images/geles/Flower-05.jpg", "images/geles/Flower-06.jpg",
+                        "images/geles/Flower-07.jpg", "images/geles/Flower-08.jpg", "images/geles/Flower-09.jpg",
+                        "images/geles/Flower-10.jpg", "images/geles/Flower-11.jpg", "images/geles/Flower-12.jpg",
+                        "images/geles/Flower-13.jpg", "images/geles/Flower-14.jpg", "images/geles/Flower-15.jpg",
+                        "images/geles/Flower-16.jpg", "images/geles/Flower-17.jpg", "images/geles/Flower-18.jpg",
+                        "images/geles/Flower-19.jpg", "images/geles/Flower-20.jpg", "images/geles/Flower-21.jpg",
+                        "images/geles/Flower-22.jpg", "images/geles/Flower-23.jpg", "images/geles/Flower-24.jpg",
+                        "images/geles/Flower-25.jpg", "images/geles/flower-26.jpg"
+                    ]
+                },
+                gandras: {
+                    title: "GANDRAS",
+                    images: [
+                        "images/gandras/Gandras-01.jpg", "images/gandras/Gandras-02.jpg", "images/gandras/Gandras-03.jpg",
+                        "images/gandras/Gandras-04.jpg", "images/gandras/Gandras-05.jpg", "images/gandras/Gandras-06.jpg",
+                        "images/gandras/Gandras-07.jpg", "images/gandras/Gandras-08.jpg", "images/gandras/Gandras-09.jpg",
+                        "images/gandras/Gandras-10.jpg", "images/gandras/Gandras-11.jpg", "images/gandras/image.jpg",
+                        "images/gandras/Latvija-riga-namas.jpg", "images/gandras/Love.jpg"
+                    ]
+                },
+                sventa_lithuania: {
+                    title: "ŠVENTA | LITHUANIA",
+                    images: [
+                        "images/sventa_lithuania/sventa-01.jpg", "images/sventa_lithuania/sventa-02.jpg",
+                        "images/sventa_lithuania/sventa-03.jpg", "images/sventa_lithuania/sventa-04.jpg",
+                        "images/sventa_lithuania/sventa-05.jpg", "images/sventa_lithuania/sventa-06.jpg",
+                        "images/sventa_lithuania/sventa-07.jpg", "images/sventa_lithuania/sventa-08.jpg",
+                        "images/sventa_lithuania/sventa-09.jpg", "images/sventa_lithuania/sventa-10.jpg",
+                        "images/sventa_lithuania/sventa-11.jpg", "images/sventa_lithuania/sventa-12.jpg",
+                        "images/sventa_lithuania/sventa-13.jpg", "images/sventa_lithuania/sventa-14.jpg",
+                        "images/sventa_lithuania/sventa-15.jpg", "images/sventa_lithuania/sventa-16.jpg"
+                    ]
+                },
+                vdu_botanikos_sodas: {
+                    title: "VDU | BOTANIKOS SODAS",
+                    images: [
+                        "images/vdu_botanikos_sodas/vdu-botanikos-sodas-01.jpg", "images/vdu_botanikos_sodas/vdu-botanikos-sodas-02.jpg",
+                        "images/vdu_botanikos_sodas/vdu-botanikos-sodas-03.jpg", "images/vdu_botanikos_sodas/vdu-botanikos-sodas-04.jpg",
+                        "images/vdu_botanikos_sodas/vdu-botanikos-sodas-05.jpg", "images/vdu_botanikos_sodas/vdu-botanikos-sodas-06.jpg",
+                        "images/vdu_botanikos_sodas/vdu-botanikos-sodas-07.jpg"
+                    ]
+                }
+            };
+
+            if (category && imageCategories[category]) {
+                const data = imageCategories[category];
+                galleryTitleElement.textContent = data.title;
+                pageTitleElement.textContent = `${data.title} Galerija | DP.PORTFOLIO`; // Обновляем title страницы
+
+                data.images.forEach(imageUrl => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.classList.add('gallery-item');
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    const fileName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1, imageUrl.lastIndexOf('.'));
+                    img.alt = `${data.title} - ${fileName.replace(/_/g, ' ')}`;
+                    galleryItem.appendChild(img);
+                    galleryGridContainer.appendChild(galleryItem);
+                });
+            } else {
+                galleryTitleElement.textContent = 'Galerija nerasta';
+                galleryGridContainer.innerHTML = '<p>Pasirinkta galerija neegzistuoja arba įvyko klaida.</p>';
+            }
+        });
+    </script>
 </body>
 </html>
