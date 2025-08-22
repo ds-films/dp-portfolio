@@ -1,32 +1,30 @@
-/* Pagrindiniai stiliai */
+/* Baziniai nustatymai */
 :root {
     --text-color: #113939;
-    --background-color: #FFFFFF;
-    --highlight-color: #113939; /* Цвет для подчеркивания текста */
-    --hover-color: #0d2b2b; /* Более темный оттенок для hover */
+    --background-color: #ffffff;
+    --accent-color: #a7d9d9; /* Pasirinkau švelnų akcento atspalvį, kuris galėtų pabrėžti tekstą. */
+    --link-hover-color: #0b2626;
 }
 
 body {
     font-family: 'Jost', sans-serif;
-    margin: 0;
-    padding: 0;
+    color: var(--text-color);
     background-color: var(--background-color);
-    color: var(--text-color);
+    margin: 0;
     line-height: 1.6;
-    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    opacity: 0; /* Paslėpta pradžioje animacijai */
+    animation: fadeInPage 0.8s ease-out forwards;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-h1, h2, h3 {
-    color: var(--text-color);
-    font-weight: 500;
-}
-
+/* Bendri stiliai */
 a {
     color: var(--text-color);
     text-decoration: none;
@@ -34,335 +32,209 @@ a {
 }
 
 a:hover {
-    color: var(--hover-color);
+    color: var(--link-hover-color);
 }
 
-.link-highlight {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 5px; /* Добавляем отступ для подчеркивания */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
 }
 
-.link-highlight::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px; /* Толщина подчеркивания */
-    bottom: 0;
-    left: 0;
-    background-color: var(--highlight-color);
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
+h1, h2, h3 {
+    font-weight: 500;
+    margin-top: 0;
 }
 
-.link-highlight:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-/* Header */
-.header {
-    background-color: var(--background-color);
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(17, 57, 57, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px; /* Размер логотипа */
-    transition: transform 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.05);
-}
-
-.main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.main-nav li {
-    margin-left: 30px;
-}
-
-.main-nav a {
-    font-size: 1.1em;
-    font-weight: 400;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--highlight-color);
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
-}
-
-.main-nav a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-/* Hero Section */
-.hero {
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.site-header {
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    background-color: var(--background-color);
+    padding: 40px 20px 20px;
+    border-bottom: 1px solid rgba(17, 57, 57, 0.1); /* Švelni linija */
 }
 
-.hero h1 {
-    font-size: 4.5em;
-    font-weight: 600;
-    margin-bottom: 15px;
+.site-header h1 {
+    font-size: 3em;
+    margin: 0;
     letter-spacing: 2px;
 }
 
-.hero p {
-    font-size: 1.8em;
-    font-weight: 300;
+.site-header h1 a { /* Stilius link'ui ant pavadinimo galerijos puslapyje */
     color: var(--text-color);
 }
 
-/* Анимация текста */
-.animate-text {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInSlideUp 1s ease-out forwards;
-}
-
-.hero h1.animate-text {
-    animation-delay: 0.3s;
-}
-
-.hero p.animate-text {
-    animation-delay: 0.6s;
-}
-
-@keyframes fadeInSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Общие стили для секций */
-section {
-    padding: 80px 0;
+.section-title {
+    font-size: 2.2em;
     text-align: center;
-}
-
-section:nth-of-type(even) {
-    background-color: #f8f8f8; /* Легкий оттенок серого для чередования секций */
-}
-
-h2 {
-    font-size: 2.8em;
-    margin-bottom: 40px;
+    margin: 40px 0 30px;
     position: relative;
-    display: inline-block;
+    padding-bottom: 10px;
 }
 
-h2::after {
+.section-title::after { /* Pabraukimas po tekstu */
     content: '';
     position: absolute;
-    width: 60%;
-    height: 2px;
-    background-color: var(--highlight-color);
-    bottom: -10px;
-    left: 20%;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
 }
 
-.about-section p {
+/* Įžangos sekcija */
+#intro {
+    text-align: center;
+    margin-bottom: 60px;
     max-width: 800px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 1.15em;
-    color: var(--text-color);
+    line-height: 1.8;
 }
 
-/* Portfolio Categories */
-.categories {
+/* Kategorijų tinklelis */
+.category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .category-card {
-    display: block; /* Важно для ссылки */
-    background-color: var(--background-color);
+    display: block;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    text-align: left;
-    color: var(--text-color); /* Чтобы текст ссылки был нужного цвета */
+    background-color: var(--background-color);
+    text-align: center;
+    position: relative;
 }
 
 .category-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .category-card img {
     width: 100%;
-    height: 250px; /* Фиксированная высота для обложек */
-    object-fit: cover; /* Обрезать изображение, чтобы заполнить, не искажая пропорции */
+    height: 250px; /* Fiksuotas aukštis, kad kortelės būtų vienodo dydžio */
+    object-fit: cover; /* Kad nuotraukos neužsipildytų */
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.03); /* Švelnus nuotraukos padidėjimas užvedus */
 }
 
 .category-card h3 {
-    padding: 15px 20px;
-    margin: 0;
-    font-size: 1.4em;
-    font-weight: 500;
+    font-size: 1.3em;
+    margin: 15px 10px 20px;
     color: var(--text-color);
 }
 
-/* Gallery Page Specific Styles */
-.gallery-page-section {
-    padding-top: 50px; /* Немного меньше отступа сверху для галереи */
+/* Galerijos puslapio stiliai */
+.gallery-page {
+    padding-top: 20px;
 }
 
-.gallery-page-section h2 {
-    margin-bottom: 20px; /* Меньше отступа под заголовком */
+.back-button {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    font-size: 1em;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Kad mygtukas neužimtų viso pločio */
 }
 
-.back-to-portfolio {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    display: inline-block;
-    font-size: 1.1em;
-    font-weight: 500;
+.back-button:hover {
+    background-color: var(--link-hover-color);
+    transform: translateY(-2px);
 }
 
-.gallery-grid {
+.image-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Гибкая сетка для галереи */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     margin-top: 30px;
 }
 
-.gallery-item {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto; /* Сохраняет пропорции */
+.image-grid a {
     display: block;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Contact Section */
-.contact-section p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
+.image-grid a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.social-links {
-    margin-top: 30px;
-}
-
-.social-links a {
-    margin: 0 15px;
-    display: inline-block;
+.image-grid img {
+    width: 100%;
+    height: 250px; /* Fiksuotas aukštis nuotraukų tinklelyje */
+    object-fit: cover; /* Kad nuotraukos nebūtų iškraipytos */
+    display: block;
     transition: transform 0.3s ease;
 }
 
-.social-links a img {
-    height: 35px; /* Размер иконок */
-    width: 35px;
+.image-grid a:hover img {
+    transform: scale(1.05); /* Švelnus padidėjimas užvedus ant galerijos nuotraukos */
 }
 
-.social-links a:hover {
-    transform: translateY(-5px);
-}
 
 /* Footer */
-.footer {
-    background-color: var(--text-color);
-    color: var(--background-color);
-    padding: 30px 0;
+.site-footer {
     text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(17, 57, 57, 0.1);
+    color: rgba(17, 57, 57, 0.7);
     font-size: 0.9em;
 }
 
-.footer a {
-    color: var(--background-color);
+/* Fade-in animacija elementams */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
-/* Адаптивность */
+/* Pridedama šiek tiek delsos, kad elementai atsirastų eilės tvarka */
+#intro { animation-delay: 0.2s; }
+#categories { animation-delay: 0.4s; }
+.category-card { animation-delay: 0.6s; } /* Pradinė animacija kortelėms */
+.gallery-page .image-grid { animation-delay: 0.2s; } /* Galerijos nuotraukoms */
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Reaktyvus dizainas */
 @media (max-width: 768px) {
-    .header .container {
-        flex-direction: column;
+    .site-header h1 {
+        font-size: 2.5em;
     }
-
-    .main-nav ul {
-        margin-top: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
+    .section-title {
+        font-size: 1.8em;
     }
-
-    .main-nav li {
-        margin: 0 15px 10px;
+    #intro {
+        font-size: 1em;
     }
-
-    .hero h1 {
-        font-size: 3em;
-    }
-
-    .hero p {
-        font-size: 1.3em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .categories {
+    .category-grid {
         grid-template-columns: 1fr;
     }
-
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    .category-card img, .image-grid img {
+        height: 200px;
     }
 }
