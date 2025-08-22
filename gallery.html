@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title will be set dynamically by JavaScript -->
     <title>Galerija | DP.PORTFOLIO</title>
-    <!-- Dynamic SEO will be handled by JavaScript for specific category -->
-    <meta name="description" content="Peržiūrėkite Dominikphotofficial nuotraukų galeriją. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
-    <meta name="keywords" content="fotografija, portfolio, dominikphotofficial, meninė fotografija, nuotraukos, nuotraukų galerija, kadrai, minimalistinė fotografija, stilinga fotografija">
-    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/gallery.html"> <!-- General canonical for gallery page -->
-    <meta name="author" content="Dominikphotofficial">
+
+    <!-- SEO meta tags - will be set dynamically or have a general one -->
+    <meta name="description" content="Dominikphotofficial nuotraukų galerija. Atraskite įvairias nuotraukų kolekcijas: gamta, portretai, renginiai ir kita.">
+    <meta name="keywords" content="fotografija, portfolio, dominikphotofficial, galerija, nuotraukos, kolekcijos">
+    <!-- Canonical link will be set dynamically by JS for specific category, or point to general gallery if not found -->
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/gallery.html">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="Dp.png">
@@ -26,23 +28,24 @@
     <header class="hero" data-aos="fade-down" data-aos-duration="1000">
         <div class="container">
             <h1 class="site-title">DP.PORTFOLIO</h1>
-            <p class="site-tagline">Atraskite unikalumą kiekviename kadre.</p>
+            <p class="site-tagline">Dominikphotofficial: Akimirkos, užfiksuotos amžinai.</p>
         </div>
     </header>
 
     <main>
-        <section class="full-gallery-page" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <section class="full-gallery">
             <div class="container">
                 <a href="index.html" class="back-to-categories">Grįžti į kategorijas</a>
-                <h2 class="section-title gallery-page-title" id="galleryPageTitle">Kraunama galerija...</h2>
-                <div class="image-grid" id="galleryImageGrid">
-                    <!-- Gallery images will be inserted here by JavaScript -->
+                <h2 class="gallery-title" id="galleryCategoryTitle"></h2> <!-- Category title will be set by JS -->
+
+                <div class="image-grid" id="imageGrid">
+                    <!-- Gallery images will be loaded here by JavaScript -->
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+    <footer class="footer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
         <div class="container">
             <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
         </div>
@@ -50,7 +53,7 @@
 
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JS for gallery page -->
-    <script src="script-gallery.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
