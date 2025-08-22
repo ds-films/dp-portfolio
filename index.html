@@ -3,73 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DP.PORTFOLIO</title>
-    <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
-    <meta name="keywords" content="fotografija, portfolio, dominikphotofficial, galerija, kadrai, emocijos, atmosfera, minimalizmas, stilius, nuoširdumas, Lietuva, Baltoji Kielė, Gėlės, Gandras, Šventa, VDU Botanikos Sodas, CIRKLIŠKIS">
-    
-    <!-- Canonical URL for SEO -->
-    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/index.html">
+    <title>DP.PORTFOLIO | Dominikphotofficial</title>
 
-    <!-- Jost šriftas iš Google Fonts -->
+    <!-- SEO meta tags -->
+    <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
+    <meta name="keywords" content="fotografija, portfolio, dominikphotofficial, meninė fotografija, nuotraukos, nuotraukų galerija, kadrai, minimalistinė fotografija, stilinga fotografija, portretai, gamta, reportažinė fotografija, Lietuvos fotografija, Baltoji kielė, Cirkliškis, Gėlės, Gandras, Šventa, VDU Botanikos sodas">
+    <meta name="author" content="Dominikphotofficial">
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Dp.png">
+
+    <!-- Google Fonts: Jost -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Nuosavas stilius -->
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="logo-container">
-            <a href="index.html">
-                <img src="https://i.postimg.cc/rmmVKyzd/Dp.png" alt="DP.PORTFOLIO logotipas" class="site-logo">
-            </a>
+    <header class="hero" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container">
+            <h1 class="site-title">DP.PORTFOLIO</h1>
+            <p class="site-tagline">Dominikphotofficial: Akimirkos, užfiksuotos amžinai.</p>
         </div>
-        <h1>DP.PORTFOLIO</h1>
     </header>
 
-    <main class="container">
-        <!-- Įžangos aprašymas -->
-        <section id="intro" class="fade-in">
-            <p>"Portfolio by Dominikphotofficial – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną nuotrauką."</p>
+    <main>
+        <section class="about-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="container">
+                <h2 class="section-title">Apie Mane</h2>
+                <p>„Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“</p>
+            </div>
         </section>
 
-        <!-- Kategorijų pasirinkimas -->
-        <section id="categories" class="fade-in">
-            <h2 class="section-title">Visos kategorijos</h2>
-            <div class="category-grid">
-                <!-- Kategorijos kortelės su viršelio nuotraukomis -->
-                <a href="gallery.html?id=baltoji-kiele" class="category-card">
-                    <img src="https://i.postimg.cc/KYbYwNkK/bird-01.jpg" alt="Baltoji Kielė - paukščių fotografija">
-                    <h3>Baltoji Kielė</h3>
-                </a>
-                <a href="gallery.html?id=cirkliskis-lietuva" class="category-card">
-                    <img src="https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg" alt="Cirkliškis, Lietuva - gamtos kraštovaizdžiai">
-                    <h3>CIRKLIŠKIS | LIETUVA</h3>
-                </a>
-                <a href="gallery.html?id=geles" class="category-card">
-                    <img src="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" alt="Gėlės - makro ir portretinė gėlių fotografija">
-                    <h3>Gėlės</h3>
-                </a>
-                <a href="gallery.html?id=gandras" class="category-card">
-                    <img src="https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg" alt="Gandras - laukinės gamtos paukščių fotografija">
-                    <h3>Gandras</h3>
-                </a>
-                <a href="gallery.html?id=sventa-lietuva" class="category-card">
-                    <img src="https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg" alt="Šventa, Lietuva - Lietuvos gamtos grožis"> 
-                    <h3>ŠVENTA | LIETUVA</h3>
-                </a>
-                <a href="gallery.html?id=vdu-botanikos-sodas" class="category-card">
-                    <img src="https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg" alt="VDU Botanikos Sodas - augalų ir sodo architektūros fotografija">
-                    <h3>VDU | Botanikos Sodas</h3>
-                </a>
+        <section class="gallery-sections" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <div class="container">
+                <h2 class="section-title">Mano Galerijos</h2>
+
+                <div class="category-grid" id="categoryGrid">
+                    <!-- Category Covers will be inserted here by JavaScript -->
+                    <!-- Example structure for a category cover: -->
+                    <!--
+                    <div class="gallery-item" data-category="category-name" data-aos="zoom-in">
+                        <img src="cover-image.jpg" alt="Category Name">
+                        <div class="overlay">
+                            <h3>Category Name</h3>
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+                <!-- Individual Galleries (initially hidden) -->
+                <div id="fullGalleries">
+                    <!-- Each full gallery will be inserted here by JavaScript -->
+                    <!-- Example structure for a full gallery: -->
+                    <!--
+                    <div id="gallery-category-name" class="full-gallery hidden">
+                        <button class="back-to-categories">Grįžti į kategorijas</button>
+                        <h3 class="gallery-title">Category Name</h3>
+                        <div class="image-grid">
+                            <img src="image1.jpg" alt="Description 1">
+                            <img src="image2.jpg" alt="Description 2">
+                        </div>
+                    </div>
+                    -->
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>&copy; <span id="current-year"></span> DP.PORTFOLIO. Visos teisės saugomos.</p>
+    <footer class="footer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+        <div class="container">
+            <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
+        </div>
     </footer>
 
-    <!-- Animacijos skriptas (šis skriptas valdo footerio metus ir potencialiai kitas bendras animacijas) -->
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>
