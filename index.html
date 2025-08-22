@@ -3,96 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DP.PORTFOLIO | Dominikphotofficial</title>
-    <meta name="description" content="Portfolio by Dominikphotofficial – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje nuotraukoje.">
-    <meta name="keywords" content="Dominikphotofficial, fotografija, portfolio, menas, kadrai, emocijos, atmosfera, minimalizmas, stilius, nuotraukos, Lietuva">
+    <title>DP.PORTFOLIO</title>
+    <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
+    <meta name="keywords" content="fotografija, portfolio, dominikphotofficial, galerija, kadrai, emocijos, atmosfera, minimalizmas, stilius, nuoširdumas, Lietuva, Baltoji Kielė, Gėlės, Gandras, Šventa, VDU Botanikos Sodas, CIRKLIŠKIS">
+
+    <!-- Jost šriftas iš Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Nuosavas stilius -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/Dp.png" type="image/png">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="images/Dp.png" alt="DP.PORTFOLIO Logo">
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#about">Apie mane</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Kontaktai</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="site-header">
+        <h1>DP.PORTFOLIO</h1>
     </header>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="container">
-                <h1 class="animate-text">DP.PORTFOLIO</h1>
-                <p class="animate-text">Fotografija, kuri pasakoja istorijas</p>
-            </div>
+    <main class="container">
+        <!-- Įžangos aprašymas -->
+        <section id="intro" class="fade-in">
+            <p>"Portfolio by Dominikphotofficial – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną nuotrauką."</p>
         </section>
 
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2>Apie Portfolio</h2>
-                <p>„Portfolio by Dominikphotofficial“ – tai mano geriausių nuotraukų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.</p>
-            </div>
-        </section>
-
-        <section id="portfolio" class="portfolio-section">
-            <div class="container">
-                <h2>Mano darbai</h2>
-                <div class="categories">
-                    <!-- Каждая карточка теперь является ссылкой на gallery.html с параметром -->
-                    <a href="gallery.html?category=baltoji_kiele" class="category-card">
-                        <img src="images/baltoji_kiele/bird-01.jpg" alt="Baltoji kielė">
-                        <h3>Baltoji kielė</h3>
-                    </a>
-                    <a href="gallery.html?category=cirkliskis_lithuania" class="category-card">
-                        <img src="images/cirkliskis_lithuania/cirkliskis-01.jpg" alt="CIRKLIŠKIS | LITHUANIA">
-                        <h3>CIRKLIŠKIS | LITHUANIA</h3>
-                    </a>
-                    <a href="gallery.html?category=geles" class="category-card">
-                        <img src="images/geles/Flower-01.jpg" alt="Gėlės">
-                        <h3>Gėlės</h3>
-                    </a>
-                    <a href="gallery.html?category=gandras" class="category-card">
-                        <img src="images/gandras/Gandras-01.jpg" alt="GANDRAS">
-                        <h3>GANDRAS</h3>
-                    </a>
-                    <a href="gallery.html?category=sventa_lithuania" class="category-card">
-                        <img src="images/sventa_lithuania/sventa-01.jpg" alt="ŠVENTA | LITHUANIA">
-                        <h3>ŠVENTA | LITHUANIA</h3>
-                    </a>
-                    <a href="gallery.html?category=vdu_botanikos_sodas" class="category-card">
-                        <img src="images/vdu_botanikos_sodas/vdu-botanikos-sodas-01.jpg" alt="VDU | BOTANIKOS SODAS">
-                        <h3>VDU | BOTANIKOS SODAS</h3>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Susisiekite</h2>
-                <p>Jei turite klausimų ar norėtumėte bendradarbiauti, susisiekite su manimi:</p>
-                <p>El. paštas: <a href="mailto:info@dominikphotofficial.com" class="link-highlight">info@dominikphotofficial.com</a></p>
-                <div class="social-links">
-                    <a href="#" target="_blank" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/50/113939/instagram-new.png" alt="Instagram"></a>
-                    <a href="#" target="_blank" aria-label="Facebook"><img src="https://img.icons8.com/ios-filled/50/113939/facebook-new.png" alt="Facebook"></a>
-                </div>
+        <!-- Kategorijų pasirinkimas -->
+        <section id="categories" class="fade-in">
+            <h2 class="section-title">Visos kategorijos</h2>
+            <div class="category-grid">
+                <!-- Nuorodos į gallery.html su ID -->
+                <a href="gallery.html?id=baltoji-kiele" class="category-card">
+                    <img src="https://i.postimg.cc/KYbYwNkK/bird-01.jpg" alt="Baltoji Kielė - paukštis">
+                    <h3>Baltoji Kielė</h3>
+                </a>
+                <a href="gallery.html?id=cirkliskis-lietuva" class="category-card">
+                    <img src="https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg" alt="Cirkliškis, Lietuva - kraštovaizdis">
+                    <h3>CIRKLIŠKIS | LIETUVA</h3>
+                </a>
+                <a href="gallery.html?id=geles" class="category-card">
+                    <img src="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" alt="Gėlės - makro fotografija">
+                    <h3>Gėlės</h3>
+                </a>
+                <a href="gallery.html?id=gandras" class="category-card">
+                    <img src="https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg" alt="Gandras - paukštis">
+                    <h3>Gandras</h3>
+                </a>
+                <a href="gallery.html?id=sventa-lietuva" class="category-card">
+                    <!-- assuming sventa-01.jpg has a valid URL like others -->
+                    <img src="https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg" alt="Šventa, Lietuva - gamtos peizažas"> 
+                    <h3>ŠVENTA | LIETUVA</h3>
+                </a>
+                <a href="gallery.html?id=vdu-botanikos-sodas" class="category-card">
+                    <img src="https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg" alt="VDU Botanikos Sodas - augalai">
+                    <h3>VDU | Botanikos Sodas</h3>
+                </a>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 DP.PORTFOLIO by Dominikphotofficial. Visos teisės saugomos.</p>
-        </div>
+    <footer class="site-footer">
+        <p>&copy; <span id="current-year"></span> DP.PORTFOLIO. Visos teisės saugomos.</p>
     </footer>
 
+    <!-- Animacijos skriptas pagrindiniame puslapyje -->
     <script src="script.js"></script>
 </body>
 </html>
