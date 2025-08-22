@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
         mirror: false,
     });
 
+    // Bazinis svetainės URL, naudojamas canonical ir OG nuorodoms
+    const BASE_URL = "https://portfolio.dominikphotofficial.lt/";
+    const DEFAULT_OG_IMAGE = `${BASE_URL}Dp.png`; // Favicon kaip numatytas OG paveikslėlis
+
     const categoriesData = {
         "baltoji-kiele": {
             name: "Baltoji kielė",
@@ -19,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "https://i.postimg.cc/hPqPfss2/bird-07.jpg",
                 "https://i.postimg.cc/9FtXT9NC/bird-08.jpg"
             ],
-            description: "Baltoji kielė – Dominikphotofficial fotografijų galerija. Unikalūs kielių paukščių kadrai gamtoje.",
-            keywords: "Baltoji kielė, paukščiai, gamtos fotografija, dominikphotofficial, nuotraukos, paukščių kadrai"
+            description: "Dominikphotofficial fotografijų galerija: Baltoji kielė. Unikalūs kielių paukščių kadrai gamtoje ir jų elegancija.",
+            keywords: "Baltoji kielė, paukščiai, gamtos fotografija, dominikphotofficial, nuotraukos, paukščių kadrai, laukinė gamta"
         },
         "cirkliskis-lithuania": {
             name: "CIRKLIŠKIS | LITHUANIA",
@@ -42,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "https://i.postimg.cc/JhtPZbxF/cirkliskis-14.jpg",
                 "https://i.postimg.cc/bvbqy2n7/Egle.jpg"
             ],
-            description: "Cirkliškio apylinkių grožis Dominikphotofficial nuotraukose. Lietuvos gamta ir peizažai.",
-            keywords: "Cirkliškis, Lietuva, gamta, peizažai, Dominikphotofficial, fotografija, Lietuvos kraštovaizdis"
+            description: "Dominikphotofficial nuotraukos iš Cirkliškio, Lietuvos. Paslaptingas kraštovaizdis, užfiksuotas nuotraukose.",
+            keywords: "Cirkliškis, Lietuva, gamta, peizažai, Dominikphotofficial, fotografija, Lietuvos kraštovaizdis, architektūra"
         },
         "geles": {
             name: "Gėlės",
@@ -76,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "https://i.postimg.cc/nrWW93b0/Flower-25.jpg",
                 "https://i.postimg.cc/zBnF5pp9/flower-26.jpg"
             ],
-            description: "Gėlių grožis Dominikphotofficial kadruose. Makro ir artimos gėlių fotografijos.",
-            keywords: "gėlės, makro fotografija, gamta, botanika, Dominikphotofficial, nuotraukos, žiedai"
+            description: "Dominikphotofficial gėlių grožio galerija. Makro ir artimos gėlių fotografijos, atskleidžiančios smulkiausias detales.",
+            keywords: "gėlės, makro fotografija, gamta, botanika, Dominikphotofficial, nuotraukos, žiedai, augalai"
         },
         "gandras": {
             name: "GANDRAS",
@@ -95,13 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 "https://i.postimg.cc/CLKk6FTy/Gandras-10.jpg",
                 "https://i.postimg.cc/RVbfkj4W/Gandras-11.jpg"
             ],
-            description: "Gandrai Lietuvos kraštovaizdyje. Dominikphotofficial paukščių fotografijos.",
-            keywords: "gandras, paukščiai, Lietuvos gamta, paukščių fotografija, Dominikphotofficial, nuotraukos"
+            description: "Dominikphotofficial gandrų fotografijos iš Lietuvos kraštovaizdžio. Sugauti grakštūs paukščių skrydžiai.",
+            keywords: "gandras, paukščiai, Lietuvos gamta, paukščių fotografija, Dominikphotofficial, nuotraukos, migracija"
         },
         "sventa-lithuania": {
             name: "ŠVENTA | LITHUANIA",
-            // Pakeista viršelio nuotrauka, nes pirmoji ištrinta
-            cover: "https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg",
+            cover: "https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg", // Pakeista viršelio nuotrauka
             images: [
                 // Pirmos nuotraukos "sventa-01.jpg" nebėra
                 "https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg",
@@ -120,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "https://i.postimg.cc/pLcHYJQb/sventa-15.jpg",
                 "https://i.postimg.cc/qMtg3gH7/sventa-16.jpg"
             ],
-            description: "Šventos miestelio ir apylinkių grožis Dominikphotofficial fotografijose.",
-            keywords: "Šventa, Lietuva, kraštovaizdis, miestelis, gamta, Dominikphotofficial, fotografija"
+            description: "Dominikphotofficial fotografijų galerija: Šventa, Lietuva. Užfiksuoti miestelio grožis ir aplinkinės gamtos stebuklai.",
+            keywords: "Šventa, Lietuva, kraštovaizdis, miestelis, gamta, Dominikphotofficial, fotografija, Lietuvos pakrantė"
         },
         "vdu-botanikos-sodas": {
             name: "VDU | BOTANIKOS SODAS",
@@ -135,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "https://i.postimg.cc/RV3yxxK8/vdu-botanikos-sodas-06.jpg",
                 "https://i.postimg.cc/pLf0PWT0/vdu-botanikos-sodas-07.jpg"
             ],
-            description: "VDU Botanikos sodo grožis Dominikphotofficial nuotraukose. Augalų ir gamtos detalės.",
-            keywords: "VDU Botanikos sodas, Kaunas, botanika, augalai, gamtos fotografija, Dominikphotofficial, nuotraukos"
+            description: "Dominikphotofficial fotografijų galerija: VDU Botanikos sodas. Pasinerkite į augalų įvairovę ir ramybę Kauno širdyje.",
+            keywords: "VDU Botanikos sodas, Kaunas, botanika, augalai, gamtos fotografija, Dominikphotofficial, nuotraukos, parkas"
         },
         "ivairios-akimirkos": { // Nauja kategorija "Įvairios Akimirkos"
             name: "Įvairios Akimirkos",
@@ -146,10 +149,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 "https://i.postimg.cc/ZR83dRGg/Latvija-riga-namas.jpg",
                 "https://i.postimg.cc/FKJ0hGDh/Love.jpg"
             ],
-            description: "Dominikphotofficial įvairių akimirkų kolekcija. Kadrai, neatrasti kategorijos, bet kupini istorijos.",
-            keywords: "įvairios akimirkos, fotografija, menas, Dominikphotofficial, nuotraukos, kelionės, meilė, Latvija"
+            description: "Dominikphotofficial įvairių akimirkų kolekcija. Kadrai, neatrasti kategorijos, bet kupini istorijos ir emocijų.",
+            keywords: "įvairios akimirkos, fotografija, menas, Dominikphotofficial, nuotraukos, kelionės, meilė, Latvija, Ryga"
         }
     };
+
+    // --- Helper function to update meta tags ---
+    function updateMetaTag(property, content, isOgOrTwitter = false, isTwitterName = false) {
+        let selector;
+        if (isOgOrTwitter) {
+            selector = `meta[property="${property}"]`;
+        } else if (isTwitterName) { // For twitter:title, twitter:description etc. which use 'name'
+            selector = `meta[name="${property}"]`;
+        } else { // For standard meta like 'description', 'keywords'
+            selector = `meta[name="${property}"]`;
+        }
+        
+        let metaTag = document.querySelector(selector);
+        if (!metaTag) {
+            metaTag = document.createElement('meta');
+            if (isOgOrTwitter) metaTag.setAttribute('property', property);
+            else metaTag.setAttribute('name', property);
+            document.head.appendChild(metaTag);
+        }
+        metaTag.setAttribute('content', content);
+    }
 
     // --- Lightbox functionality (reusable across all pages) ---
     const lightbox = document.createElement('div');
@@ -203,32 +227,69 @@ document.addEventListener('DOMContentLoaded', () => {
         const category = categoriesData[categoryKey];
 
         if (category) {
-            // Set dynamic page title
-            document.title = `${category.name} | DP.PORTFOLIO`;
+            const pageUrl = `${BASE_URL}gallery.html?category=${categoryKey}`;
 
-            // Update meta tags for SEO
-            document.querySelector('meta[name="description"]').setAttribute('content', category.description);
-            document.querySelector('meta[name="keywords"]').setAttribute('content', category.keywords);
-            document.querySelector('link[rel="canonical"]').setAttribute('href', `https://portfolio.dominikphotofficial.lt/gallery.html?category=${categoryKey}`);
+            // Update standard meta tags
+            document.title = `${category.name} | DP.PORTFOLIO`;
+            updateMetaTag('description', category.description);
+            updateMetaTag('keywords', category.keywords);
+            document.querySelector('link[rel="canonical"]').setAttribute('href', pageUrl);
+
+            // Update Open Graph meta tags
+            updateMetaTag('og:title', `${category.name} | DP.PORTFOLIO`, true);
+            updateMetaTag('og:description', category.description, true);
+            updateMetaTag('og:url', pageUrl, true);
+            updateMetaTag('og:image', category.cover, true); // Specific cover for OG
+            updateMetaTag('og:image:alt', `${category.name} galerijos viršelis`, true);
+
+            // Update Twitter Card meta tags
+            updateMetaTag('twitter:title', `${category.name} | DP.PORTFOLIO`, false, true); // Use isTwitterName=true
+            updateMetaTag('twitter:description', category.description, false, true); // Use isTwitterName=true
+            updateMetaTag('twitter:image', category.cover, false, true); // Use isTwitterName=true
+            updateMetaTag('twitter:image:alt', `${category.name} galerijos viršelis`, false, true);
+
 
             galleryCategoryTitle.textContent = category.name;
             category.images.forEach((imageUrl, index) => {
+                const imageWrapper = document.createElement('div');
+                imageWrapper.classList.add('image-wrapper'); // New wrapper element
+                imageWrapper.setAttribute('data-aos', 'fade-up');
+                imageWrapper.setAttribute('data-aos-delay', index * 50);
+
                 const img = document.createElement('img');
                 img.src = imageUrl;
                 img.alt = `${category.name} nuotrauka ${index + 1}`;
-                img.setAttribute('data-aos', 'fade-up');
-                img.setAttribute('data-aos-delay', index * 50); // Staggered animation
                 img.addEventListener('click', () => openLightbox(imageUrl)); // Attach lightbox
-                imageGrid.appendChild(img);
+                
+                imageWrapper.appendChild(img);
+                imageGrid.appendChild(imageWrapper);
             });
+            // Add margin-top to image grid if images were successfully loaded
+            if (category.images.length > 0) {
+                 imageGrid.style.marginTop = '50px';
+            }
         } else {
-            galleryCategoryTitle.textContent = "Kategorija nerasta";
-            imageGrid.innerHTML = "<p style='text-align: center; font-size: 1.2em; margin-top: 50px;'>Atsiprašome, ši kategorija nerasta.</p>";
-            // Reset meta for "not found" state
+            // Handle category not found
+            const notFoundUrl = `${BASE_URL}gallery.html`;
             document.title = "Kategorija nerasta | DP.PORTFOLIO";
-            document.querySelector('meta[name="description"]').setAttribute('content', "Kategorija, kurią bandėte pasiekti, neegzistuoja Dominikphotofficial portfolio.");
-            document.querySelector('meta[name="keywords"]').setAttribute('content', "kategorija nerasta, klaida, fotografija, portfolio");
-            document.querySelector('link[rel="canonical"]').setAttribute('href', `https://portfolio.dominikphotofficial.lt/gallery.html`);
+            updateMetaTag('description', "Atsiprašome, ši nuotraukų kategorija Dominikphotofficial portfolio nerasta.");
+            updateMetaTag('keywords', "kategorija nerasta, klaida, fotografija, portfolio");
+            document.querySelector('link[rel="canonical"]').setAttribute('href', notFoundUrl);
+
+            updateMetaTag('og:title', "Kategorija nerasta | DP.PORTFOLIO", true);
+            updateMetaTag('og:description', "Atsiprašome, ši nuotraukų kategorija Dominikphotofficial portfolio nerasta.", true);
+            updateMetaTag('og:url', notFoundUrl, true);
+            updateMetaTag('og:image', DEFAULT_OG_IMAGE, true); // Fallback to default image
+            updateMetaTag('og:image:alt', "Kategorija nerasta", true);
+
+            updateMetaTag('twitter:title', "Kategorija nerasta | DP.PORTFOLIO", false, true);
+            updateMetaTag('twitter:description', "Atsiprašome, ši nuotraukų kategorija Dominikphotofficial portfolio nerasta.", false, true);
+            updateMetaTag('twitter:image', DEFAULT_OG_IMAGE, false, true);
+            updateMetaTag('twitter:image:alt', "Kategorija nerasta", false, true);
+
+
+            galleryCategoryTitle.textContent = "Kategorija nerasta";
+            imageGrid.innerHTML = "<p style='text-align: center; font-size: 1.2em; margin-top: 50px;'>Atsiprašome, ši kategorija nerasta. Pabandykite grįžti į <a href='index.html'>pagrindinį puslapį</a>.</p>";
         }
     }
 });
