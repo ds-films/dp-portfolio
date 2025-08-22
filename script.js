@@ -79,8 +79,8 @@ const galleriesData = {
             { src: "https://i.postimg.cc/CLKk6FTy/Gandras-10.jpg", alt: "Gandras 10", title: "Gandras 10" },
             { src: "https://i.postimg.cc/RVbfkj4W/Gandras-11.jpg", alt: "Gandras 11", title: "Gandras 11" },
             { src: "https://i.postimg.cc/Zq9CrRdH/image.jpg", alt: "Gandras (papildoma)", title: "Gandras (papildoma)" },
-            { src: "https://i.postimg.cc/ZR83dRGg/Latvija-riga-namas.jpg", alt: "Latvija, Ryga namas (Gandras kategorija)", title: "Latvija, Ryga namas (Gandras kategorija)" }, // Ši nuotrauka atrodo ne visai tinka, bet palieku kaip buvo nurodyta
-            { src: "https://i.postimg.cc/FKJ0hGDh/Love.jpg", alt: "Meilė (Gandras kategorija)", title: "Meilė (Gandras kategorija)" } // Ši nuotrauka taip pat, palieku kaip buvo nurodyta
+            { src: "https://i.postimg.cc/ZR83dRGg/Latvija-riga-namas.jpg", alt: "Latvija, Ryga namas (Gandras kategorija)", title: "Latvija, Ryga namas (Gandras kategorija)" }, 
+            { src: "https://i.postimg.cc/FKJ0hGDh/Love.jpg", alt: "Meilė (Gandras kategorija)", title: "Meilė (Gandras kategorija)" } 
         ]
     },
     "sventa-lietuva": {
@@ -132,6 +132,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         const galleryId = params.get('id');
         const galleryData = galleriesData[galleryId];
+
+        // Dinamiškai nustatome canonical URL
+        const canonicalLink = document.querySelector('link[rel="canonical"]');
+        if (canonicalLink && galleryId) {
+            canonicalLink.href = `https://portfolio.dominikphotofficial.lt/gallery.html?id=${galleryId}`;
+        } else if (canonicalLink) {
+             // Jei nėra galleryId, nukreipiame į bendrą gallery.html
+            canonicalLink.href = `https://portfolio.dominikphotofficial.lt/gallery.html`;
+        }
 
         if (galleryData) {
             document.title = `${galleryData.title} - DP.PORTFOLIO`;
