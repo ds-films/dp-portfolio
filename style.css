@@ -51,12 +51,33 @@ h1, h2, h3 {
     text-align: center;
     padding: 40px 20px 20px;
     border-bottom: 1px solid rgba(17, 57, 57, 0.1); /* Švelni linija */
+    position: relative; /* Leidžia logotipui būti pozicionuotam */
 }
 
 .site-header h1 {
     font-size: 3em;
     margin: 0;
     letter-spacing: 2px;
+    /* Centravimas, kad būtų po logotipu */
+    padding-top: 10px; /* Šiek tiek vietos po logotipu */
+}
+
+/* Logotipo stilius */
+.logo-container {
+    text-align: center; /* Centruoja paveikslėlį */
+    margin-bottom: 15px; /* Atstumas tarp logo ir h1 teksto */
+}
+
+.site-logo {
+    max-width: 100px; /* Maksimalus logotipo plotis */
+    height: auto;
+    display: inline-block; /* Kad galėtų būti centruotas */
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.05); /* Švelnus logotipo padidėjimas užvedus */
 }
 
 .site-header h1 a { /* Stilius link'ui ant pavadinimo galerijos puslapyje */
@@ -236,5 +257,8 @@ h1, h2, h3 {
     }
     .category-card img, .image-grid img {
         height: 200px;
+    }
+    .site-logo {
+        max-width: 80px; /* Mažesnis logotipas mobiliame */
     }
 }
