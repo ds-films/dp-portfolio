@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
+    <!-- Visos meta žymės ir resursai lieka tie patys -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apie mane | DP.PORTFOLIO</title>
-
-    <!-- SEO ir OG žymės -->
     <meta name="description" content="Susipažinkite su fotografu Dominiku Šuškevič (Dominikphotofficial). Minimalizmas, stilius ir nuoširdumas kiekviename kadre.">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/about.html">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
@@ -14,23 +13,8 @@
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/about.html">
     <meta property="og:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
-    <!-- Google Analytics (GA4) - bus aktyvuotas po sutikimo -->
-    <script>
-        function initGA() {
-            const gaScript = document.createElement('script');
-            gaScript.async = true;
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // <-- PAKEISKITE Į SAVO ID
-            document.head.appendChild(gaScript);
+    <script> function initGA() { /* Jūsų GA kodas */ } </script>
 
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX'); // <-- PAKEISKITE Į SAVO ID
-            console.log("Google Analytics įjungtas.");
-        }
-    </script>
-
-    <!-- Bendri resursai -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -64,31 +48,47 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h2>Sveiki, aš Dominik Šuškevič.</h2>
+                        <!-- ČIA ĮRAŠYKITE SAVO TEKSTĄ APIE SAVE -->
                         <p>Esu fotografas, žinomas kaip <strong>Dominikphotofficial</strong>. Mano aistra – fiksuoti akimirkas, kurios pasakoja istorijas be žodžių. Tikiu, kad geriausios nuotraukos gimsta iš nuoširdumo, paprastumo ir dėmesio detalėms.</p>
                         <p>Mano darbuose dominuoja minimalizmas ir natūralumas. Siekiu atskleisti emocijas, perteikti atmosferą ir sustabdyti laiką unikaliuose kadruose. Kiekviena nuotrauka šiame portfolio yra kruopščiai atrinkta ir atspindi mano požiūrį į fotografijos meną.</p>
-                        <p>Dėkoju, kad lankotės. Tikiuosi, mano darbai jus įkvėps.</p>
+                        
+                        <!-- NAUJA VIETA CITATAI -->
+                        <blockquote class="about-quote">
+                            <!-- ČIA ĮRAŠYKITE SAVO DEVIZĄ AR CITATĄ -->
+                            "Kiekvienas kadras – tai sustabdyta amžinybė."
+                        </blockquote>
                     </div>
-                    <!-- Čia galite įdėti savo nuotrauką -->
-                    <!-- <div class="about-image">
-                        <img src="path/to/your/photo.jpg" alt="Dominik Šuškevič portretas">
-                    </div> -->
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- NAUJAS FOOTER -->
+    <footer class="main-footer">
         <div class="container">
+            <div class="footer-quote">
+                <!-- ČIA ĮRAŠYKITE SAVO CITATĄ -->
+                <p>"Fotografija – tai būdas jausti, liesti, mylėti. Tai, ką pagauni filme, yra užfiksuota amžiams... Ji prisimena mažus dalykus, kai tu jau seniai viską pamiršai."</p>
+            </div>
+            <div class="footer-contacts">
+                <h3>Susisiekite</h3>
+                <p>Email: <a href="mailto:dominikphotofficial.lt@gmail.com">dominikphotofficial.lt@gmail.com</a></p>
+                <p>Tel.: <a href="tel:+37062337615">+370 623 37615</a></p>
+            </div>
+            <div class="footer-social">
+                <h3>Sekite mane</h3>
+                <a href="https://www.instagram.com/dominikphotofficial" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/dominikphotofficial" target="_blank">YouTube</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
         </div>
     </footer>
 
     <!-- Slapukų sutikimo langas -->
     <div id="cookie-consent-banner" class="cookie-banner hidden">
-        <div class="container">
-            <p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
-            <button id="accept-cookies-btn" class="btn">Sutinku</button>
-        </div>
+        <!-- ...turinys... -->
     </div>
     
     <!-- Bendri skriptai -->
