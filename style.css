@@ -15,7 +15,7 @@ h1, h2, h3 { font-weight: 600; }
 .btn { background-color: var(--primary-color); color: var(--background-color); padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 1em; transition: background-color 0.3s ease; }
 .btn:hover { background-color: #0c2b2b; }
 
-/* --- HERO BANERIS SU SLANKIKLIU --- */
+/* --- ATNAUJINTI HERO BANERIO STILIAI (VIENA NUOTRAUKA) --- */
 .hero-slideshow {
     position: relative;
     height: 90vh; 
@@ -26,41 +26,15 @@ h1, h2, h3 { font-weight: 600; }
     text-align: center;
     color: white;
     overflow: hidden;
-}
-
-.slideshow-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    /* Tiesiogiai nurodome vieną fono nuotrauką */
+    background-image: url('https://i.postimg.cc/jqck7dQB/sventa_08.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    transform: scale(1.1);
 }
 
-.slide.active {
-    opacity: 1;
-    animation: kenburns 20s infinite;
-}
+/* Pašalinti visi .slide ir @keyframes kenburns stiliai */
 
-@keyframes kenburns {
-    0% { transform: scale(1.1) translate(0, 0); }
-    50% { transform: scale(1.2) translate(5%, -5%); }
-    100% { transform: scale(1.1) translate(0, 0); }
-}
-
+/* Tamsus filtras, kad tekstas būtų geriau matomas */
 .hero-slideshow::before {
     content: '';
     position: absolute;
@@ -69,7 +43,7 @@ h1, h2, h3 { font-weight: 600; }
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
-    z-index: -1;
+    z-index: 1;
 }
 
 .hero-content {
@@ -175,9 +149,9 @@ h1, h2, h3 { font-weight: 600; }
     .main-header .container,
     .main-header-transparent .container { flex-direction: column; gap: 20px; }
     .logo-image { height: 50px; }
-    .hero-background { height: 80vh; min-height: 450px; }
+    .hero-slideshow { height: 80vh; min-height: 450px; } /* Pakeistas pavadinimas atgal į hero-slideshow */
     .section-title, .gallery-title { font-size: 2.2em; }
     .cookie-banner .container { flex-direction: column; text-align: center; }
     .lightbox-prev, .lightbox-next { font-size: 2em; left: 10px; right: auto; }
     .lightbox-next { left: auto; right: 10px; }
-                                                              }
+}
