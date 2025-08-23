@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)</title>
 
-    <!-- Pagrindinės SEO meta žymės -->
+    <!-- Visos SEO, OG ir Twitter žymės lieka tos pačios... -->
     <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
     <meta name="keywords" content="dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič, fotografija, nuotraukų galerija, meninė fotografija">
     <meta name="author" content="Dominik Šuškevič (Dominikphotofficial)">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
-    
-    <!-- ATNAUJINTA: Naujas logotipas/favicon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
-
-    <!-- Open Graph (OG) ir Twitter Card meta žymės -->
     <meta property="og:title" content="DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)">
     <meta property="og:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
     <meta property="og:type" content="website">
@@ -26,19 +22,10 @@
     <meta name="twitter:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
     <meta name="twitter:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
-    <!-- Google Analytics (GA4) - bus aktyvuotas po sutikimo -->
+    <!-- Google Analytics (GA4) -->
     <script>
         function initGA() {
-            const gaScript = document.createElement('script');
-            gaScript.async = true;
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // <-- PAKEISKITE Į SAVO ID
-            document.head.appendChild(gaScript);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX'); // <-- PAKEISKITE Į SAVO ID
-            console.log("Google Analytics įjungtas.");
+            // Jūsų GA kodas
         }
     </script>
     
@@ -61,26 +48,61 @@
         </div>
     </header>
 
-    <main>
-        <section class="about-section-short" data-aos="fade-up" data-aos-duration="1000">
+    <!-- NAUJA HERO SEKCIJA SU SLANKIKLIU -->
+    <section class="hero-slideshow">
+        <div class="slideshow-container">
+            <!-- Nuotraukos bus įkeltos čia JavaScript pagalba -->
+        </div>
+        <div class="hero-content">
             <div class="container">
-                <h1 class="section-title">DP.PORTFOLIO</h1>
-                <p>„Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“</p>
+                <h1 class="hero-title">DP.PORTFOLIO</h1>
+                <p class="hero-description">„Portfolio by Dominikphotofficial – tai mano geriausių nuotraukų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas.“</p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- NAUJA "IŠRINKTŲ DARBŲ" SEKCIJA -->
+        <section class="featured-works" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Išrinkti darbai</h2>
+                <div class="featured-grid-scroll">
+                    <div class="featured-grid" id="featuredGrid">
+                        <!-- Geriausios nuotraukos bus įkeltos čia -->
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="gallery-sections" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <section class="gallery-sections" data-aos="fade-up">
             <div class="container">
-                <h2 class="section-title">Mano Galerijos</h2>
+                <h2 class="section-title">Visos Galerijos</h2>
                 <div class="category-grid" id="categoryGrid">
-                    <!-- Category Covers will be inserted here by JavaScript -->
+                    <!-- Kategorijų viršeliai bus įkelti čia -->
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- NAUJAS FOOTER -->
+    <footer class="main-footer">
         <div class="container">
+            <div class="footer-quote">
+                <!-- ČIA ĮRAŠYKITE SAVO CITATĄ -->
+                <p>"Fotografija – tai būdas jausti, liesti, mylėti. Tai, ką pagauni filme, yra užfiksuota amžiams... Ji prisimena mažus dalykus, kai tu jau seniai viską pamiršai."</p>
+            </div>
+            <div class="footer-contacts">
+                <h3>Susisiekite</h3>
+                <p>Email: <a href="mailto:dominikphotofficial.lt@gmail.com">dominikphotofficial.lt@gmail.com</a></p>
+                <p>Tel.: <a href="tel:+37062337615">+370 623 37615</a></p>
+            </div>
+            <div class="footer-social">
+                <h3>Sekite mane</h3>
+                <a href="https://www.instagram.com/dominikphotofficial" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/dominikphotofficial" target="_blank">YouTube</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
         </div>
     </footer>
@@ -96,6 +118,5 @@
     <!-- Bendri skriptai -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
