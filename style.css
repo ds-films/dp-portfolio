@@ -150,4 +150,4 @@ h1, h2, h3 { font-weight: 600; }
     .cookie-banner .container { flex-direction: column; text-align: center; }
     .lightbox-prev, .lightbox-next { font-size: 2em; left: 10px; right: auto; }
     .lightbox-next { left: auto; right: 10px; }
-}
+          }
