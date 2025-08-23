@@ -14,17 +14,20 @@
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/about.html">
     <meta property="og:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
-    <!-- Google Analytics (GA4) -->
+    <!-- ATNAUJINTA: Google Analytics kodas -->
+    <!-- Google tag (gtag.js) -->
     <script>
         function initGA() {
             const gaScript = document.createElement('script');
             gaScript.async = true;
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // <-- PAKEISKITE Į SAVO ID
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-EPPD6T6EQY';
             document.head.appendChild(gaScript);
+            
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX'); // <-- PAKEISKITE Į SAVO ID
+            gtag('config', 'G-EPPD6T6EQY');
+            console.log("Google Analytics įjungtas su ID: G-EPPD6T6EQY");
         }
     </script>
 
@@ -67,15 +70,12 @@
                         <p>Dėkoju, kad lankotės. Tikiuosi, mano darbai jus įkvėps.</p>
                     </div>
                 </div>
-
-                <!-- VIETA JŪSŲ CITATAI -->
                 <blockquote class="quote-block" data-aos="fade-up" data-aos-delay="100">
                     <p>"[Čia galite įrašyti savo mėgstamą citatą apie fotografiją ar kūrybą]"</p>
                 </blockquote>
             </div>
         </section>
 
-        <!-- NAUJA KONTAKTŲ SEKCIJA -->
         <section class="contact-section" data-aos="fade-up" data-aos-delay="200">
             <div class="container">
                 <h2 class="section-title">Susisiekite</h2>
@@ -105,7 +105,6 @@
         </div>
     </footer>
 
-    <!-- Slapukų sutikimo langas -->
     <div id="cookie-consent-banner" class="cookie-banner hidden">
         <div class="container">
             <p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
@@ -113,7 +112,6 @@
         </div>
     </div>
     
-    <!-- Bendri skriptai -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 
