@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)</title>
 
-    <!-- Visos SEO, OG ir Twitter žymės lieka tos pačios... -->
+    <!-- Pagrindinės SEO meta žymės -->
     <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
     <meta name="keywords" content="dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič, fotografija, nuotraukų galerija, meninė fotografija">
     <meta name="author" content="Dominik Šuškevič (Dominikphotofficial)">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
+    
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
+
+    <!-- Open Graph (OG) ir Twitter Card meta žymės -->
     <meta property="og:title" content="DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)">
     <meta property="og:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
     <meta property="og:type" content="website">
@@ -22,15 +25,24 @@
     <meta name="twitter:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
     <meta name="twitter:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
-    <!-- Google Analytics (GA4) -->
+    <!-- Google Analytics (GA4) - bus aktyvuotas po sutikimo -->
     <script>
         function initGA() {
-            // Jūsų GA kodas
+            const gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // <-- PAKEISKITE Į SAVO ID
+            document.head.appendChild(gaScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX'); // <-- PAKEISKITE Į SAVO ID
+            console.log("Google Analytics įjungtas.");
         }
     </script>
     
     <!-- Bendri resursai -->
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -48,57 +60,50 @@
         </div>
     </header>
 
-    <!-- ATNAUJINTA HERO SEKCIJA -->
-    <section class="hero-slideshow">
-        <div class="slideshow-background" id="backgroundSlideshow">
-            <!-- Fono nuotraukos bus įkeltos čia -->
-        </div>
-        <div class="hero-content">
-            <div class="container">
-                <!-- Tekstas su nuotraukų fonu -->
-                <h1 class="hero-title-clipped">DP.PORTFOLIO</h1>
-                <!-- Aprašymas, kuris lieka įskaitomas -->
-                <p class="hero-description">„Portfolio by Dominikphotofficial – tai mano geriausių nuotraukų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas.“</p>
-            </div>
-        </div>
-    </section>
-
     <main>
-        <!-- Išrinktų darbų sekcija lieka ta pati -->
-        <section class="featured-works" data-aos="fade-up">
+        <section class="about-section-short" data-aos="fade-up" data-aos-duration="1000">
             <div class="container">
-                <h2 class="section-title">Išrinkti darbai</h2>
-                <div class="featured-grid-scroll">
-                    <div class="featured-grid" id="featuredGrid">
-                        <!-- Geriausios nuotraukos bus įkeltos čia -->
-                    </div>
+                <h1 class="section-title">DP.PORTFOLIO</h1>
+                <p>„Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“</p>
+            </div>
+        </section>
+
+        <section class="gallery-sections" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="container">
+                <h2 class="section-title">Mano Galerijos</h2>
+                <div class="category-grid" id="categoryGrid">
+                    <!-- Category Covers will be inserted here by JavaScript -->
                 </div>
             </div>
         </section>
 
-        <!-- Visų galerijų sekcija lieka ta pati -->
-        <section class="gallery-sections" data-aos="fade-up">
-            <div class="container">
-                <h2 class="section-title">Visos Galerijos</h2>
-                <div class="category-grid" id="categoryGrid">
-                    <!-- Kategorijų viršeliai bus įkelti čia -->
-                </div>
+        <!-- NAUJA SEKCIJA: Skaidrių demonstracija -->
+        <section class="promo-slideshow">
+            <div class="slideshow-container">
+                <!-- Skaidrės bus sukurtos JavaScript -->
             </div>
+            <div class="slideshow-overlay"></div>
         </section>
+
     </main>
 
-    <!-- Footer lieka toks pat -->
-    <footer class="main-footer">
-        <!-- ... Jūsų footer turinys ... -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
+        </div>
     </footer>
 
-    <!-- Slapukų sutikimo langas lieka toks pat -->
+    <!-- Slapukų sutikimo langas -->
     <div id="cookie-consent-banner" class="cookie-banner hidden">
-        <!-- ... Jūsų slapukų turinys ... -->
+        <div class="container">
+            <p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
+            <button id="accept-cookies-btn" class="btn">Sutinku</button>
+        </div>
     </div>
 
     <!-- Bendri skriptai -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
