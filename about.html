@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-    <!-- Visos meta žymės ir resursai lieka tie patys -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apie mane | DP.PORTFOLIO</title>
+
+    <!-- SEO ir OG žymės -->
     <meta name="description" content="Susipažinkite su fotografu Dominiku Šuškevič (Dominikphotofficial). Minimalizmas, stilius ir nuoširdumas kiekviename kadre.">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/about.html">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
@@ -13,8 +14,21 @@
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/about.html">
     <meta property="og:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
-    <script> function initGA() { /* Jūsų GA kodas */ } </script>
+    <!-- Google Analytics (GA4) -->
+    <script>
+        function initGA() {
+            const gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // <-- PAKEISKITE Į SAVO ID
+            document.head.appendChild(gaScript);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX'); // <-- PAKEISKITE Į SAVO ID
+        }
+    </script>
 
+    <!-- Bendri resursai -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -48,47 +62,55 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h2>Sveiki, aš Dominik Šuškevič.</h2>
-                        <!-- ČIA ĮRAŠYKITE SAVO TEKSTĄ APIE SAVE -->
                         <p>Esu fotografas, žinomas kaip <strong>Dominikphotofficial</strong>. Mano aistra – fiksuoti akimirkas, kurios pasakoja istorijas be žodžių. Tikiu, kad geriausios nuotraukos gimsta iš nuoširdumo, paprastumo ir dėmesio detalėms.</p>
                         <p>Mano darbuose dominuoja minimalizmas ir natūralumas. Siekiu atskleisti emocijas, perteikti atmosferą ir sustabdyti laiką unikaliuose kadruose. Kiekviena nuotrauka šiame portfolio yra kruopščiai atrinkta ir atspindi mano požiūrį į fotografijos meną.</p>
-                        
-                        <!-- NAUJA VIETA CITATAI -->
-                        <blockquote class="about-quote">
-                            <!-- ČIA ĮRAŠYKITE SAVO DEVIZĄ AR CITATĄ -->
-                            "Kiekvienas kadras – tai sustabdyta amžinybė."
-                        </blockquote>
+                        <p>Dėkoju, kad lankotės. Tikiuosi, mano darbai jus įkvėps.</p>
+                    </div>
+                </div>
+
+                <!-- VIETA JŪSŲ CITATAI -->
+                <blockquote class="quote-block" data-aos="fade-up" data-aos-delay="100">
+                    <p>"[Čia galite įrašyti savo mėgstamą citatą apie fotografiją ar kūrybą]"</p>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- NAUJA KONTAKTŲ SEKCIJA -->
+        <section class="contact-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="container">
+                <h2 class="section-title">Susisiekite</h2>
+                <div class="contact-wrapper">
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <a href="mailto:dominikphotofficial.lt@gmail.com">dominikphotofficial.lt@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <a href="tel:+37062337615">+370 623 37615</a>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://instagram.com/dominikphotofficial" target="_blank" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="https://youtube.com/dominikphotofficial" target="_blank" class="social-link" aria-label="YouTube">YT</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- NAUJAS FOOTER -->
-    <footer class="main-footer">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-quote">
-                <!-- ČIA ĮRAŠYKITE SAVO CITATĄ -->
-                <p>"Fotografija – tai būdas jausti, liesti, mylėti. Tai, ką pagauni filme, yra užfiksuota amžiams... Ji prisimena mažus dalykus, kai tu jau seniai viską pamiršai."</p>
-            </div>
-            <div class="footer-contacts">
-                <h3>Susisiekite</h3>
-                <p>Email: <a href="mailto:dominikphotofficial.lt@gmail.com">dominikphotofficial.lt@gmail.com</a></p>
-                <p>Tel.: <a href="tel:+37062337615">+370 623 37615</a></p>
-            </div>
-            <div class="footer-social">
-                <h3>Sekite mane</h3>
-                <a href="https://www.instagram.com/dominikphotofficial" target="_blank">Instagram</a>
-                <a href="https://www.youtube.com/dominikphotofficial" target="_blank">YouTube</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
             <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
         </div>
     </footer>
 
     <!-- Slapukų sutikimo langas -->
     <div id="cookie-consent-banner" class="cookie-banner hidden">
-        <!-- ...turinys... -->
+        <div class="container">
+            <p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
+            <button id="accept-cookies-btn" class="btn">Sutinku</button>
+        </div>
     </div>
     
     <!-- Bendri skriptai -->
