@@ -8,18 +8,11 @@
     <!-- SEO ir OG žymės -->
     <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
     <meta name="keywords" content="dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič, fotografija, nuotraukų galerija, meninė fotografija">
-    <meta name="author" content="Dominik Šuškevič (Dominikphotofficial)">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     <meta property="og:title" content="DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)">
     <meta property="og:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/">
     <meta property="og:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)">
-    <meta name="twitter:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
-    <meta name="twitter:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
     <!-- Google Analytics (GA4) -->
     <script>
@@ -42,33 +35,34 @@
 </head>
 <body>
 
-    <!-- NAUJAS HERO BANERIS SU SLANKIKLIU -->
-    <section class="hero-slideshow">
-        <div class="slideshow-background">
-            <!-- Nuotraukos bus įdėtos čia per JavaScript -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Galerijos</a>
+                <a href="about.html" class="nav-link">Apie mane</a>
+            </nav>
         </div>
-        
-        <header class="main-header main-header-transparent">
-            <div class="container">
-                <a href="index.html" class="logo-link">
-                    <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
-                </a>
-                <nav class="main-nav">
-                    <a href="index.html" class="nav-link active">Galerijos</a>
-                    <a href="about.html" class="nav-link">Apie mane</a>
-                </nav>
-            </div>
-        </header>
+    </header>
 
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up">DP.PORTFOLIO</h1>
-            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200">Akimirkos, užfiksuotos amžinai</p>
+    <!-- NAUJA, ŠVARI HERO SEKCIJA -->
+    <section class="hero-static">
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="hero-title">DP.PORTFOLIO</h1>
+            <p class="hero-tagline">
+                „Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“
+            </p>
         </div>
+        <a href="#galleries" class="scroll-down" aria-label="Slinkti žemyn">
+            <span></span>
+        </a>
     </section>
-    <!-- HERO BANERIO PABAIGA -->
+    <!-- HERO SEKCIJOS PABAIGA -->
 
     <main>
-        <section class="gallery-sections" data-aos="fade-up">
+        <section class="gallery-sections" id="galleries">
             <div class="container">
                 <h2 class="section-title">Mano Galerijos</h2>
                 <div class="category-grid" id="categoryGrid">
