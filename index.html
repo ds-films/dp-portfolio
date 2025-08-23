@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DP.PORTFOLIO | Dominikphotofficial</title>
+    <title>DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)</title>
 
     <!-- Pagrindinės SEO meta žymės -->
     <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
-    <!-- ATNAUJINTA: Nauji raktiniai žodžiai -->
     <meta name="keywords" content="dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič, fotografija, nuotraukų galerija, meninė fotografija">
     <meta name="author" content="Dominik Šuškevič (Dominikphotofficial)">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
-
+    
     <!-- ATNAUJINTA: Naujas logotipas/favicon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
 
@@ -20,39 +19,57 @@
     <meta property="og:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/">
-    <!-- ATNAUJINTA: Naujas logotipas socialiniams tinklams -->
     <meta property="og:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     <meta property="og:image:alt" content="DP.PORTFOLIO logotipas">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)">
     <meta name="twitter:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
-    <!-- ATNAUJINTA: Naujas logotipas socialiniams tinklams -->
     <meta name="twitter:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
+    
+    <!-- Google Analytics (GA4) - bus aktyvuotas po sutikimo -->
+    <script>
+        function initGA() {
+            const gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // <-- PAKEISKITE Į SAVO ID
+            document.head.appendChild(gaScript);
 
-    <!-- Google Fonts: Jost -->
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX'); // <-- PAKEISKITE Į SAVO ID
+            console.log("Google Analytics įjungtas.");
+        }
+    </script>
+    
+    <!-- Bendri resursai -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS (Animate On Scroll) Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero" data-aos="fade-down" data-aos-duration="1000">
+
+    <header class="main-header">
         <div class="container">
-            <h1 class="site-title">DP.PORTFOLIO</h1>
-            <p class="site-tagline">Dominikphotofficial: Akimirkos, užfiksuotos amžinai.</p>
+            <a href="index.html" class="logo-link">
+                <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Galerijos</a>
+                <a href="about.html" class="nav-link">Apie mane</a>
+            </nav>
         </div>
     </header>
 
     <main>
-        <section class="about-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <section class="about-section-short" data-aos="fade-up" data-aos-duration="1000">
             <div class="container">
-                <h2 class="section-title">Apie Mane</h2>
+                <h1 class="section-title">DP.PORTFOLIO</h1>
                 <p>„Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“</p>
             </div>
         </section>
 
-        <section class="gallery-sections" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <section class="gallery-sections" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <div class="container">
                 <h2 class="section-title">Mano Galerijos</h2>
                 <div class="category-grid" id="categoryGrid">
@@ -62,15 +79,23 @@
         </section>
     </main>
 
-    <footer class="footer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+    <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
         </div>
     </footer>
 
-    <!-- AOS JS -->
+    <!-- Slapukų sutikimo langas -->
+    <div id="cookie-consent-banner" class="cookie-banner hidden">
+        <div class="container">
+            <p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
+            <button id="accept-cookies-btn" class="btn">Sutinku</button>
+        </div>
+    </div>
+
+    <!-- Bendri skriptai -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JS -->
     <script src="script.js"></script>
+
 </body>
-        </html>
+</html>
