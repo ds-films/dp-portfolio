@@ -40,6 +40,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- HERO SLIDESHOW LOGIKA ---
+    const slideshowContainer = document.querySelector('.slideshow-background');
+    if (slideshowContainer) {
+        const slideshowImages = [
+            "https://i.postimg.cc/QM6Nbm4p/Šventa_-0.jpg",
+            "https://i.postimg.cc/jqck7dQB/sventa_08.jpg",
+            "https://i.postimg.cc/pLf0PWT0/vdu-botanikos-sodas_07.jpg"
+        ];
+
+        slideshowImages.forEach(imgUrl => {
+            const slide = document.createElement('div');
+            slide.classList.add('slide');
+            slide.style.backgroundImage = `url(${imgUrl})`;
+            slideshowContainer.appendChild(slide);
+        });
+
+        const slides = document.querySelectorAll('.slideshow-background .slide');
+        let currentSlide = 0;
+
+        if (slides.length > 0) {
+            slides[0].classList.add('active');
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000);
+        }
+    }
+
     // --- LIGHTBOX LOGIKA ---
     let currentGalleryImages = [];
     let currentImageIndex = 0;
