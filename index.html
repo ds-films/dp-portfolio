@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<!-- Kalba bus nustatyta dinamiškai -->
-<html lang="lt"> 
+<html lang="lt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate-title>DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)</title>
+    <title>DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)</title>
 
-    <!-- Meta žymės bus atnaujintos dinamiškai -->
-    <meta name="description" data-translate-meta="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
+    <!-- SEO ir OG žymės -->
+    <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
     <meta name="keywords" content="dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič, fotografija, nuotraukų galerija, meninė fotografija">
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
-
-    <!-- Hreflang nuorodos SEO -->
-    <link rel="alternate" hreflang="lt" href="https://portfolio.dominikphotofficial.lt/index.html?lang=lt">
-    <link rel="alternate" hreflang="en" href="https://portfolio.dominikphotofficial.lt/index.html?lang=en">
-    <link rel="alternate" hreflang="ru" href="https://portfolio.dominikphotofficial.lt/index.html?lang=ru">
-    <link rel="alternate" hreflang="ko" href="https://portfolio.dominikphotofficial.lt/index.html?lang=ko">
-    <link rel="alternate" hreflang="x-default" href="https://portfolio.dominikphotofficial.lt/index.html">
-
+    <meta property="og:title" content="DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)">
+    <meta property="og:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
+    <meta property="og:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
+    
     <!-- Google Analytics (GA4) -->
     <script>
         function initGA() {
@@ -45,23 +41,16 @@
                 <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
             </a>
             <nav class="main-nav">
-                <a href="index.html" class="nav-link active" data-translate="nav_galleries">Galerijos</a>
-                <a href="about.html" class="nav-link" data-translate="nav_about">Apie mane</a>
-                <!-- Kalbų perjungiklis -->
-                <div class="lang-switcher">
-                    <a href="#" class="lang-link" data-lang="lt">LT</a>
-                    <a href="#" class="lang-link" data-lang="en">EN</a>
-                    <a href="#" class="lang-link" data-lang="ru">RU</a>
-                    <a href="#" class="lang-link" data-lang="ko">KO</a>
-                </div>
+                <a href="index.html" class="nav-link active">Galerijos</a>
+                <a href="about.html" class="nav-link">Apie mane</a>
             </nav>
         </div>
     </header>
 
     <section class="hero-static">
         <div class="hero-content" data-aos="fade-up">
-            <h1 class="hero-title" data-translate="hero_title">DP.PORTFOLIO</h1>
-            <p class="hero-tagline" data-translate="hero_tagline">
+            <h1 class="hero-title">DP.PORTFOLIO</h1>
+            <p class="hero-tagline">
                 „Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“
             </p>
         </div>
@@ -73,7 +62,7 @@
     <main>
         <section class="gallery-sections" id="galleries">
             <div class="container">
-                <h2 class="section-title" data-translate="galleries_title">Mano Galerijos</h2>
+                <h2 class="section-title">Mano Galerijos</h2>
                 <div class="category-grid" id="categoryGrid">
                     <!-- Category Covers will be inserted here by JavaScript -->
                 </div>
@@ -83,20 +72,19 @@
 
     <footer class="footer">
         <div class="container">
-            <p data-translate="footer_copyright">&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
+            <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
         </div>
     </footer>
 
     <div id="cookie-consent-banner" class="cookie-banner hidden">
         <div class="container">
-            <p data-translate="cookie_text">Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
-            <button id="accept-cookies-btn" class="btn" data-translate="cookie_accept">Sutinku</button>
+            <p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
+            <button id="accept-cookies-btn" class="btn">Sutinku</button>
         </div>
     </div>
 
-    <script src="translations.js"></script>
-    <script src="script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
