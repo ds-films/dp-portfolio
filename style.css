@@ -1,39 +1,131 @@
 /* Global variables and resets */
 :root {
-    --primary-color: #113939; /* Deep teal */
-    --background-color: #ffffff; /* Pure white */
-    --text-color: #113939; /* Deep teal for text */
-    --light-text-color: #f0f0f0; /* Off-white for contrast on dark backgrounds */
-    --overlay-bg: rgba(17, 57, 57, 0.85); /* Slightly darker overlay */
+    --primary-color: #113939;
+    --background-color: #ffffff;
+    --text-color: #113939;
+    --light-text-color: #f0f0f0;
+    --overlay-bg: rgba(17, 57, 57, 0.85);
     --subtle-bg-color: #f8f8f8;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
-    font-family: 'Jost', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-}
-
+body { font-family: 'Jost', sans-serif; background-color: var(--background-color); color: var(--text-color); line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 h1, h2, h3 { font-weight: 600; }
 .btn { background-color: var(--primary-color); color: var(--background-color); padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 1em; transition: background-color 0.3s ease; }
 .btn:hover { background-color: #0c2b2b; }
 
+/* --- NAUJI STILIAI HERO BANERIUI --- */
+.hero-slideshow {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.slideshow-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    transform: scale(1.1); /* Pradinis mastelis animacijai */
+}
+
+.slide.active {
+    opacity: 1;
+    animation: kenburns 20s infinite; /* "Ken Burns" efektas */
+}
+
+@keyframes kenburns {
+    0% { transform: scale(1.1) translate(0, 0); }
+    50% { transform: scale(1.2) translate(5%, -5%); }
+    100% { transform: scale(1.1) translate(0, 0); }
+}
+
+/* Tamsus filtras, kad tekstas būtų geriau matomas */
+.hero-slideshow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 6em;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    margin: 0;
+}
+
+.hero-tagline {
+    font-size: 1.5em;
+    font-weight: 300;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    margin-top: 10px;
+}
+/* --- HERO BANERIO STILIŲ PABAIGA --- */
+
+
 /* Header and Navigation */
+/* Statinis headeris vidiniams puslapiams */
 .main-header { padding: 25px 0; border-bottom: 1px solid #e0e0e0; background-color: var(--background-color); }
 .main-header .container { display: flex; justify-content: space-between; align-items: center; }
-.logo-link { display: inline-block; }
 .logo-image { height: 50px; width: auto; }
+
+/* Permatomas headeris pagrindiniam puslapiui */
+.main-header-transparent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 25px 0;
+    border-bottom: none;
+    background: transparent;
+}
+
+/* Bendri navigacijos stiliai */
 .main-nav { display: flex; gap: 30px; }
-.nav-link { color: var(--text-color); text-decoration: none; font-size: 1.1em; font-weight: 500; position: relative; padding-bottom: 5px; }
-.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s ease; }
+.nav-link { text-decoration: none; font-size: 1.1em; font-weight: 500; position: relative; padding-bottom: 5px; }
+/* Vidiniai puslapiai */
+.main-header .nav-link { color: var(--text-color); }
+.main-header .nav-link::after { background-color: var(--primary-color); }
+/* Pagrindinis puslapis (skaidrus headeris) */
+.main-header-transparent .nav-link { color: white; }
+.main-header-transparent .nav-link::after { background-color: white; }
+/* Bendra dalis */
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; transition: width 0.3s ease; }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
 
 /* Breadcrumbs */
 .breadcrumbs { padding: 20px 0; font-size: 0.9em; color: #888; }
@@ -42,15 +134,12 @@ h1, h2, h3 { font-weight: 600; }
 .breadcrumbs .separator { margin: 0 10px; }
 
 /* Section Titles */
-.section-title, .gallery-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+.section-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
 .section-title::after { content: ''; position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%); width: 80px; height: 3px; background-color: var(--primary-color); }
-
-/* About Section Short (on index.html) */
-.about-section-short { padding: 80px 0; text-align: center; }
-.about-section-short p { max-width: 800px; margin: 0 auto; font-size: 1.1em; line-height: 1.8; }
+.gallery-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; }
 
 /* Gallery Section (index.html) */
-.gallery-sections { padding: 80px 0; background-color: var(--subtle-bg-color); }
+.gallery-sections { padding: 80px 0; }
 .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
 .gallery-item-link { text-decoration: none; color: inherit; display: block; }
 .gallery-item { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -71,87 +160,20 @@ h1, h2, h3 { font-weight: 600; }
 .about-content { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 800px; margin: 0 auto; text-align: center; }
 .about-text h2 { font-size: 2em; margin-bottom: 20px; }
 .about-text p { font-size: 1.1em; margin-bottom: 15px; color: #333; }
-
-/* --- NAUJI STILIAI --- */
-
-/* Quote Block */
-.quote-block {
-    margin: 60px auto 0;
-    padding: 20px 30px;
-    max-width: 700px;
-    text-align: center;
-    border-left: 4px solid var(--primary-color);
-    background-color: var(--subtle-bg-color);
-    border-radius: 0 8px 8px 0;
-}
-.quote-block p {
-    font-size: 1.2em;
-    font-style: italic;
-    color: #555;
-    margin: 0;
-}
+.quote-block { margin: 60px auto 0; padding: 20px 30px; max-width: 700px; text-align: center; border-left: 4px solid var(--primary-color); background-color: var(--subtle-bg-color); border-radius: 0 8px 8px 0; }
+.quote-block p { font-size: 1.2em; font-style: italic; color: #555; margin: 0; }
 
 /* Contact Section */
-.contact-section {
-    padding: 80px 0;
-    background-color: var(--subtle-bg-color);
-}
-.contact-wrapper {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-.contact-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 40px;
-}
-.contact-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-.contact-item a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.contact-item a:hover {
-    color: #000;
-}
-.contact-icon {
-    font-size: 1.5em;
-    margin-right: 15px;
-    line-height: 1;
-}
-/* Social Links */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    color: var(--primary-color);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-.social-link:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-}
-
-/* --- STILIŲ PABAIGA --- */
+.contact-section { padding: 80px 0; background-color: var(--subtle-bg-color); }
+.contact-wrapper { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-list { list-style: none; padding: 0; margin-bottom: 40px; }
+.contact-item { display: flex; align-items: center; justify-content: center; font-size: 1.2em; margin-bottom: 15px; }
+.contact-item a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+.contact-item a:hover { color: #000; }
+.contact-icon { font-size: 1.5em; margin-right: 15px; line-height: 1; }
+.social-links { display: flex; justify-content: center; gap: 20px; }
+.social-link { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 2px solid var(--primary-color); border-radius: 50%; color: var(--primary-color); font-weight: 600; text-decoration: none; font-size: 1.1em; transition: background-color 0.3s ease, color 0.3s ease; }
+.social-link:hover { background-color: var(--primary-color); color: var(--background-color); }
 
 /* Cookie Consent Banner */
 .cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(17, 57, 57, 0.95); color: var(--light-text-color); padding: 20px; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); z-index: 1001; transition: transform 0.5s ease; }
@@ -179,10 +201,13 @@ h1, h2, h3 { font-weight: 600; }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .main-header .container { flex-direction: column; gap: 20px; }
+    .main-header .container,
+    .main-header-transparent .container { flex-direction: column; gap: 20px; }
     .logo-image { height: 45px; }
+    .hero-title { font-size: 4em; }
+    .hero-tagline { font-size: 1.2em; }
     .section-title, .gallery-title { font-size: 2.2em; }
     .cookie-banner .container { flex-direction: column; text-align: center; }
     .lightbox-prev, .lightbox-next { font-size: 2em; left: 10px; right: auto; }
     .lightbox-next { left: auto; right: 10px; }
-}
+                   }
