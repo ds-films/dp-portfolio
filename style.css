@@ -15,10 +15,11 @@ h1, h2, h3 { font-weight: 600; }
 .btn { background-color: var(--primary-color); color: var(--background-color); padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 1em; transition: background-color 0.3s ease; }
 .btn:hover { background-color: #0c2b2b; }
 
-/* --- NAUJI STILIAI HERO BANERIUI --- */
+/* --- ATNAUJINTI HERO BANERIO STILIAI --- */
 .hero-slideshow {
     position: relative;
-    height: 100vh;
+    /* ATNAUJINTA: Kompiuterio ekrane baneris užims 90% ekrano aukščio, nebe 100% */
+    height: 90vh; 
     min-height: 600px;
     display: flex;
     align-items: center;
@@ -47,12 +48,12 @@ h1, h2, h3 { font-weight: 600; }
     background-position: center;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
-    transform: scale(1.1); /* Pradinis mastelis animacijai */
+    transform: scale(1.1);
 }
 
 .slide.active {
     opacity: 1;
-    animation: kenburns 20s infinite; /* "Ken Burns" efektas */
+    animation: kenburns 20s infinite;
 }
 
 @keyframes kenburns {
@@ -61,7 +62,6 @@ h1, h2, h3 { font-weight: 600; }
     100% { transform: scale(1.1) translate(0, 0); }
 }
 
-/* Tamsus filtras, kad tekstas būtų geriau matomas */
 .hero-slideshow::before {
     content: '';
     position: absolute;
@@ -79,7 +79,9 @@ h1, h2, h3 { font-weight: 600; }
 }
 
 .hero-title {
-    font-size: 6em;
+    /* ATNAUJINTA: Modernus būdas automatiškai keisti teksto dydį.
+       Minimalus dydis 3.5em, maksimalus 6em, o tarp jų dydis priklauso nuo ekrano pločio (12vw). */
+    font-size: clamp(3.5em, 12vw, 6em);
     font-weight: 700;
     letter-spacing: 5px;
     text-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -87,7 +89,8 @@ h1, h2, h3 { font-weight: 600; }
 }
 
 .hero-tagline {
-    font-size: 1.5em;
+    /* ATNAUJINTA: Šūkis taip pat automatiškai keičia dydį. */
+    font-size: clamp(1em, 3vw, 1.5em);
     font-weight: 300;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     margin-top: 10px;
@@ -96,33 +99,16 @@ h1, h2, h3 { font-weight: 600; }
 
 
 /* Header and Navigation */
-/* Statinis headeris vidiniams puslapiams */
 .main-header { padding: 25px 0; border-bottom: 1px solid #e0e0e0; background-color: var(--background-color); }
 .main-header .container { display: flex; justify-content: space-between; align-items: center; }
 .logo-image { height: 50px; width: auto; }
-
-/* Permatomas headeris pagrindiniam puslapiui */
-.main-header-transparent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    padding: 25px 0;
-    border-bottom: none;
-    background: transparent;
-}
-
-/* Bendri navigacijos stiliai */
+.main-header-transparent { position: absolute; top: 0; left: 0; width: 100%; z-index: 10; padding: 25px 0; border-bottom: none; background: transparent; }
 .main-nav { display: flex; gap: 30px; }
 .nav-link { text-decoration: none; font-size: 1.1em; font-weight: 500; position: relative; padding-bottom: 5px; }
-/* Vidiniai puslapiai */
 .main-header .nav-link { color: var(--text-color); }
 .main-header .nav-link::after { background-color: var(--primary-color); }
-/* Pagrindinis puslapis (skaidrus headeris) */
 .main-header-transparent .nav-link { color: white; }
 .main-header-transparent .nav-link::after { background-color: white; }
-/* Bendra dalis */
 .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; transition: width 0.3s ease; }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
@@ -134,9 +120,8 @@ h1, h2, h3 { font-weight: 600; }
 .breadcrumbs .separator { margin: 0 10px; }
 
 /* Section Titles */
-.section-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+.section-title, .gallery-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
 .section-title::after { content: ''; position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%); width: 80px; height: 3px; background-color: var(--primary-color); }
-.gallery-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; }
 
 /* Gallery Section (index.html) */
 .gallery-sections { padding: 80px 0; }
@@ -201,13 +186,17 @@ h1, h2, h3 { font-weight: 600; }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    /* ATNAUJINTA: Banerio aukštis mobiliuosiuose įrenginiuose */
+    .hero-slideshow {
+        height: 75vh; /* Baneris užims 75% ekrano aukščio, kad būtų matyti, jog yra daugiau turinio apačioje */
+        min-height: 450px;
+    }
+    
+    .hero-title {
+        letter-spacing: 3px;
+    }
+    
     .main-header .container,
     .main-header-transparent .container { flex-direction: column; gap: 20px; }
     .logo-image { height: 45px; }
-    .hero-title { font-size: 4em; }
-    .hero-tagline { font-size: 1.2em; }
-    .section-title, .gallery-title { font-size: 2.2em; }
-    .cookie-banner .container { flex-direction: column; text-align: center; }
-    .lightbox-prev, .lightbox-next { font-size: 2em; left: 10px; right: auto; }
-    .lightbox-next { left: auto; right: 10px; }
-                   }
+    .section-
