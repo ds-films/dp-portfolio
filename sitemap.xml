@@ -1,51 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://portfolio.dominikphotofficial.lt/</loc>
-      <lastmod>2025-08-08</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=baltoji-kiele</loc>
-      <lastmod>2025-08-08</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=cirkliskis-lithuania</loc>
-      <lastmod>2025-08-08</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=geles</loc>
-      <lastmod>2025-08-08</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=gandras</loc>
-      <lastmod>2025-08-08</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=sventa-lithuania</loc>
-      <lastmod>2025-08-08</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=vdu-botanikos-sodas</loc>
-      <lastmod>2025-08-08</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=ivairios-akimirkos</loc>
-      <lastmod>2025-08-08</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-   </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://portfolio.dominikphotofficial.lt/</loc>
+    <lastmod>2025-08-08</lastmod>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png</image:loc>
+      <image:caption>DP.PORTFOLIO by Dominik Šuškevič (Dominikphotofficial) logotipas.</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=baltoji-kiele</loc>
+    <lastmod>2025-08-08</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://i.postimg.cc/KYbYwNkK/bird-01.jpg</image:loc><image:caption>Baltoji kielė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/1zKzQqwv/bird-02.jpg</image:loc><image:caption>Baltoji kielė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/1tf4rzVM/bird-03.jpg</image:loc><image:caption>Baltoji kielė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/Xv2p55qp/bird-04.jpg</image:loc><image:caption>Baltoji kielė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/gJQjSPvp/bird-05.jpg</image:loc><image:caption>Baltoji kielė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/GtvLXTLP/bird-06.jpg</image:loc><image:caption>Baltoji kielė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/hPqPfss2/bird-07.jpg</image:loc><image:caption>Baltoji kielė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/9FtXT9NC/bird-08.jpg</image:loc><image:caption>Baltoji kielė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+  </url>
+
+  <url>
+    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=cirkliskis-lithuania</loc>
+    <lastmod>2025-08-08</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/6QzGhSj6/cirkliskis-02.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/g0pvs3Gs/cirkliskis-03.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/Hxx8v2Rw/cirkliskis-04.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/25jxmng6/cirkliskis-05.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/fRCxHJkh/cirkliskis-06.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/J4b3kTL0/cirkliskis-07.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/sx5W52bq/cirkliskis-08.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/MKbRTv7j/cirkliskis-09.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/YSjmbRJ1/cirkliskis-10-Glorija-Jancauskaite.jpg</image:loc><image:caption>Glorija Jančauskaitė, Cirkliškis. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/D03JfTmg/cirkliskis-11.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/C1k5QQJf/cirkliskis-12.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/XJSdqFzd/cirkliskis-13.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/JhtPZbxF/cirkliskis-14.jpg</image:loc><image:caption>Cirkliškis, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/bvbqy2n7/Egle.jpg</image:loc><image:caption>Eglė, Cirkliškis. Autorius: Dominik Šuškevič.</image:caption></image:image>
+  </url>
+
+  <url>
+    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=geles</loc>
+    <lastmod>2025-08-08</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg</image:loc><image:caption>Gėlės. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <!-- ... čia turėtų būti visos kitos gėlių nuotraukos ... -->
+    <image:image><image:loc>https://i.postimg.cc/zBnF5pp9/flower-26.jpg</image:loc><image:caption>Gėlės. Autorius: Dominik Šuškevič.</image:caption></image:image>
+  </url>
+  
+  <url>
+    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=gandras</loc>
+    <lastmod>2025-08-08</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg</image:loc><image:caption>Gandras. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <!-- ... čia turėtų būti visos kitos gandrų nuotraukos ... -->
+    <image:image><image:loc>https://i.postimg.cc/RVbfkj4W/Gandras-11.jpg</image:loc><image:caption>Gandras. Autorius: Dominik Šuškevič.</image:caption></image:image>
+  </url>
+
+  <url>
+    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=sventa-lithuania</loc>
+    <lastmod>2025-08-08</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg</image:loc><image:caption>Šventa, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <!-- ... čia turėtų būti visos kitos Šventos nuotraukos ... -->
+    <image:image><image:loc>https://i.postimg.cc/qMtg3gH7/sventa-16.jpg</image:loc><image:caption>Šventa, Lietuva. Autorius: Dominik Šuškevič.</image:caption></image:image>
+  </url>
+
+  <url>
+    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=vdu-botanikos-sodas</loc>
+    <lastmod>2025-08-08</lastmod>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg</image:loc><image:caption>VDU Botanikos Sodas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <!-- ... čia turėtų būti visos kitos VDU sodo nuotraukos ... -->
+    <image:image><image:loc>https://i.postimg.cc/pLf0PWT0/vdu-botanikos-sodas-07.jpg</image:loc><image:caption>VDU Botanikos Sodas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+  </url>
+
+  <url>
+    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=ivairios-akimirkos</loc>
+    <lastmod>2025-08-08</lastmod>
+    <priority>0.7</priority>
+    <image:image><image:loc>https://i.postimg.cc/Zq9CrRdH/image.jpg</image:loc><image:caption>Įvairios akimirkos. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/ZR83dRGg/Latvija-riga-namas.jpg</image:loc><image:caption>Ryga, Latvija. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/FKJ0hGDh/Love.jpg</image:loc><image:caption>Meilė. Autorius: Dominik Šuškevič.</image:caption></image:image>
+  </url>
+  
 </urlset>
