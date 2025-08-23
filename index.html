@@ -14,21 +14,17 @@
     <meta property="og:description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
     <meta property="og:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics (GA4) -->
     <script>
         function initGA() {
             const gaScript = document.createElement('script');
             gaScript.async = true;
-            // ATNAUJINTA
             gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-EPPD6T6EQY';
             document.head.appendChild(gaScript);
-
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            // ATNAUJINTA
             gtag('config', 'G-EPPD6T6EQY');
-            console.log("Google Analytics įjungtas su ID: G-EPPD6T6EQY");
         }
     </script>
     
@@ -39,22 +35,23 @@
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo-link">
-                <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
-            </a>
-            <nav class="main-nav">
-                <a href="index.html" class="nav-link active">Galerijos</a>
-                <a href="about.html" class="nav-link">Apie mane</a>
-            </nav>
-        </div>
-    </header>
+    <!-- NAUJAS HERO BANERIS SU FONU -->
+    <section class="hero-background">
+        <header class="main-header main-header-transparent">
+            <div class="container">
+                <a href="index.html" class="logo-link">
+                    <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
+                </a>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link active">Galerijos</a>
+                    <a href="about.html" class="nav-link">Apie mane</a>
+                </nav>
+            </div>
+        </header>
 
-    <section class="hero-static">
-        <div class="hero-content" data-aos="fade-up">
-            <h1 class="hero-title">DP.PORTFOLIO</h1>
-            <p class="hero-tagline">
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">DP.PORTFOLIO</h1>
+            <p class="hero-tagline" data-aos-delay="200" data-aos="fade-up">
                 „Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“
             </p>
         </div>
@@ -62,11 +59,12 @@
             <span></span>
         </a>
     </section>
+    <!-- HERO BANERIO PABAIGA -->
 
     <main>
         <section class="gallery-sections" id="galleries">
             <div class="container">
-                <h2 class="section-title">Mano Galerijos</h2>
+                <h2 class="section-title" data-aos="fade-up">Mano Galerijos</h2>
                 <div class="category-grid" id="categoryGrid">
                     <!-- Category Covers will be inserted here by JavaScript -->
                 </div>
@@ -80,6 +78,7 @@
         </div>
     </footer>
 
+    <!-- Slapukų sutikimo langas -->
     <div id="cookie-consent-banner" class="cookie-banner hidden">
         <div class="container">
             <p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
@@ -87,6 +86,7 @@
         </div>
     </div>
 
+    <!-- Bendri skriptai -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 
