@@ -13,18 +13,19 @@
     <meta name="twitter:title" content="Galerija | DP.PORTFOLIO">
     <meta name="twitter:image" content="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
 
-    <!-- ATNAUJINTA: Google Analytics kodas -->
     <!-- Google tag (gtag.js) -->
     <script>
         function initGA() {
             const gaScript = document.createElement('script');
             gaScript.async = true;
+            // ATNAUJINTA
             gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-EPPD6T6EQY';
             document.head.appendChild(gaScript);
             
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+            // ATNAUJINTA
             gtag('config', 'G-EPPD6T6EQY');
             console.log("Google Analytics įjungtas su ID: G-EPPD6T6EQY");
         }
