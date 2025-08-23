@@ -1,85 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://portfolio.dominikphotofficial.lt/</loc>
+    <loc>https://portfolio.dominikphotofficial.lt/index.html</loc>
     <lastmod>2025-08-08</lastmod>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png</image:loc>
-      <image:caption>DP.PORTFOLIO by Dominik Šuškevič (Dominikphotofficial) logotipas.</image:caption>
-    </image:image>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://portfolio.dominikphotofficial.lt/index.html?lang=lt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.dominikphotofficial.lt/index.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://portfolio.dominikphotofficial.lt/index.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://portfolio.dominikphotofficial.lt/index.html?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio.dominikphotofficial.lt/index.html"/>
   </url>
   
   <url>
     <loc>https://portfolio.dominikphotofficial.lt/about.html</loc>
     <lastmod>2025-08-08</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://portfolio.dominikphotofficial.lt/about.html?lang=lt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.dominikphotofficial.lt/about.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://portfolio.dominikphotofficial.lt/about.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://portfolio.dominikphotofficial.lt/about.html?lang=ko"/>
   </url>
 
-  <!-- Atnaujintos ir naujos kategorijos -->
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=fotosesija</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <image:image><image:loc>https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg</image:loc><image:caption>Fotosesija. Autorius: Dominik Šuškevič.</image:caption></image:image>
-    <!-- ... visos kitos fotosesijos nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=miko-kipro-petrausku-namai</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <image:image><image:loc>https://i.postimg.cc/8k0XLvTx/miko-ir-kipro-petrausku-namai-01.jpg</image:loc><image:caption>Miko ir Kipro Petrauskų Namai. Autorius: Dominik Šuškevič.</image:caption></image:image>
-    <!-- ... visos kitos muziejaus nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=baltoji-kiele</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos kielės nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=cirkliskis-lithuania</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos Cirkliškio nuotraukos ... -->
-  </url>
+  <!-- Čia turėtų būti visos jūsų galerijų nuorodos pagal tą patį principą -->
   <url>
     <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=geles</loc>
     <lastmod>2025-08-08</lastmod>
     <priority>0.8</priority>
-    <!-- Senos gėlių nuotraukos -->
-    <image:image><image:loc>https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg</image:loc><image:caption>Gėlės. Autorius: Dominik Šuškevič.</image:caption></image:image>
-    <!-- ... visos kitos senos gėlių nuotraukos ... -->
-    <image:image><image:loc>https://i.postimg.cc/zBnF5pp9/flower-26.jpg</image:loc><image:caption>Gėlės. Autorius: Dominik Šuškevič.</image:caption></image:image>
-    <!-- Naujos gėlių nuotraukos -->
-    <image:image><image:loc>https://i.postimg.cc/QM6Nbm4p/venta-0.jpg</image:loc><image:caption>Gėlės ir gamta. Autorius: Dominik Šuškevič.</image:caption></image:image>
-    <image:image><image:loc>https://i.postimg.cc/Gp3hGVQL/venta-2.jpg</image:loc><image:caption>Gėlės ir gamta. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <xhtml:link rel="alternate" hreflang="lt" href="https://portfolio.dominikphotofficial.lt/gallery.html?category=geles&amp;lang=lt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.dominikphotofficial.lt/gallery.html?category=geles&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://portfolio.dominikphotofficial.lt/gallery.html?category=geles&amp;lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://portfolio.dominikphotofficial.lt/gallery.html?category=geles&amp;lang=ko"/>
   </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=gandras</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos gandrų nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=sventa-lithuania</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos Šventos nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=vdu-botanikos-sodas</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos VDU sodo nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=ivairios-akimirkos</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.7</priority>
-    <!-- ... visos įvairių akimirkų nuotraukos ... -->
-  </url>
+
+  <!-- ... ir t.t. visoms kitoms kategorijoms ... -->
   
 </urlset>
