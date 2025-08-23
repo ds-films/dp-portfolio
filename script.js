@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const BASE_URL = "https://portfolio.dominikphotofficial.lt/";
     const globalKeywords = "dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič";
     
-    // Duomenų bazė visoms kategorijoms
+    // Duomenų bazė visoms kategorijoms (lieka nepakitusi)
     const categoriesData = {
         "baltoji-kiele": { name: "Baltoji kielė", cover: "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", images: [ "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", "https://i.postimg.cc/1zKzQqwv/bird-02.jpg", "https://i.postimg.cc/1tf4rzVM/bird-03.jpg", "https://i.postimg.cc/Xv2p55qp/bird-04.jpg", "https://i.postimg.cc/gJQjSPvp/bird-05.jpg", "https://i.postimg.cc/GtvLXTLP/bird-06.jpg", "https://i.postimg.cc/hPqPfss2/bird-07.jpg", "https://i.postimg.cc/9FtXT9NC/bird-08.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijų galerija: Baltoji kielė. Unikalūs paukščių kadrai gamtoje.", keywords: `Baltoji kielė, paukščiai, gamtos fotografija, ${globalKeywords}` },
         "cirkliskis-lithuania": { name: "CIRKLIŠKIS | LITHUANIA", cover: "https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg", images: [ "https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg", "https://i.postimg.cc/6QzGhSj6/cirkliskis-02.jpg", "https://i.postimg.cc/g0pvs3Gs/cirkliskis-03.jpg", "https://i.postimg.cc/Hxx8v2Rw/cirkliskis-04.jpg", "https://i.postimg.cc/25jxmng6/cirkliskis-05.jpg", "https://i.postimg.cc/fRCxHJkh/cirkliskis-06.jpg", "https://i.postimg.cc/J4b3kTL0/cirkliskis-07.jpg", "https://i.postimg.cc/sx5W52bq/cirkliskis-08.jpg", "https://i.postimg.cc/MKbRTv7j/cirkliskis-09.jpg", "https://i.postimg.cc/YSjmbRJ1/cirkliskis-10-Glorija-Jancauskaite.jpg", "https://i.postimg.cc/D03JfTmg/cirkliskis-11.jpg", "https://i.postimg.cc/C1k5QQJf/cirkliskis-12.jpg", "https://i.postimg.cc/XJSdqFzd/cirkliskis-13.jpg", "https://i.postimg.cc/JhtPZbxF/cirkliskis-14.jpg", "https://i.postimg.cc/bvbqy2n7/Egle.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) nuotraukos iš Cirkliškio, Lietuvos. Paslaptingas kraštovaizdis ir portretai.", keywords: `Cirkliškis, Lietuva, gamta, peizažai, portretai, ${globalKeywords}` },
@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- SLAPUKŲ SUTIKIMO LOGIKA ---
+    // (lieka nepakitusi)
     const consentBanner = document.getElementById('cookie-consent-banner');
     const acceptBtn = document.getElementById('accept-cookies-btn');
-
     if (!localStorage.getItem('cookie_consent')) {
         if(consentBanner) consentBanner.classList.remove('hidden');
     } else if (typeof initGA === 'function') {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- LIGHTBOX LOGIKA ---
-    // (Visas lightbox kodas iš ankstesnio atsakymo lieka čia, nepakitęs)
+    // (lieka nepakitusi)
     let currentGalleryImages = [];
     let currentImageIndex = 0;
     const lightbox = createLightbox();
@@ -94,17 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowLeft') showPrevImage();
         if (e.key === 'Escape') closeLightbox();
     }
-
-    // --- SCROLL DOWN ARROW LOGIKA ---
-    const scrollDownArrow = document.querySelector('.scroll-down');
-    if (scrollDownArrow) {
-        scrollDownArrow.addEventListener('click', () => {
-            document.getElementById('galleries').scrollIntoView({ behavior: 'smooth' });
-        });
-    }
     
     // --- BENDRA PUSLAPIŲ LOGIKA ---
-    // (Visas likęs kodas iš ankstesnio atsakymo, susijęs su meta žymėmis, galerijų generavimu ir t.t., lieka čia)
+    // (lieka nepakitusi, išskyrus pašalintą slideshow logiką)
     function updateMetaTag(property, content, isOgOrName = 'name') {
         const selector = `meta[${isOgOrName}="${property}"]`;
         let metaTag = document.querySelector(selector);
