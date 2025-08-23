@@ -40,48 +40,133 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- LIGHTBOX LOGIKA ---
+    // (Visas lightbox kodas iš ankstesnio atsakymo lieka čia, nepakitęs)
     let currentGalleryImages = [];
     let currentImageIndex = 0;
     const lightbox = createLightbox();
-
-    function createLightbox() { /* ... (likusi lightbox logika nepakito) ... */ }
-    function openLightbox(images, index) { /* ... */ }
-    // ... visos kitos lightbox funkcijos ...
-    // (Visas lightbox kodas iš ankstesnio atsakymo lieka čia)
-    
-    // --- HERO SLIDESHOW LOGIKA (PAGRINDINIAM PUSLAPIUI) ---
-    const slideshowContainer = document.querySelector('.slideshow-background');
-    if (slideshowContainer) {
-        // Atrinkite kelias gražiausias nuotraukas fonui
-        const slideshowImages = [
-            "https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg", // Cirkliškis
-            "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", // Baltoji kielė
-            "https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg", // Šventa
-            "https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg", // Gėlės
-            "https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg" // Gandras
-        ];
-
-        slideshowImages.forEach(imgUrl => {
-            const slide = document.createElement('div');
-            slide.classList.add('slide');
-            slide.style.backgroundImage = `url(${imgUrl})`;
-            slideshowContainer.appendChild(slide);
-        });
-
-        const slides = document.querySelectorAll('.slideshow-background .slide');
-        let currentSlide = 0;
-
-        function changeSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        slides[0].classList.add('active'); // Parodom pirmą nuotrauką iškart
-        setInterval(changeSlide, 5000); // Keičiam kas 5 sekundes
+    function createLightbox() {
+        const lightboxElement = document.createElement('div');
+        lightboxElement.id = 'lightbox';
+        lightboxElement.classList.add('lightbox');
+        lightboxElement.innerHTML = `
+            <div class="lightbox-content">
+                <img src="" class="lightbox-image" alt="Didelė nuotrauka">
+            </div>
+            <button class="lightbox-close" aria-label="Uždaryti">&times;</button>
+            <button class="lightbox-prev" aria-label="Ankstesnė nuotrauka">&#10094;</button>
+            <button class="lightbox-next" aria-label="Kita nuotrauka">&#10095;</button>
+            <div class="lightbox-counter"></div>
+        `;
+        document.body.appendChild(lightboxElement);
+        const closeBtn = lightboxElement.querySelector('.lightbox-close');
+        const prevBtn = lightboxElement.querySelector('.lightbox-prev');
+        const nextBtn = lightboxElement.querySelector('.lightbox-next');
+        closeBtn.addEventListener('click', closeLightbox);
+        prevBtn.addEventListener('click', showPrevImage);
+        nextBtn.addEventListener('click', showNextImage);
+        return lightboxElement;
+    }
+    function openLightbox(images, index) {
+        currentGalleryImages = images;
+        currentImageIndex = index;
+        document.addEventListener('keydown', handleKeydown);
+        lightbox.classList.add('visible');
+        showImage(currentImageIndex);
+    }
+    function closeLightbox() {
+        document.removeEventListener('keydown', handleKeydown);
+        lightbox.classList.remove('visible');
+    }
+    function showImage(index) {
+        const imageElement = lightbox.querySelector('.lightbox-image');
+        const counterElement = lightbox.querySelector('.lightbox-counter');
+        imageElement.classList.remove('loaded');
+        setTimeout(() => {
+            imageElement.src = currentGalleryImages[index];
+            imageElement.onload = () => { imageElement.classList.add('loaded'); };
+        }, 150);
+        counterElement.textContent = `${index + 1} / ${currentGalleryImages.length}`;
+    }
+    function showNextImage() { currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length; showImage(currentImageIndex); }
+    function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; showImage(currentImageIndex); }
+    function handleKeydown(e) {
+        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'ArrowLeft') showPrevImage();
+        if (e.key === 'Escape') closeLightbox();
     }
 
-
+    // --- SCROLL DOWN ARROW LOGIKA ---
+    const scrollDownArrow = document.querySelector('.scroll-down');
+    if (scrollDownArrow) {
+        scrollDownArrow.addEventListener('click', () => {
+            document.getElementById('galleries').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+    
     // --- BENDRA PUSLAPIŲ LOGIKA ---
     // (Visas likęs kodas iš ankstesnio atsakymo, susijęs su meta žymėmis, galerijų generavimu ir t.t., lieka čia)
+    function updateMetaTag(property, content, isOgOrName = 'name') {
+        const selector = `meta[${isOgOrName}="${property}"]`;
+        let metaTag = document.querySelector(selector);
+        if (metaTag) metaTag.setAttribute('content', content);
+    }
+    const categoryGrid = document.getElementById('categoryGrid');
+    if (categoryGrid) {
+        Object.keys(categoriesData).forEach((categoryKey, index) => {
+            const category = categoriesData[categoryKey];
+            const link = document.createElement('a');
+            link.href = `gallery.html?category=${categoryKey}`;
+            link.classList.add('gallery-item-link');
+            link.setAttribute('data-aos', 'fade-up');
+            link.setAttribute('data-aos-delay', (index % 3) * 100);
+            link.innerHTML = `
+                <div class="gallery-item">
+                    <img src="${category.cover}" alt="${category.name} nuotraukų viršelis">
+                    <div class="overlay"><h3>${category.name}</h3></div>
+                </div>`;
+            categoryGrid.appendChild(link);
+        });
+    }
+    const galleryCategoryTitle = document.getElementById('galleryCategoryTitle');
+    const imageGrid = document.getElementById('imageGrid');
+    const breadcrumbsContainer = document.getElementById('breadcrumbs-container');
+    if (galleryCategoryTitle && imageGrid && breadcrumbsContainer) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryKey = urlParams.get('category');
+        const category = categoriesData[categoryKey];
+        if (category) {
+            const pageUrl = `${BASE_URL}gallery.html?category=${categoryKey}`;
+            document.title = `${category.name} | DP.PORTFOLIO`;
+            updateMetaTag('description', category.description);
+            updateMetaTag('keywords', category.keywords);
+            document.querySelector('link[rel="canonical"]').setAttribute('href', pageUrl);
+            updateMetaTag('og:title', `${category.name} | DP.PORTFOLIO`, 'property');
+            updateMetaTag('og:description', category.description, 'property');
+            updateMetaTag('og:url', pageUrl, 'property');
+            updateMetaTag('og:image', category.cover, 'property');
+            updateMetaTag('twitter:title', `${category.name} | DP.PORTFOLIO`);
+            updateMetaTag('twitter:description', category.description);
+            updateMetaTag('twitter:image', category.cover);
+            breadcrumbsContainer.innerHTML = `
+                <a href="index.html">Pagrindinis</a>
+                <span class="separator">/</span>
+                <a href="index.html">Galerijos</a>
+                <span class="separator">/</span>
+                <span>${category.name}</span>
+            `;
+            galleryCategoryTitle.textContent = category.name;
+            category.images.forEach((imageUrl, index) => {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = `${category.name} nuotrauka ${index + 1}`;
+                img.setAttribute('data-aos', 'fade-up');
+                img.setAttribute('data-aos-delay', index * 50);
+                img.addEventListener('click', () => openLightbox(category.images, index));
+                imageGrid.appendChild(img);
+            });
+        } else {
+            galleryCategoryTitle.textContent = "Kategorija nerasta";
+            imageGrid.innerHTML = "<p style='text-align: center; font-size: 1.2em;'>Atsiprašome, ši kategorija nerasta.</p>";
+        }
+    }
 });
