@@ -25,25 +25,98 @@ document.addEventListener('DOMContentLoaded', () => {
     const consentBanner = document.getElementById('cookie-consent-banner');
     const acceptBtn = document.getElementById('accept-cookies-btn');
 
-    // Patikriname, ar sutikimas jau duotas
     if (!localStorage.getItem('cookie_consent')) {
         consentBanner.classList.remove('hidden');
-    } else {
-        // Jei sutikimas duotas anksčiau, iškart įjungiame GA
-        if (typeof initGA === 'function') {
-            initGA();
-        }
+    } else if (typeof initGA === 'function') {
+        initGA();
+    }
+    
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookie_consent', 'true');
+            consentBanner.classList.add('hidden');
+            if (typeof initGA === 'function') {
+                initGA();
+            }
+        });
     }
 
-    // Paspaudus "Sutinku"
-    acceptBtn.addEventListener('click', () => {
-        localStorage.setItem('cookie_consent', 'true');
-        consentBanner.classList.add('hidden');
-        // Įjungiame GA tik po sutikimo
-        if (typeof initGA === 'function') {
-            initGA();
-        }
-    });
+    // --- NAUJA LIGHTBOX LOGIKA ---
+    let currentGalleryImages = [];
+    let currentImageIndex = 0;
+    const lightbox = createLightbox();
+
+    function createLightbox() {
+        const lightboxElement = document.createElement('div');
+        lightboxElement.id = 'lightbox';
+        lightboxElement.classList.add('lightbox');
+        lightboxElement.innerHTML = `
+            <div class="lightbox-content">
+                <img src="" class="lightbox-image" alt="Didelė nuotrauka">
+            </div>
+            <button class="lightbox-close" aria-label="Uždaryti">&times;</button>
+            <button class="lightbox-prev" aria-label="Ankstesnė nuotrauka">&#10094;</button>
+            <button class="lightbox-next" aria-label="Kita nuotrauka">&#10095;</button>
+            <div class="lightbox-counter"></div>
+        `;
+        document.body.appendChild(lightboxElement);
+
+        const closeBtn = lightboxElement.querySelector('.lightbox-close');
+        const prevBtn = lightboxElement.querySelector('.lightbox-prev');
+        const nextBtn = lightboxElement.querySelector('.lightbox-next');
+
+        closeBtn.addEventListener('click', closeLightbox);
+        prevBtn.addEventListener('click', showPrevImage);
+        nextBtn.addEventListener('click', showNextImage);
+        
+        return lightboxElement;
+    }
+
+    function openLightbox(images, index) {
+        currentGalleryImages = images;
+        currentImageIndex = index;
+        document.addEventListener('keydown', handleKeydown);
+        lightbox.classList.add('visible');
+        showImage(currentImageIndex);
+    }
+
+    function closeLightbox() {
+        document.removeEventListener('keydown', handleKeydown);
+        lightbox.classList.remove('visible');
+    }
+
+    function showImage(index) {
+        const imageElement = lightbox.querySelector('.lightbox-image');
+        const counterElement = lightbox.querySelector('.lightbox-counter');
+        
+        imageElement.classList.remove('loaded');
+        
+        setTimeout(() => {
+            imageElement.src = currentGalleryImages[index];
+            imageElement.onload = () => {
+                imageElement.classList.add('loaded');
+            };
+        }, 150); // Small delay for smooth transition
+
+        counterElement.textContent = `${index + 1} / ${currentGalleryImages.length}`;
+    }
+
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
+        showImage(currentImageIndex);
+    }
+
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+        showImage(currentImageIndex);
+    }
+    
+    function handleKeydown(e) {
+        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'ArrowLeft') showPrevImage();
+        if (e.key === 'Escape') closeLightbox();
+    }
+
 
     // --- PAGALBINĖS FUNKCIJOS ---
     function updateMetaTag(property, content, isOgOrName = 'name') {
@@ -52,17 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (metaTag) metaTag.setAttribute('content', content);
     }
     
-    // Lightbox funkcionalumas
-    const lightbox = document.createElement('div');
-    lightbox.id = 'lightbox';
-    lightbox.classList.add('lightbox', 'hidden');
-    document.body.appendChild(lightbox);
-    function openLightbox(imageUrl) {
-        lightbox.innerHTML = `<img src="${imageUrl}" class="lightbox-content" alt="Didelė nuotrauka">`;
-        lightbox.classList.remove('hidden');
-    }
-    lightbox.addEventListener('click', () => lightbox.classList.add('hidden'));
-
     // --- PUSLAPIO LOGIKA ---
 
     // Logika pagrindiniam puslapiui (index.html)
@@ -127,7 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.alt = `${category.name} nuotrauka ${index + 1}`;
                 img.setAttribute('data-aos', 'fade-up');
                 img.setAttribute('data-aos-delay', index * 50);
-                img.addEventListener('click', () => openLightbox(imageUrl));
+                // Atidarome naują lightbox su visu galerijos sąrašu ir dabartiniu indeksu
+                img.addEventListener('click', () => openLightbox(category.images, index));
                 imageGrid.appendChild(img);
             });
         } else {
