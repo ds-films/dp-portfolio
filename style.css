@@ -5,6 +5,7 @@
     --text-color: #113939; /* Deep teal for text */
     --light-text-color: #f0f0f0; /* Off-white for contrast on dark backgrounds */
     --overlay-bg: rgba(17, 57, 57, 0.85); /* Slightly darker overlay */
+    --subtle-bg-color: #f8f8f8;
 }
 
 * {
@@ -22,68 +23,113 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased; /* Better font rendering */
-    -moz-osx-font-smoothing: grayscale; /* Better font rendering */
-    overflow-x: hidden; /* Prevent horizontal scroll from AOS animations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
-/* Reusable container for consistent layout */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Typography styles */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-color);
+h1, h2, h3 {
     font-weight: 600;
-    margin-bottom: 15px;
 }
 
-/* Header/Hero Section */
-.hero {
+.btn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0c2b2b;
+}
+
+/* Header and Navigation */
+.main-header {
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
     background-color: var(--background-color);
-    padding: 100px 0;
-    text-align: center;
-    border-bottom: 1px solid rgba(17, 57, 57, 0.1); /* Subtle separator */
 }
 
-.site-title {
-    font-size: 3.5em; /* Large and prominent */
-    font-weight: 700;
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: inline-block;
+}
+
+.logo-image {
+    height: 40px; /* Adjust logo height */
+    width: auto;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
     position: relative;
-    display: inline-block; /* For the underline effect */
-    color: var(--primary-color);
-    margin-bottom: 10px;
+    padding-bottom: 5px;
 }
 
-.site-title::after {
+.nav-link::after {
     content: '';
     position: absolute;
-    left: 50%;
-    bottom: -10px;
-    transform: translateX(-50%);
-    width: 60px; /* Initial width */
-    height: 3px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
     background-color: var(--primary-color);
-    transition: width 0.3s ease; /* Smooth hover effect */
+    transition: width 0.3s ease;
 }
 
-.site-title:hover::after {
-    width: 100%; /* Expands on hover */
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
 }
 
-.site-tagline {
-    font-size: 1.2em;
-    font-weight: 400;
+/* Breadcrumbs */
+.breadcrumbs {
+    padding: 20px 0;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.breadcrumbs a {
     color: var(--text-color);
-    margin-top: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Section titles with consistent styling */
-.section-title, .gallery-title {
-    font-size: 2.5em;
+.breadcrumbs a:hover {
+    color: #000;
+}
+
+.breadcrumbs .separator {
+    margin: 0 10px;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2.8em;
     text-align: center;
     margin-bottom: 40px;
     position: relative;
@@ -92,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(-50%);
 }
 
-.section-title::after, .gallery-title::after {
+.section-title::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -101,33 +147,33 @@ h1, h2, h3, h4, h5, h6 {
     width: 80px;
     height: 3px;
     background-color: var(--primary-color);
-    transition: width 0.3s ease;
 }
 
-.section-title:hover::after, .gallery-title:hover::after {
-    width: 100px;
+.gallery-title {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-/* About Section */
-.about-section {
+
+/* About Section Short (on index.html) */
+.about-section-short {
     padding: 80px 0;
     text-align: center;
 }
-
-.about-section p {
+.about-section-short p {
     max-width: 800px;
     margin: 0 auto;
     font-size: 1.1em;
     line-height: 1.8;
 }
 
-/* Gallery Sections (for index.html) */
+/* Gallery Section (index.html) */
 .gallery-sections {
     padding: 80px 0;
-    background-color: #f8f8f8; /* Slightly off-white for visual separation */
+    background-color: var(--subtle-bg-color);
 }
 
-/* Category Grid */
 .category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -135,11 +181,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 50px;
 }
 
-/* Styling for category cover links */
 .gallery-item-link {
     text-decoration: none;
     color: inherit;
-    display: block; /* Ensure the whole area is clickable */
+    display: block;
 }
 
 .gallery-item {
@@ -152,18 +197,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-item img {
     width: 100%;
-    height: 250px; /* Fiksuotas aukštis tvarkingam tinkleliui */
-    object-fit: cover; /* SVARBU: Viršeliai apkerpami, kad būtų vienodi */
+    height: 250px;
+    object-fit: cover;
     display: block;
 }
 
-/* Overlay for category titles */
 .overlay {
     position: absolute;
     top: 0;
@@ -193,9 +237,9 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
-/* Full Gallery View (for individual gallery pages) */
+/* Full Gallery View (gallery.html) */
 .full-gallery {
-    padding: 80px 0;
+    padding: 0 0 80px 0; /* No top padding, breadcrumbs handle it */
 }
 
 .image-grid {
@@ -206,8 +250,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .image-grid img {
-    width: 100%; /* Paveikslėlis užims visą stulpelio plotį */
-    height: auto; /* SVARBU: Aukštis prisitaikys automatiškai, išlaikant proporcijas */
+    width: 100%;
+    height: auto;
     display: block;
     border-radius: 6px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -231,15 +275,69 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    text-decoration: none; /* If it's an anchor */
+    text-decoration: none;
     width: fit-content;
 }
 
 .back-to-categories:hover {
-    background-color: #0c2b2b; /* Darker shade */
+    background-color: #0c2b2b;
     transform: translateY(-2px);
 }
 
+/* About Page Section */
+.about-page-section {
+    padding: 0 0 80px 0;
+}
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+
+/* Cookie Consent Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(17, 57, 57, 0.95);
+    color: var(--light-text-color);
+    padding: 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: transform 0.5s ease;
+}
+
+.cookie-banner.hidden {
+    transform: translateY(100%);
+}
+
+.cookie-banner .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cookie-banner p {
+    margin: 0;
+    font-size: 0.9em;
+}
 
 /* Footer */
 .footer {
@@ -247,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--light-text-color);
     text-align: center;
     padding: 40px 0;
-    margin-top: 50px;
+    margin-top: auto; /* Pushes footer to the bottom */
     font-size: 0.9em;
 }
 
@@ -262,7 +360,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1002;
     cursor: zoom-out;
 }
 
@@ -273,8 +371,8 @@ h1, h2, h3, h4, h5, h6 {
 .lightbox-content {
     max-width: 90%;
     max-height: 90%;
-    object-fit: contain; /* Show full image in lightbox */
-    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Subtle shadow */
+    object-fit: contain;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
     animation: fadeIn 0.3s ease-out;
 }
 
@@ -283,27 +381,15 @@ h1, h2, h3, h4, h5, h6 {
     to { opacity: 1; transform: scale(1); }
 }
 
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .hero { padding: 80px 0; }
-    .site-title { font-size: 2.8em; }
-    .site-tagline { font-size: 1em; }
-    .section-title, .gallery-title { font-size: 2em; }
-    .about-section p { font-size: 1em; }
-    .category-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .overlay h3 { font-size: 1.5em; }
-    .image-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-}
-
-@media (max-width: 480px) {
-    .hero { padding: 60px 0; }
-    .site-title { font-size: 2.2em; }
-    .site-tagline { font-size: 0.9em; }
-    .section-title, .gallery-title { font-size: 1.8em; }
-    .about-section, .gallery-sections, .full-gallery { padding: 50px 0; }
-    .category-grid { grid-template-columns: 1fr; gap: 15px; }
-    .overlay h3 { font-size: 1.3em; }
-    .image-grid { grid-template-columns: 1fr; gap: 10px; }
-    .back-to-categories { font-size: 1em; padding: 10px 20px; }
-}
+    .main-header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .section-title, .gallery-title { font-size: 2.2em; }
+    .cookie-banner .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    }
