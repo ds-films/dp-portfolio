@@ -1,8 +1,25 @@
 /* Global variables and resets */
-:root { --primary-color: #113939; --background-color: #ffffff; --text-color: #113939; --light-text-color: #f0f0f0; --overlay-bg: rgba(17, 57, 57, 0.85); --subtle-bg-color: #f8f8f8; }
+:root {
+    --primary-color: #113939; /* Deep teal */
+    --background-color: #ffffff; /* Pure white */
+    --text-color: #113939; /* Deep teal for text */
+    --light-text-color: #f0f0f0; /* Off-white for contrast on dark backgrounds */
+    --overlay-bg: rgba(17, 57, 57, 0.85); /* Slightly darker overlay */
+    --subtle-bg-color: #f8f8f8;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Jost', sans-serif; background-color: var(--background-color); color: var(--text-color); line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 h1, h2, h3 { font-weight: 600; }
 .btn { background-color: var(--primary-color); color: var(--background-color); padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 1em; transition: background-color 0.3s ease; }
@@ -18,150 +35,119 @@ h1, h2, h3 { font-weight: 600; }
 .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.3s ease; }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-/* --- ATNAUJINTA: HERO SLIDESHOW ir TEXT CLIPPING --- */
-.hero-slideshow {
-    position: relative;
-    height: 85vh; /* Šiek tiek aukštesnis, kad efektas būtų įspūdingesnis */
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    color: white; /* Bendra spalva aprašymui */
-}
+/* Breadcrumbs */
+.breadcrumbs { padding: 20px 0; font-size: 0.9em; color: #888; }
+.breadcrumbs a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+.breadcrumbs a:hover { color: #000; }
+.breadcrumbs .separator { margin: 0 10px; }
 
-.slideshow-background {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-}
-
-.slideshow-background img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    animation: zoomPan 20s infinite linear alternate; /* Sklandesnė animacija */
-}
-
-.slideshow-background img.active {
-    opacity: 1;
-}
-
-/* Tamsus filtras visam fonui */
-.hero-slideshow::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Tamsesnis filtras, kad tekstas išryškėtų */
-    z-index: 2;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 3;
-    width: 100%;
-}
-
-.hero-title-clipped {
-    font-size: clamp(3rem, 12vw, 8rem); /* Adaptyvus šrifto dydis */
-    font-weight: 900; /* Labai storas šriftas geriausiam efektui */
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 20px;
-    
-    /* MAGIJA PRASIDEDA ČIA */
-    color: transparent; /* Padaro tekstą permatomą */
-    -webkit-background-clip: text;
-    background-clip: text;
-    
-    /* Fonas, kuris bus matomas per tekstą */
-    background-size: cover;
-    background-position: center;
-    
-    /* Animacija fonui */
-    animation: textBackgroundAnimation 20s infinite linear;
-}
-
-.hero-description {
-    max-width: 550px;
-    font-size: 1.2em;
-    line-height: 1.7;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8); /* Stipresnis šešėlis, kad būtų įskaitoma */
-}
-
-/* Animacijos */
-@keyframes zoomPan {
-    0% { transform: scale(1.0) translate(0, 0); }
-    100% { transform: scale(1.1) translate(-2%, 2%); }
-}
-
-@keyframes textBackgroundAnimation {
-    0%   { background-image: url('https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg'); }
-    25%  { background-image: url('https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg'); }
-    50%  { background-image: url('https://i.postimg.cc/FKJ0hGDh/Love.jpg'); }
-    75%  { background-image: url('https://i.postimg.cc/bvbqy2n7/Egle.jpg'); }
-    100% { background-image: url('https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg'); }
-}
-
-
-/* --- LIKĘ STILIAI (NEPAKEISTI) --- */
 /* Section Titles */
-.section-title { font-size: 2.8em; text-align: center; margin-bottom: 60px; position: relative; }
-.section-title::after { content: ''; position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%); width: 80px; height: 3px; background-color: var(--primary-color); }
+.section-title, .gallery-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+.section-title::after { content: ''; position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%); width: 80px; height: 3px; background-color: var(--primary-color); }
 
-/* Featured Works */
-.featured-works { padding: 80px 0; background-color: var(--subtle-bg-color); }
-.featured-grid-scroll { overflow-x: auto; padding-bottom: 20px; scrollbar-width: thin; scrollbar-color: var(--primary-color) #e0e0e0; }
-.featured-grid-scroll::-webkit-scrollbar { height: 8px; }
-.featured-grid-scroll::-webkit-scrollbar-track { background: #e0e0e0; }
-.featured-grid-scroll::-webkit-scrollbar-thumb { background-color: var(--primary-color); border-radius: 6px; }
-.featured-grid { display: flex; gap: 20px; min-width: max-content; }
-.featured-item img { height: 300px; width: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.featured-item img:hover { transform: scale(1.03); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+/* About Section Short (on index.html) */
+.about-section-short { padding: 80px 0; text-align: center; }
+.about-section-short p { max-width: 800px; margin: 0 auto; font-size: 1.1em; line-height: 1.8; }
 
-/* Main Gallery Section */
-.gallery-sections { padding: 80px 0; }
+/* Gallery Section (index.html) */
+.gallery-sections { padding: 80px 0; background-color: var(--subtle-bg-color); }
 .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
 .gallery-item-link { text-decoration: none; color: inherit; display: block; }
 .gallery-item { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .gallery-item:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
 .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; }
-.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: flex-end; justify-content: center; opacity: 1; transition: opacity 0.3s ease; border-radius: 8px; padding: 20px; }
-.overlay.no-title { background: rgba(0,0,0,0.4); opacity: 0; }
-.gallery-item:hover .overlay.no-title { opacity: 1; }
+.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--overlay-bg); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; border-radius: 8px; }
+.gallery-item:hover .overlay { opacity: 1; }
+.overlay h3 { color: var(--light-text-color); font-size: 1.8em; text-align: center; margin: 0; padding: 20px; border-bottom: 2px solid var(--light-text-color); line-height: 1.2; }
 
-/* About Page */
+/* Full Gallery View (gallery.html) */
+.full-gallery { padding: 0 0 80px 0; }
+.image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 50px; }
+.image-grid img { width: 100%; height: auto; display: block; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.image-grid img:hover { transform: scale(1.02); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+
+/* About Page Section */
 .about-page-section { padding: 0 0 80px 0; }
-.about-content { max-width: 800px; margin: 0 auto; }
+.about-content { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 800px; margin: 0 auto; text-align: center; }
 .about-text h2 { font-size: 2em; margin-bottom: 20px; }
 .about-text p { font-size: 1.1em; margin-bottom: 15px; color: #333; }
-.about-quote { margin-top: 40px; padding-left: 20px; border-left: 3px solid var(--primary-color); font-style: italic; font-size: 1.2em; color: #555; }
+
+/* --- Promo Slideshow --- */
+.promo-slideshow {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Užima 60% ekrano aukščio */
+    min-height: 400px;
+    max-height: 600px;
+    overflow: hidden;
+    background-color: #222; /* Fonas, kol kraunasi pirma nuotrauka */
+}
+
+.slideshow-container {
+    width: 100%;
+    height: 100%;
+}
+
+.slideshow-container .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Sklandus perėjimas */
+    z-index: 1;
+}
+
+.slideshow-container .slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slideshow-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Švelnus patamsinimas geresniam vaizdui */
+    z-index: 3;
+}
+
+
+/* Cookie Consent Banner */
+.cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(17, 57, 57, 0.95); color: var(--light-text-color); padding: 20px; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); z-index: 1001; transition: transform 0.5s ease; }
+.cookie-banner.hidden { transform: translateY(100%); }
+.cookie-banner .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.cookie-banner p { margin: 0; font-size: 0.9em; }
 
 /* Footer */
-.main-footer { background-color: var(--primary-color); color: var(--light-text-color); padding: 60px 0 0; }
-.main-footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
-.footer-quote p { font-style: italic; color: #ccc; line-height: 1.7; border-left: 2px solid #555; padding-left: 20px; }
-.footer-contacts h3, .footer-social h3 { font-weight: 600; margin-bottom: 15px; }
-.footer-contacts p, .footer-social a { color: #ccc; text-decoration: none; display: block; margin-bottom: 8px; transition: color 0.3s ease; }
-.footer-contacts a:hover, .footer-social a:hover { color: white; }
-.footer-bottom { text-align: center; padding: 20px 0; margin-top: 40px; border-top: 1px solid #3a5f5f; font-size: 0.9em; }
+.footer { background-color: var(--primary-color); color: var(--light-text-color); text-align: center; padding: 40px 0; margin-top: auto; font-size: 0.9em; }
 
-/* Lightbox, Cookie Banner ir kiti stiliai lieka nepakitę */
-/* ... */
+/* Lightbox styles */
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); display: flex; justify-content: center; align-items: center; z-index: 1002; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.lightbox.visible { opacity: 1; visibility: visible; }
+.lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
+.lightbox-image { max-width: 100%; max-height: 100%; object-fit: contain; box-shadow: 0 0 25px rgba(0,0,0,0.5); opacity: 0; transform: scale(0.95); transition: opacity 0.3s ease, transform 0.3s ease; }
+.lightbox-image.loaded { opacity: 1; transform: scale(1); }
+.lightbox-close, .lightbox-prev, .lightbox-next { position: fixed; background: none; border: none; color: white; font-size: 2.5em; cursor: pointer; transition: transform 0.2s ease, color 0.2s ease; z-index: 1003; padding: 10px; line-height: 1; text-shadow: 0 0 5px rgba(0,0,0,0.5); }
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { color: #ccc; transform: scale(1.1); }
+.lightbox-close { top: 20px; right: 20px; font-size: 3em; }
+.lightbox-prev { top: 50%; left: 20px; transform: translateY(-50%); }
+.lightbox-prev:hover { transform: translateY(-50%) scale(1.1); }
+.lightbox-next { top: 50%; right: 20px; transform: translateY(-50%); }
+.lightbox-next:hover { transform: translateY(-50%) scale(1.1); }
+.lightbox-counter { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; background-color: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 15px; font-size: 1em; z-index: 1003; }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
-    .main-footer .container { grid-template-columns: 1fr; text-align: center; }
-    .footer-quote p { border-left: none; padding-left: 0; }
-}
 @media (max-width: 768px) {
     .main-header .container { flex-direction: column; gap: 20px; }
-    .hero-slideshow { height: 90vh; }
-    .hero-title-clipped { font-size: clamp(2.5rem, 15vw, 6rem); } /* Šiek tiek mažesnis ant mažų ekranų */
-    .hero-description { font-size: 1.1em; max-width: 90%; margin: 0 auto; }
-    .featured-item img { height: 250px; }
+    .logo-image { height: 45px; }
+    .section-title, .gallery-title { font-size: 2.2em; }
+    .cookie-banner .container { flex-direction: column; text-align: center; }
+    .lightbox-prev, .lightbox-next { font-size: 2em; left: 10px; right: auto; }
+    .lightbox-next { left: auto; right: 10px; }
 }
