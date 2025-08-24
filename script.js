@@ -1,175 +1,168 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // --- BENDRA INICIALIZACIJA ---
-    AOS.init({
-        duration: 1000,
-        once: true,
-        mirror: false,
-    });
+/* Global variables and resets */
+:root {
+    --primary-color: #113939;
+    --background-color: #ffffff;
+    --text-color: #113939;
+    --light-text-color: #f0f0f0;
+    --overlay-bg: rgba(17, 57, 57, 0.85);
+    --subtle-bg-color: #f8f8f8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background-color: var(--background-color); color: var(--text-color); line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+h1, h2, h3 { font-weight: 600; }
+.btn { background-color: var(--primary-color); color: var(--background-color); padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 1em; transition: background-color 0.3s ease; }
+.btn:hover { background-color: #0c2b2b; }
 
-    const BASE_URL = "https://portfolio.dominikphotofficial.lt/";
-    const globalKeywords = "dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič";
-    
-    // Duomenų bazė visoms kategorijoms
-    const categoriesData = {
-        "fotosesija": { name: "Fotosesija", cover: "https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg", images: [ "https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg", "https://i.postimg.cc/MK4kZ4cM/fotosesija-02.jpg", "https://i.postimg.cc/rmq3Y2Hb/fotosesija-03.jpg", "https://i.postimg.cc/YCm5v3gX/fotosesija-04.jpg", "https://i.postimg.cc/25RPhZ7C/fotosesija-05.jpg", "https://i.postimg.cc/TwQSzHMP/fotosesija-06.jpg", "https://i.postimg.cc/8cK26XtY/fotosesija-07.jpg", "https://i.postimg.cc/nV3bgMp1/fotosesija-08.jpg", "https://i.postimg.cc/TYhM6GPv/fotosesija-09.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) portretų ir asmeninių fotosesijų galerija.", keywords: `fotosesija, portretai, asmeninė fotosesija, ${globalKeywords}` },
-        "miko-kipro-petrausku-namai": { name: "Miko ir Kipro Petrauskų Namai", cover: "https://i.postimg.cc/8k0XLvTx/miko-ir-kipro-petrausku-namai-01.jpg", images: [ "https://i.postimg.cc/8k0XLvTx/miko-ir-kipro-petrausku-namai-01.jpg", "https://i.postimg.cc/VL0GgN6v/miko-ir-kipro-petrausku-namai-02.jpg", "https://i.postimg.cc/DwqCVY1K/miko-ir-kipro-petrausku-namai-03.jpg", "https://i.postimg.cc/TPftTqc5/miko-ir-kipro-petrausku-namai-04.jpg", "https://i.postimg.cc/wBpG7d9v/miko-ir-kipro-petrausku-namai-05.jpg", "https://i.postimg.cc/G2M778G8/miko-ir-kipro-petrausku-namai-06.jpg", "https://i.postimg.cc/GtHMZLxM/miko-ir-kipro-petrausku-namai-07.jpg", "https://i.postimg.cc/qqSmrPmp/miko-ir-kipro-petrausku-namai-08.jpg", "https://i.postimg.cc/Ls30P0sV/miko-ir-kipro-petrausku-namai-09.jpg", "https://i.postimg.cc/0jQ3PdP0/miko-ir-kipro-petrausku-namai-10.jpg", "https://i.postimg.cc/9FDSkpxW/miko-ir-kipro-petrausku-namai-11.jpg", "https://i.postimg.cc/xjxhg73x/miko-ir-kipro-petrausku-namai-12.jpg", "https://i.postimg.cc/VvVh6rNQ/miko-ir-kipro-petrausku-namai-13.jpg", "https://i.postimg.cc/g29MTPXD/miko-ir-kipro-petrausku-namai-14.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijos iš Miko ir Kipro Petrauskų namų.", keywords: `Mikas Petrauskas, Kipras Petrauskas, muziejus, Kaunas, ${globalKeywords}` },
-        "baltoji-kiele": { name: "Baltoji kielė", cover: "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", images: [ "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", "https://i.postimg.cc/1zKzQqwv/bird-02.jpg", "https://i.postimg.cc/1tf4rzVM/bird-03.jpg", "https://i.postimg.cc/Xv2p55qp/bird-04.jpg", "https://i.postimg.cc/gJQjSPvp/bird-05.jpg", "https://i.postimg.cc/GtvLXTLP/bird-06.jpg", "https://i.postimg.cc/hPqPfss2/bird-07.jpg", "https://i.postimg.cc/9FtXT9NC/bird-08.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijų galerija: Baltoji kielė.", keywords: `Baltoji kielė, paukščiai, gamtos fotografija, ${globalKeywords}` },
-        "cirkliskis-lithuania": { name: "CIRKLIŠKIS | LITHUANIA", cover: "https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg", images: [ "https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg", "https://i.postimg.cc/6QzGhSj6/cirkliskis-02.jpg", "https://i.postimg.cc/g0pvs3Gs/cirkliskis-03.jpg", "https://i.postimg.cc/Hxx8v2Rw/cirkliskis-04.jpg", "https://i.postimg.cc/25jxmng6/cirkliskis-05.jpg", "https://i.postimg.cc/fRCxHJkh/cirkliskis-06.jpg", "https://i.postimg.cc/J4b3kTL0/cirkliskis-07.jpg", "https://i.postimg.cc/sx5W52bq/cirkliskis-08.jpg", "https://i.postimg.cc/MKbRTv7j/cirkliskis-09.jpg", "https://i.postimg.cc/YSjmbRJ1/cirkliskis-10-Glorija-Jancauskaite.jpg", "https://i.postimg.cc/D03JfTmg/cirkliskis-11.jpg", "https://i.postimg.cc/C1k5QQJf/cirkliskis-12.jpg", "https://i.postimg.cc/XJSdqFzd/cirkliskis-13.jpg", "https://i.postimg.cc/JhtPZbxF/cirkliskis-14.jpg", "https://i.postimg.cc/bvbqy2n7/Egle.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) nuotraukos iš Cirkliškio, Lietuvos.", keywords: `Cirkliškis, Lietuva, gamta, peizažai, portretai, ${globalKeywords}` },
-        "geles": { name: "Gėlės", cover: "https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg", images: [ "https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg", "https://i.postimg.cc/mrM1vkgD/Flower-02.jpg", "https://i.postimg.cc/zXthW4QJ/Flower-03.jpg", "https://i.postimg.cc/J08N6J3M/Flower-04.jpg", "https://i.postimg.cc/VNSWdzLQ/Flower-05.jpg", "https://i.postimg.cc/x887dW7X/Flower-06.jpg", "https://i.postimg.cc/7YTsQMyr/Flower-07.jpg", "https://i.postimg.cc/L6nK41Kx/Flower-08.jpg", "https://i.postimg.cc/bJgcr0wB/Flower-09.jpg", "https://i.postimg.cc/SsD3kyZ0/Flower-10.jpg", "https://i.postimg.cc/sXVqkB49/Flower-11.jpg", "https://i.postimg.cc/9FK3DQcC/Flower-12.jpg", "https://i.postimg.cc/DZn37pnG/Flower-13.jpg", "https://i.postimg.cc/rs5hzMjF/Flower-14.jpg", "https://i.postimg.cc/V6xGYdjV/Flower-15.jpg", "https://i.postimg.cc/SxhB6tYv/Flower-16.jpg", "https://i.postimg.cc/SQ1JRC55/Flower-17.jpg", "https://i.postimg.cc/SsyJ2rm0/Flower-18.jpg", "https://i.postimg.cc/GmG2XN2w/Flower-19.jpg", "https://i.postimg.cc/sgjWZsmH/Flower-20.jpg", "https://i.postimg.cc/c44YvdX9/Flower-21.jpg", "https://i.postimg.cc/02J2N37M/Flower-22.jpg", "https://i.postimg.cc/cJ5LCNk3/Flower-23.jpg", "https://i.postimg.cc/qBcXtb0R/Flower-24.jpg", "https://i.postimg.cc/nrWW93b0/Flower-25.jpg", "https://i.postimg.cc/zBnF5pp9/flower-26.jpg", "https://i.postimg.cc/QM6Nbm4p/venta-0.jpg", "https://i.postimg.cc/Gp3hGVQL/venta-2.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) gėlių grožio galerija.", keywords: `gėlės, makro fotografija, gamta, botanika, ${globalKeywords}` },
-        "gandras": { name: "GANDRAS", cover: "https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg", images: [ "https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg", "https://i.postimg.cc/L67YCL3f/Gandras-02.jpg", "https://i.postimg.cc/NFsmttKH/Gandras-03.jpg", "https://i.postimg.cc/9Q74v0Lk/Gandras-04.jpg", "https://i.postimg.cc/s2PMg8d9/Gandras-05.jpg", "https://i.postimg.cc/d1BZ4f5t/Gandras-06.jpg", "https://i.postimg.cc/501F5JqR/Gandras-07.jpg", "https://i.postimg.cc/Nj9TBpjp/Gandras-08.jpg", "https://i.postimg.cc/ZYH6cWQF/Gandras-09.jpg", "https://i.postimg.cc/CLKk6FTy/Gandras-10.jpg", "https://i.postimg.cc/RVbfkj4W/Gandras-11.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) gandrų fotografijos.", keywords: `gandras, paukščiai, Lietuvos gamta, ${globalKeywords}` },
-        "sventa-lithuania": { name: "ŠVENTA | LITHUANIA", cover: "https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg", images: [ "https://i.postimg.cc/2Sr6XGB1/sventa-02.jpg", "https://i.postimg.cc/FFbXn4bx/sventa-03.jpg", "https://i.postimg.cc/28wbYgYQ/sventa-04.jpg", "https://i.postimg.cc/vZTBsB3y/sventa-05.jpg", "https://i.postimg.cc/cJVGP15F/sventa-06.jpg", "https://i.postimg.cc/QdCLtK26/sventa-07.jpg", "https://i.postimg.cc/jqck7dQB/sventa-08.jpg", "https://i.postimg.cc/d35HP4VJ/sventa-09.jpg", "https://i.postimg.cc/QChwrFgJ/sventa-10.jpg", "https://i.postimg.cc/LXzw7tPs/sventa-11.jpg", "https://i.postimg.cc/FzpqFhD5/sventa-12.jpg", "https://i.postimg.cc/jqhdnN1K/sventa-13.jpg", "https://i.postimg.cc/k4FKLGgC/sventa-14.jpg", "https://i.postimg.cc/pLcHYJQb/sventa-15.jpg", "https://i.postimg.cc/qMtg3gH7/sventa-16.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijų galerija: Šventa, Lietuva.", keywords: `Šventa, Lietuva, kraštovaizdis, gamta, ${globalKeywords}` },
-        "vdu-botanikos-sodas": { name: "VDU | BOTANIKOS SODAS", cover: "https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg", images: [ "https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg", "https://i.postimg.cc/FKvBSf85/vdu-botanikos-sodas-02.jpg", "https://i.postimg.cc/W4SXJ50g/vdu-botanikos-sodas-03.jpg", "https://i.postimg.cc/Wzx91tgy/vdu-botanikos-sodas-04.jpg", "https://i.postimg.cc/vBH2PJG0/vdu-botanikos-sodas-05.jpg", "https://i.postimg.cc/RV3yxxK8/vdu-botanikos-sodas-06.jpg", "https://i.postimg.cc/pLf0PWT0/vdu-botanikos-sodas-07.jpg", "https://i.postimg.cc/zXfwXTxL/vdu-botanikos-sodas-08.jpg", "https://i.postimg.cc/6QCn1cpP/vdu-botanikos-sodas-09.jpg", "https://i.postimg.cc/L60tqhWx/vdu-botanikos-sodas-10.jpg", "https://i.postimg.cc/kg6xWq3q/vdu-botanikos-sodas-11.jpg", "https://i.postimg.cc/zvGhv1Fm/vdu-botanikos-sodas-12.jpg", "https://i.postimg.cc/XJ8FnvFc/vdu-botanikos-sodas-13.jpg", "https://i.postimg.cc/4NntTs3V/vdu-botanikos-sodas-14.jpg", "https://i.postimg.cc/TYSbdFyS/vdu-botanikos-sodas-15.jpg", "https://i.postimg.cc/Z5ddCHpq/vdu-botanikos-sodas-16.jpg", "https://i.postimg.cc/13kDH2s6/vdu-botanikos-sodas-17.jpg", "https://i.postimg.cc/501LczH2/vdu-botanikos-sodas-18.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijų galerija: VDU Botanikos sodas Kaune.", keywords: `VDU Botanikos sodas, Kaunas, botanika, ${globalKeywords}` },
-        "ivairios-akimirkos": { name: "Įvairios Akimirkos", cover: "https://i.postimg.cc/Zq9CrRdH/image.jpg", images: [ "https://i.postimg.cc/Zq9CrRdH/image.jpg", "https://i.postimg.cc/ZR83dRGg/Latvija-riga-namas.jpg", "https://i.postimg.cc/FKJ0hGDh/Love.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) įvairių akimirkų kolekcija.", keywords: `įvairios akimirkos, menas, kelionės, meilė, ${globalKeywords}` }
-    };
+/* --- HERO BANERIS SU VIENA NUOTRAUKA --- */
+.hero-background {
+    position: relative;
+    height: 90vh; 
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    background-image: url('https://i.postimg.cc/jqck7dQB/sventa_08.jpg'); /* JŪSŲ NUOTRAUKA */
+    background-size: cover;
+    background-position: center;
+}
 
-    // --- SLAPUKŲ SUTIKIMO LOGIKA ---
-    const consentBanner = document.getElementById('cookie-consent-banner');
-    const acceptBtn = document.getElementById('accept-cookies-btn');
-    if (!localStorage.getItem('cookie_consent')) {
-        if(consentBanner) consentBanner.classList.remove('hidden');
-    } else if (typeof initGA === 'function') {
-        initGA();
-    }
-    if (acceptBtn) {
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('cookie_consent', 'true');
-            consentBanner.classList.add('hidden');
-            if (typeof initGA === 'function') {
-                initGA();
-            }
-        });
-    }
+/* Tamsus filtras, kad tekstas būtų geriau matomas */
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+    z-index: 1;
+}
 
-    // --- HERO SLIDESHOW LOGIKA ---
-    const slideshowContainer = document.querySelector('.slideshow-background');
-    if (slideshowContainer) {
-        const slideshowImages = [
-            "https://i.postimg.cc/QM6Nbm4p/Šventa_-0.jpg",
-            "https://i.postimg.cc/jqck7dQB/sventa_08.jpg",
-            "https://i.postimg.cc/pLf0PWT0/vdu-botanikos-sodas_07.jpg"
-        ];
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+.hero-title { font-size: clamp(3em, 10vw, 5em); font-weight: 700; text-shadow: 0 4px 15px rgba(0,0,0,0.5); margin-bottom: 20px; }
+.hero-tagline { font-size: clamp(1em, 2.5vw, 1.2em); font-weight: 300; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.7; max-width: 600px; margin: 0 auto; }
 
-        slideshowImages.forEach(imgUrl => {
-            const slide = document.createElement('div');
-            slide.classList.add('slide');
-            slide.style.backgroundImage = `url(${imgUrl})`;
-            slideshowContainer.appendChild(slide);
-        });
+/* Header and Navigation */
+.main-header { padding: 25px 0; border-bottom: 1px solid #e0e0e0; background-color: var(--background-color); }
+.main-header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo-image { height: 60px; width: auto; }
+.main-header-transparent { position: absolute; top: 0; left: 0; width: 100%; z-index: 10; padding: 30px 0; border-bottom: none; background: transparent; }
+.main-nav { display: flex; gap: 30px; }
+.nav-link { text-decoration: none; font-size: 1.1em; font-weight: 500; position: relative; padding-bottom: 5px; }
+.main-header .nav-link { color: var(--text-color); }
+.main-header .nav-link::after { background-color: var(--primary-color); }
+.main-header-transparent .nav-link { color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+.main-header-transparent .nav-link::after { background-color: white; }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; transition: width 0.3s ease; }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-        const slides = document.querySelectorAll('.slideshow-background .slide');
-        let currentSlide = 0;
+.scroll-down { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); cursor: pointer; z-index: 3; text-decoration: none; }
+.scroll-down span { display: block; width: 20px; height: 20px; border-bottom: 2px solid white; border-right: 2px solid white; transform: rotate(45deg); animation: bounce 2s infinite; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); } 40% { transform: translateY(-10px) rotate(45deg); } 60% { transform: translateY(-5px) rotate(45deg); } }
 
-        if (slides.length > 0) {
-            slides[0].classList.add('active');
-            setInterval(() => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 5000);
-        }
-    }
+/* Breadcrumbs */
+.breadcrumbs { padding: 20px 0; font-size: 0.9em; color: #888; }
+.breadcrumbs a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+.breadcrumbs a:hover { color: #000; }
+.breadcrumbs .separator { margin: 0 10px; }
 
-    // --- LIGHTBOX LOGIKA ---
-    let currentGalleryImages = [];
-    let currentImageIndex = 0;
-    const lightbox = createLightbox();
-    function createLightbox() {
-        const lightboxElement = document.createElement('div');
-        lightboxElement.id = 'lightbox';
-        lightboxElement.classList.add('lightbox');
-        lightboxElement.innerHTML = `<div class="lightbox-content"><img src="" class="lightbox-image" alt="Didelė nuotrauka"></div><button class="lightbox-close" aria-label="Uždaryti">&times;</button><button class="lightbox-prev" aria-label="Ankstesnė nuotrauka">&#10094;</button><button class="lightbox-next" aria-label="Kita nuotrauka">&#10095;</button><div class="lightbox-counter"></div>`;
-        document.body.appendChild(lightboxElement);
-        const closeBtn = lightboxElement.querySelector('.lightbox-close');
-        const prevBtn = lightboxElement.querySelector('.lightbox-prev');
-        const nextBtn = lightboxElement.querySelector('.lightbox-next');
-        closeBtn.addEventListener('click', closeLightbox);
-        prevBtn.addEventListener('click', showPrevImage);
-        nextBtn.addEventListener('click', showNextImage);
-        return lightboxElement;
-    }
-    function openLightbox(images, index) {
-        currentGalleryImages = images;
-        currentImageIndex = index;
-        document.addEventListener('keydown', handleKeydown);
-        lightbox.classList.add('visible');
-        showImage(currentImageIndex);
-    }
-    function closeLightbox() {
-        document.removeEventListener('keydown', handleKeydown);
-        lightbox.classList.remove('visible');
-    }
-    function showImage(index) {
-        const imageElement = lightbox.querySelector('.lightbox-image');
-        const counterElement = lightbox.querySelector('.lightbox-counter');
-        imageElement.classList.remove('loaded');
-        setTimeout(() => {
-            imageElement.src = currentGalleryImages[index];
-            imageElement.onload = () => { imageElement.classList.add('loaded'); };
-        }, 150);
-        counterElement.textContent = `${index + 1} / ${currentGalleryImages.length}`;
-    }
-    function showNextImage() { currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length; showImage(currentImageIndex); }
-    function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; showImage(currentImageIndex); }
-    function handleKeydown(e) {
-        if (e.key === 'ArrowRight') showNextImage();
-        if (e.key === 'ArrowLeft') showPrevImage();
-        if (e.key === 'Escape') closeLightbox();
-    }
-    
-    // --- BENDRA PUSLAPIŲ LOGIKA ---
-    function updateMetaTag(property, content, isOgOrName = 'name') {
-        const selector = `meta[${isOgOrName}="${property}"]`;
-        let metaTag = document.querySelector(selector);
-        if (metaTag) metaTag.setAttribute('content', content);
-    }
-    const categoryGrid = document.getElementById('categoryGrid');
-    if (categoryGrid) {
-        const categories = Object.keys(categoriesData);
-        categories.forEach((categoryKey, index) => {
-            const category = categoriesData[categoryKey];
-            const link = document.createElement('a');
-            link.href = `gallery.html?category=${categoryKey}`;
-            link.classList.add('gallery-item-link');
-            link.setAttribute('data-aos', 'fade-up');
-            link.setAttribute('data-aos-delay', (index % 3) * 100);
-            link.innerHTML = `<div class="gallery-item"><img src="${category.cover}" alt="${category.name} nuotraukų viršelis"><div class="overlay"><h3>${category.name}</h3></div></div>`;
-            categoryGrid.appendChild(link);
-        });
-    }
-    const galleryCategoryTitle = document.getElementById('galleryCategoryTitle');
-    const imageGrid = document.getElementById('imageGrid');
-    const breadcrumbsContainer = document.getElementById('breadcrumbs-container');
-    if (galleryCategoryTitle && imageGrid && breadcrumbsContainer) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const categoryKey = urlParams.get('category');
-        const category = categoriesData[categoryKey];
-        if (category) {
-            const pageUrl = `${BASE_URL}gallery.html?category=${categoryKey}`;
-            document.title = `${category.name} | DP.PORTFOLIO`;
-            updateMetaTag('description', category.description);
-            updateMetaTag('keywords', category.keywords);
-            document.querySelector('link[rel="canonical"]').setAttribute('href', pageUrl);
-            updateMetaTag('og:title', `${category.name} | DP.PORTFOLIO`, 'property');
-            updateMetaTag('og:description', category.description, 'property');
-            updateMetaTag('og:url', pageUrl, 'property');
-            updateMetaTag('og:image', category.cover, 'property');
-            updateMetaTag('twitter:title', `${category.name} | DP.PORTFOLIO`);
-            updateMetaTag('twitter:description', category.description);
-            updateMetaTag('twitter:image', category.cover);
-            breadcrumbsContainer.innerHTML = `<a href="index.html">Pagrindinis</a><span class="separator">/</span><a href="index.html">Galerijos</a><span class="separator">/</span><span>${category.name}</span>`;
-            galleryCategoryTitle.textContent = category.name;
-            category.images.forEach((imageUrl, index) => {
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.alt = `${category.name} nuotrauka ${index + 1}`;
-                img.setAttribute('data-aos', 'fade-up');
-                img.setAttribute('data-aos-delay', index * 50);
-                img.addEventListener('click', () => openLightbox(category.images, index));
-                imageGrid.appendChild(img);
-            });
-        } else {
-            galleryCategoryTitle.textContent = "Kategorija nerasta";
-            imageGrid.innerHTML = "<p style='text-align: center; font-size: 1.2em;'>Atsiprašome, ši kategorija nerasta.</p>";
-        }
-    }
-});
+/* Section Titles */
+.section-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; }
+.gallery-title { font-size: 2.8em; text-align: center; margin-bottom: 40px; }
+.section-title::after { content: ''; display: block; width: 80px; height: 3px; background-color: var(--primary-color); margin: 10px auto 0; }
+
+/* Gallery Section (index.html) */
+.gallery-sections { padding: 80px 0; }
+.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+.gallery-item-link { text-decoration: none; color: inherit; display: block; }
+.gallery-item { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.gallery-item:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); }
+.gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; }
+.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--overlay-bg); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; border-radius: 8px; }
+.gallery-item:hover .overlay { opacity: 1; }
+.overlay h3 { color: var(--light-text-color); font-size: 1.8em; text-align: center; margin: 0; padding: 20px; border-bottom: 2px solid var(--light-text-color); line-height: 1.2; }
+
+/* Full Gallery View (gallery.html) */
+.full-gallery { padding: 0 0 80px 0; }
+.image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 50px; }
+.image-grid img { width: 100%; height: auto; display: block; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.image-grid img:hover { transform: scale(1.02); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+
+/* About Page Section */
+.about-page-section { padding: 0 0 80px 0; }
+.about-content { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 800px; margin: 0 auto; text-align: center; }
+.about-text h2 { font-size: 2em; margin-bottom: 20px; }
+.about-text p { font-size: 1.1em; margin-bottom: 15px; color: #333; }
+
+/* Contact Section */
+.contact-section { padding: 80px 0; background-color: var(--subtle-bg-color); }
+.contact-wrapper { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-list { list-style: none; padding: 0; margin-bottom: 40px; }
+.contact-item { display: flex; align-items: center; justify-content: center; font-size: 1.2em; margin-bottom: 15px; }
+.contact-item a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+.contact-item a:hover { color: #000; }
+.contact-icon { font-size: 1.5em; margin-right: 15px; line-height: 1; }
+.social-links { display: flex; justify-content: center; gap: 20px; }
+.social-link { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border: 2px solid var(--primary-color); border-radius: 50%; color: var(--primary-color); font-weight: 600; text-decoration: none; font-size: 1.1em; transition: background-color 0.3s ease, color 0.3s ease; }
+.social-link:hover { background-color: var(--primary-color); color: var(--background-color); }
+
+/* REKLAMOS BLOKŲ STILIAI */
+.ad-section {
+    padding: 60px 0;
+    background-color: var(--subtle-bg-color);
+    text-align: center;
+}
+.ad-section-inner {
+    margin-top: 80px;
+    text-align: center;
+}
+.adsbygoogle {
+    min-height: 100px;
+    max-width: 100%;
+}
+
+/* Cookie Consent Banner */
+.cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(17, 57, 57, 0.95); color: var(--light-text-color); padding: 20px; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); z-index: 1001; transition: transform 0.5s ease; }
+.cookie-banner.hidden { transform: translateY(100%); }
+.cookie-banner .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.cookie-banner p { margin: 0; font-size: 0.9em; }
+
+/* Footer */
+.footer { background-color: var(--primary-color); color: var(--light-text-color); text-align: center; padding: 40px 0; margin-top: auto; font-size: 0.9em; }
+
+/* Lightbox styles */
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); display: flex; justify-content: center; align-items: center; z-index: 1002; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.lightbox.visible { opacity: 1; visibility: visible; }
+.lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
+.lightbox-image { max-width: 100%; max-height: 100%; object-fit: contain; box-shadow: 0 0 25px rgba(0,0,0,0.5); opacity: 0; transform: scale(0.95); transition: opacity 0.3s ease, transform 0.3s ease; }
+.lightbox-image.loaded { opacity: 1; transform: scale(1); }
+.lightbox-close, .lightbox-prev, .lightbox-next { position: fixed; background: none; border: none; color: white; font-size: 2.5em; cursor: pointer; transition: transform 0.2s ease, color 0.2s ease; z-index: 1003; padding: 10px; line-height: 1; text-shadow: 0 0 5px rgba(0,0,0,0.5); }
+.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { color: #ccc; transform: scale(1.1); }
+.lightbox-close { top: 20px; right: 20px; font-size: 3em; }
+.lightbox-prev { top: 50%; left: 20px; transform: translateY(-50%); }
+.lightbox-prev:hover { transform: translateY(-50%) scale(1.1); }
+.lightbox-next { top: 50%; right: 20px; transform: translateY(-50%); }
+.lightbox-next:hover { transform: translateY(-50%) scale(1.1); }
+.lightbox-counter { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; background-color: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 15px; font-size: 1em; z-index: 1003; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-header .container,
+    .main-header-transparent .container { flex-direction: column; gap: 20px; }
+    .logo-image { height: 50px; }
+    .hero-background { height: 80vh; min-height: 450px; }
+    .section-title, .gallery-title { font-size: 2.2em; }
+    .cookie-banner .container { flex-direction: column; text-align: center; }
+    .lightbox-prev, .lightbox-next { font-size: 2em; left: 10px; right: auto; }
+    .lightbox-next { left: auto; right: 10px; }
+}
