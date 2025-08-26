@@ -1,39 +1,77 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-    <!-- ... (head dalis lieka tokia pati) ... -->
-    <!-- ATNAUJINTA: Google AdSense skriptas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija | DP.PORTFOLIO</title>
+    
+    <link rel="canonical" href="https://ds-films.github.io/dp-portfolio/gallery.html">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
+
+    <!-- Google AdSense skriptas -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1019181981195493"
      crossorigin="anonymous"></script>
-    <!-- ... (likusi head dalis) ... -->
+
+    <script>
+        function initGA() {
+            // ... GA kodas ...
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ... (headeris ir breadcrumbs) ... -->
-        
-    <section class="full-gallery">
+    <header class="main-header">
         <div class="container">
-            <h1 class="gallery-title" id="galleryCategoryTitle"></h1>
-            <div class="image-grid" id="imageGrid">
-                <!-- Gallery images will be loaded here by JavaScript -->
-            </div>
-
-            <!-- ATNAUJINTA: Reklamos blokas po nuotraukomis -->
-            <div class="ad-section-inner">
-                <!-- Pakeiskite YOUR_AD_SLOT_ID į savo AdSense reklamos bloko ID -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1019181981195493"
-                     data-ad-slot="YOUR_AD_SLOT_ID"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
+            <a href="index.html" class="logo-link">
+                <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Galerijos</a>
+                <a href="about.html" class="nav-link">Apie mane</a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- ... (likęs puslapio turinys) ... -->
+    <main>
+        <div class="container">
+            <nav class="breadcrumbs" id="breadcrumbs-container" aria-label="breadcrumb"></nav>
+        </div>
+        
+        <section class="full-gallery">
+            <div class="container">
+                <h1 class="gallery-title" id="galleryCategoryTitle"></h1>
+                <div class="image-grid" id="imageGrid"></div>
+
+                <!-- ATNAUJINTAS REKLAMOS BLOKAS -->
+                <div class="ad-section-inner">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-1019181981195493"
+                         data-ad-slot="9736853767" <!-- Čia yra Jūsų AdSlot ID -->
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- ... -->
+    </footer>
+    
+    <div id="cookie-consent-banner" class="cookie-banner hidden">
+        <!-- ... -->
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>
