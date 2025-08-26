@@ -7,7 +7,7 @@
 
     <!-- SEO ir OG žymės -->
     <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
-    <link rel="canonical" href="https://ds-films.github.io/dp-portfolio/">
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
     <!-- Google AdSense skriptas -->
@@ -35,24 +35,22 @@
 </head>
 <body>
 
-    <section class="hero-slideshow">
-        <div class="slideshow-background"></div>
-        
-        <header class="main-header main-header-transparent">
-            <div class="container">
-                <a href="index.html" class="logo-link">
-                    <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
-                </a>
-                <nav class="main-nav">
-                    <a href="index.html" class="nav-link active">Galerijos</a>
-                    <a href="about.html" class="nav-link">Apie mane</a>
-                </nav>
-            </div>
-        </header>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Galerijos</a>
+                <a href="about.html" class="nav-link">Apie mane</a>
+            </nav>
+        </div>
+    </header>
 
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up">DP.PORTFOLIO</h1>
-            <p class="hero-tagline" data-aos-delay="200" data-aos="fade-up">
+    <section class="hero-static">
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="hero-title">DP.PORTFOLIO</h1>
+            <p class="hero-tagline">
                 „Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“
             </p>
         </div>
@@ -60,14 +58,14 @@
             <span></span>
         </a>
     </section>
-    
-    <!-- ATNAUJINTAS REKLAMOS BLOKAS -->
+
     <section class="ad-section">
         <div class="container">
+            <!-- PAKEISKITE YOUR_AD_SLOT_ID Į SAVO TIKRĄJĮ SKAIČIŲ IŠ ADSENSE -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1019181981195493"
-                 data-ad-slot="9736853767" <!-- Čia yra Jūsų AdSlot ID -->
+                 data-ad-slot="YOUR_AD_SLOT_ID_HERE"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
@@ -80,7 +78,9 @@
         <section class="gallery-sections" id="galleries">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Mano Galerijos</h2>
-                <div class="category-grid" id="categoryGrid"></div>
+                <div class="category-grid" id="categoryGrid">
+                    <!-- Kategorijų viršeliai bus sugeneruoti čia -->
+                </div>
             </div>
         </section>
     </main>
