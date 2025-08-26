@@ -7,7 +7,7 @@
 
     <!-- SEO ir OG žymės -->
     <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
-    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
+    <link rel="canonical" href="https://ds-films.github.io/dp-portfolio/">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
     <!-- Google AdSense skriptas -->
@@ -35,8 +35,9 @@
 </head>
 <body>
 
-    <!-- HERO BANERIS SU VIENA NUOTRAUKA -->
-    <section class="hero-background">
+    <section class="hero-slideshow">
+        <div class="slideshow-background"></div>
+        
         <header class="main-header main-header-transparent">
             <div class="container">
                 <a href="index.html" class="logo-link">
@@ -59,15 +60,14 @@
             <span></span>
         </a>
     </section>
-    <!-- HERO BANERIO PABAIGA -->
-
+    
+    <!-- ATNAUJINTAS REKLAMOS BLOKAS -->
     <section class="ad-section">
         <div class="container">
-            <!-- Pakeiskite YOUR_AD_SLOT_ID į savo AdSense reklamos bloko ID -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1019181981195493"
-                 data-ad-slot="YOUR_AD_SLOT_ID" 
+                 data-ad-slot="9736853767" <!-- Čia yra Jūsų AdSlot ID -->
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
@@ -80,9 +80,7 @@
         <section class="gallery-sections" id="galleries">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Mano Galerijos</h2>
-                <div class="category-grid" id="categoryGrid">
-                    <!-- Category Covers will be inserted here by JavaScript -->
-                </div>
+                <div class="category-grid" id="categoryGrid"></div>
             </div>
         </section>
     </main>
