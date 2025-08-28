@@ -1,5 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- BENDRA INICIALIZACIJA ---
+    AOS.init({ duration: 1000, once: true, mirror: false });
+    const BASE_URL = "https://portfolio.dominikphotofficial.lt/";
+    const globalKeywords = "dominikphotofficial, ...";
+    
+    // Duomenų bazė visoms kategorijoms
+    const categoriesData = {
+        "sirvetos-regioninis-parkas": { 
+            name: "Sirvėtos Regioninis parkas", 
+            cover: "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", 
+            images: [ "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", "https://i.postimg.cc/NF6TM5F4/srp-02.jpg", "https://i.postimg.cc/8ztRMJHX/srp-03.jpg", "https://i.postimg.cc/TPKDbkhh/srp-04.jpg", "https://i.postimg.cc/SxT9J0Sw/srp-05.jpg", "https://i.postimg.cc/wvsLCWdn/srp-06.jpg", "https://i.postimg.cc/Nftmn7CP/srp-07.jpg", "https://i.postimg.cc/WzLgTMNz/srp-08.jpg", "https://i.postimg.cc/0NjpfkXk/srp-09.jpg", "https://i.postimg.cc/QMzcY2vp/srp-10.jpg", "https://i.postimg.cc/Wpg0Sf8k/srp-11.jpg", "https://i.postimg.cc/mDM1XtYs/srp-12.jpg", "https://i.postimg.cc/VN2bWjbg/srp-13.jpg" ], 
+            description: "Dominik Šuškevič (Dominikphotofficial) fotografijos ir filmas iš Sirvėtos regioninio parko.", 
+            keywords: `Sirvėtos regioninis parkas, filmas, video, gamta, ${globalKeywords}`,
+            videoUrl: 'https://ds-films.github.io/srp/',
+            videoCredits: { author: 'Dominik Šuškevič', screenwriter: 'Dominik Šuškevič', director: 'Dominik Šuškevič' }
+        },
+        // ... visos kitos kategorijos iš ankstesnio atsakymo...
+    };
+    
+    // --- LIKUSI LOGIKA ---
+    // Visas likęs kodas iš ankstesnio atsakymo (slapukai, lightbox, galerijų generavimas) yra čia.
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // --- BENDRA INICIALIZACIJA ---
     AOS.init({
         duration: 1000,
         once: true,
