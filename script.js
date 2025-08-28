@@ -2,38 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- BENDRA INICIALIZACIJA ---
     AOS.init({ duration: 1000, once: true, mirror: false });
     const BASE_URL = "https://portfolio.dominikphotofficial.lt/";
-    const globalKeywords = "dominikphotofficial, ...";
-    
-    // Duomenų bazė visoms kategorijoms
-    const categoriesData = {
-        "sirvetos-regioninis-parkas": { 
-            name: "Sirvėtos Regioninis parkas", 
-            cover: "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", 
-            images: [ "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", "https://i.postimg.cc/NF6TM5F4/srp-02.jpg", "https://i.postimg.cc/8ztRMJHX/srp-03.jpg", "https://i.postimg.cc/TPKDbkhh/srp-04.jpg", "https://i.postimg.cc/SxT9J0Sw/srp-05.jpg", "https://i.postimg.cc/wvsLCWdn/srp-06.jpg", "https://i.postimg.cc/Nftmn7CP/srp-07.jpg", "https://i.postimg.cc/WzLgTMNz/srp-08.jpg", "https://i.postimg.cc/0NjpfkXk/srp-09.jpg", "https://i.postimg.cc/QMzcY2vp/srp-10.jpg", "https://i.postimg.cc/Wpg0Sf8k/srp-11.jpg", "https://i.postimg.cc/mDM1XtYs/srp-12.jpg", "https://i.postimg.cc/VN2bWjbg/srp-13.jpg" ], 
-            description: "Dominik Šuškevič (Dominikphotofficial) fotografijos ir filmas iš Sirvėtos regioninio parko.", 
-            keywords: `Sirvėtos regioninis parkas, filmas, video, gamta, ${globalKeywords}`,
-            videoUrl: 'https://ds-films.github.io/srp/',
-            videoCredits: { author: 'Dominik Šuškevič', screenwriter: 'Dominik Šuškevič', director: 'Dominik Šuškevič' }
-        },
-        // ... visos kitos kategorijos iš ankstesnio atsakymo...
-    };
-    
-    // --- LIKUSI LOGIKA ---
-    // Visas likęs kodas iš ankstesnio atsakymo (slapukai, lightbox, galerijų generavimas) yra čia.
-});
-document.addEventListener('DOMContentLoaded', () => {
-    // --- BENDRA INICIALIZACIJA ---
-    AOS.init({
-        duration: 1000,
-        once: true,
-        mirror: false,
-    });
-
-    const BASE_URL = "https://portfolio.dominikphotofficial.lt/";
     const globalKeywords = "dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič";
     
     // Duomenų bazė visoms kategorijoms
     const categoriesData = {
+        "sirvetos-regioninis-parkas": { name: "Sirvėtos Regioninis parkas", cover: "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", images: [ "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", "https://i.postimg.cc/NF6TM5F4/srp-02.jpg", "https://i.postimg.cc/8ztRMJHX/srp-03.jpg", "https://i.postimg.cc/TPKDbkhh/srp-04.jpg", "https://i.postimg.cc/SxT9J0Sw/srp-05.jpg", "https://i.postimg.cc/wvsLCWdn/srp-06.jpg", "https://i.postimg.cc/Nftmn7CP/srp-07.jpg", "https://i.postimg.cc/WzLgTMNz/srp-08.jpg", "https://i.postimg.cc/0NjpfkXk/srp-09.jpg", "https://i.postimg.cc/QMzcY2vp/srp-10.jpg", "https://i.postimg.cc/Wpg0Sf8k/srp-11.jpg", "https://i.postimg.cc/mDM1XtYs/srp-12.jpg", "https://i.postimg.cc/VN2bWjbg/srp-13.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijos ir filmas iš Sirvėtos regioninio parko.", keywords: `Sirvėtos regioninis parkas, filmas, video, gamta, ${globalKeywords}`, videoUrl: 'https://ds-films.github.io/srp/', videoCredits: { author: 'Dominik Šuškevič', screenwriter: 'Dominik Šuškevič', director: 'Dominik Šuškevič' } },
         "fotosesija": { name: "Fotosesija", cover: "https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg", images: [ "https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg", "https://i.postimg.cc/MK4kZ4cM/fotosesija-02.jpg", "https://i.postimg.cc/rmq3Y2Hb/fotosesija-03.jpg", "https://i.postimg.cc/YCm5v3gX/fotosesija-04.jpg", "https://i.postimg.cc/25RPhZ7C/fotosesija-05.jpg", "https://i.postimg.cc/TwQSzHMP/fotosesija-06.jpg", "https://i.postimg.cc/8cK26XtY/fotosesija-07.jpg", "https://i.postimg.cc/nV3bgMp1/fotosesija-08.jpg", "https://i.postimg.cc/TYhM6GPv/fotosesija-09.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) portretų ir asmeninių fotosesijų galerija.", keywords: `fotosesija, portretai, asmeninė fotosesija, ${globalKeywords}` },
         "miko-kipro-petrausku-namai": { name: "Miko ir Kipro Petrauskų Namai", cover: "https://i.postimg.cc/8k0XLvTx/miko-ir-kipro-petrausku-namai-01.jpg", images: [ "https://i.postimg.cc/8k0XLvTx/miko-ir-kipro-petrausku-namai-01.jpg", "https://i.postimg.cc/VL0GgN6v/miko-ir-kipro-petrausku-namai-02.jpg", "https://i.postimg.cc/DwqCVY1K/miko-ir-kipro-petrausku-namai-03.jpg", "https://i.postimg.cc/TPftTqc5/miko-ir-kipro-petrausku-namai-04.jpg", "https://i.postimg.cc/wBpG7d9v/miko-ir-kipro-petrausku-namai-05.jpg", "https://i.postimg.cc/G2M778G8/miko-ir-kipro-petrausku-namai-06.jpg", "https://i.postimg.cc/GtHMZLxM/miko-ir-kipro-petrausku-namai-07.jpg", "https://i.postimg.cc/qqSmrPmp/miko-ir-kipro-petrausku-namai-08.jpg", "https://i.postimg.cc/Ls30P0sV/miko-ir-kipro-petrausku-namai-09.jpg", "https://i.postimg.cc/0jQ3PdP0/miko-ir-kipro-petrausku-namai-10.jpg", "https://i.postimg.cc/9FDSkpxW/miko-ir-kipro-petrausku-namai-11.jpg", "https://i.postimg.cc/xjxhg73x/miko-ir-kipro-petrausku-namai-12.jpg", "https://i.postimg.cc/VvVh6rNQ/miko-ir-kipro-petrausku-namai-13.jpg", "https://i.postimg.cc/g29MTPXD/miko-ir-kipro-petrausku-namai-14.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijos iš Miko ir Kipro Petrauskų namų.", keywords: `Mikas Petrauskas, Kipras Petrauskas, muziejus, Kaunas, ${globalKeywords}` },
         "baltoji-kiele": { name: "Baltoji kielė", cover: "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", images: [ "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", "https://i.postimg.cc/1zKzQqwv/bird-02.jpg", "https://i.postimg.cc/1tf4rzVM/bird-03.jpg", "https://i.postimg.cc/Xv2p55qp/bird-04.jpg", "https://i.postimg.cc/gJQjSPvp/bird-05.jpg", "https://i.postimg.cc/GtvLXTLP/bird-06.jpg", "https://i.postimg.cc/hPqPfss2/bird-07.jpg", "https://i.postimg.cc/9FtXT9NC/bird-08.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijų galerija: Baltoji kielė.", keywords: `Baltoji kielė, paukščiai, gamtos fotografija, ${globalKeywords}` },
@@ -44,22 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         "vdu-botanikos-sodas": { name: "VDU | BOTANIKOS SODAS", cover: "https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg", images: [ "https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg", "https://i.postimg.cc/FKvBSf85/vdu-botanikos-sodas-02.jpg", "https://i.postimg.cc/W4SXJ50g/vdu-botanikos-sodas-03.jpg", "https://i.postimg.cc/Wzx91tgy/vdu-botanikos-sodas-04.jpg", "https://i.postimg.cc/vBH2PJG0/vdu-botanikos-sodas-05.jpg", "https://i.postimg.cc/RV3yxxK8/vdu-botanikos-sodas-06.jpg", "https://i.postimg.cc/pLf0PWT0/vdu-botanikos-sodas_07.jpg", "https://i.postimg.cc/zXfwXTxL/vdu-botanikos-sodas-08.jpg", "https://i.postimg.cc/6QCn1cpP/vdu-botanikos-sodas-09.jpg", "https://i.postimg.cc/L60tqhWx/vdu-botanikos-sodas-10.jpg", "https://i.postimg.cc/kg6xWq3q/vdu-botanikos-sodas-11.jpg", "https://i.postimg.cc/zvGhv1Fm/vdu-botanikos-sodas-12.jpg", "https://i.postimg.cc/XJ8FnvFc/vdu-botanikos-sodas-13.jpg", "https://i.postimg.cc/4NntTs3V/vdu-botanikos-sodas-14.jpg", "https://i.postimg.cc/TYSbdFyS/vdu-botanikos-sodas-15.jpg", "https://i.postimg.cc/Z5ddCHpq/vdu-botanikos-sodas-16.jpg", "https://i.postimg.cc/13kDH2s6/vdu-botanikos-sodas-17.jpg", "https://i.postimg.cc/501LczH2/vdu-botanikos-sodas-18.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijų galerija: VDU Botanikos sodas Kaune.", keywords: `VDU Botanikos sodas, Kaunas, botanika, ${globalKeywords}` },
         "ivairios-akimirkos": { name: "Įvairios Akimirkos", cover: "https://i.postimg.cc/Zq9CrRdH/image.jpg", images: [ "https://i.postimg.cc/Zq9CrRdH/image.jpg", "https://i.postimg.cc/ZR83dRGg/Latvija-riga-namas.jpg", "https://i.postimg.cc/FKJ0hGDh/Love.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) įvairių akimirkų kolekcija.", keywords: `įvairios akimirkos, menas, kelionės, meilė, ${globalKeywords}` }
     };
-
-    // --- SLAPUKŲ SUTIKIMO LOGIKA ---
-    const consentBanner = document.getElementById('cookie-consent-banner');
-    const acceptBtn = document.getElementById('accept-cookies-btn');
-    if (!localStorage.getItem('cookie_consent')) {
-        if(consentBanner) consentBanner.classList.remove('hidden');
-    } else if (typeof initGA === 'function') {
-        initGA();
-    }
-    if (acceptBtn) {
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('cookie_consent', 'true');
-            if(consentBanner) consentBanner.classList.add('hidden');
-            if (typeof initGA === 'function') initGA();
-        });
-    }
 
     // --- LIGHTBOX LOGIKA ---
     let currentGalleryImages = [];
@@ -131,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryCategoryTitle = document.getElementById('galleryCategoryTitle');
     const imageGrid = document.getElementById('imageGrid');
     const breadcrumbsContainer = document.getElementById('breadcrumbs-container');
+    const videoContainer = document.getElementById('video-container');
+    
     if (galleryCategoryTitle && imageGrid && breadcrumbsContainer) {
         const urlParams = new URLSearchParams(window.location.search);
         const categoryKey = urlParams.get('category');
@@ -145,11 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
             updateMetaTag('og:description', category.description, 'property');
             updateMetaTag('og:url', pageUrl, 'property');
             updateMetaTag('og:image', category.cover, 'property');
-            updateMetaTag('twitter:title', `${category.name} | DP.PORTFOLIO`);
-            updateMetaTag('twitter:description', category.description);
-            updateMetaTag('twitter:image', category.cover);
             breadcrumbsContainer.innerHTML = `<a href="index.html">Pagrindinis</a><span class="separator">/</span><a href="index.html">Galerijos</a><span class="separator">/</span><span>${category.name}</span>`;
             galleryCategoryTitle.textContent = category.name;
+            
+            if (category.videoUrl && videoContainer) {
+                const credits = category.videoCredits;
+                videoContainer.innerHTML = `<div class="video-wrapper" data-aos="fade-up"><iframe src="${category.videoUrl}" frameborder="0" allowfullscreen></iframe></div><div class="video-credits" data-aos="fade-up" data-aos-delay="100"><dl><dt>Autorius:</dt><dd>${credits.author}</dd><dt>Scenaristas:</dt><dd>${credits.screenwriter}</dd><dt>Režisierius:</dt><dd>${credits.director}</dd></dl></div>`;
+            }
+
             category.images.forEach((imageUrl, index) => {
                 const img = document.createElement('img');
                 img.src = imageUrl;
