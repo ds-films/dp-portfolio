@@ -85,3 +85,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({ duration: 1000, once: true, mirror: false });
+    const BASE_URL = "https://portfolio.dominikphotofficial.lt/";
+    const globalKeywords = "dominikphotofficial, ...";
+    const categoriesData = { /*... Visas jūsų kategorijų sąrašas ...*/ };
+    const consentBanner = document.getElementById('cookie-consent-banner');
+    if (!localStorage.getItem('cookie_consent')) {
+        if(consentBanner) consentBanner.classList.remove('hidden');
+    } else if (typeof initGA === 'function') {
+        initGA();
+    }
+    const acceptBtn = document.getElementById('accept-cookies-btn');
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookie_consent', 'true');
+            if(consentBanner) consentBanner.classList.add('hidden');
+            if (typeof initGA === 'function') initGA();
+        });
+    }
+    let currentGalleryImages = [], currentImageIndex = 0;
+    const lightbox = createLightbox();
+    function createLightbox() { /*... Lightbox kūrimo funkcija ...*/ }
+    function openLightbox(images, index) { /*... Lightbox atidarymo funkcija ...*/ }
+    // ... ir visos kitos Lightbox funkcijos
+    function updateMetaTag(property, content, isOgOrName = 'name') { /* ... */ }
+    const categoryGrid = document.getElementById('categoryGrid');
+    if (categoryGrid) { /*... Galerijų tinklelio kūrimo kodas ...*/ }
+    const galleryPageElements = document.getElementById('galleryCategoryTitle');
+    if (galleryPageElements) { /*... Vieno galerijos puslapio kūrimo kodas ...*/ }
+});
