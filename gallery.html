@@ -6,18 +6,30 @@
     <title>Galerija | DP.PORTFOLIO</title>
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/gallery.html">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
-    
-    <!-- AdSense & Analytics Scripts -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1019181981195493" crossorigin="anonymous"></script>
+
+    <!-- Google AdSense skriptas -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1019181981195493"
+     crossorigin="anonymous"></script>
+
     <script> function initGA() { /* GA kodas */ } </script>
     
-    <!-- Bendri resursai -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="main-header"><!-- ... --></header>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Galerijos</a>
+                <a href="about.html" class="nav-link">Apie mane</a>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <div class="container">
@@ -28,20 +40,16 @@
             <div class="container">
                 <h1 class="gallery-title" id="galleryCategoryTitle"></h1>
                 
-                <!-- NAUJAS BLOKAS VAIZDO ĮRAŠUI -->
-                <div id="video-container" class="video-section">
-                    <!-- Vaizdo įrašas ir titrai bus sugeneruoti čia -->
-                </div>
+                <div id="video-container" class="video-section"></div>
                 
-                <div class="image-grid" id="imageGrid">
-                    <!-- Nuotraukos bus sugeneruotos čia -->
-                </div>
+                <div class="image-grid" id="imageGrid"></div>
 
                 <div class="ad-section-inner">
+                    <!-- PAKEISKITE 0000000000 Į SAVO TIKRĄJĮ SKAIČIŲ IŠ ADSENSE -->
                     <ins class="adsbygoogle"
                          style="display:block"
                          data-ad-client="ca-pub-1019181981195493"
-                         data-ad-slot="YOUR_AD_SLOT_ID_HERE"
+                         data-ad-slot="0000000000"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
                     <script>
@@ -52,9 +60,21 @@
         </section>
     </main>
 
-    <footer class="footer"><!-- ... --></footer>
-    <div id="cookie-consent-banner" class="cookie-banner hidden"><!-- ... --></div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
+        </div>
+    </footer>
+    
+    <div id="cookie-consent-banner" class="cookie-banner hidden">
+        <div class="container">
+            <p>Ši svetainė naudoja slapukus, kad pagerintų jūsų naršymo patirtį ir rinktų analitinius duomenis. Paspausdami "Sutinku", jūs sutinkate su slapukų naudojimu.</p>
+            <button id="accept-cookies-btn" class="btn">Sutinku</button>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
