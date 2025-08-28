@@ -199,3 +199,59 @@ h1, h2, h3 { font-weight: 600; }
     .lightbox-prev, .lightbox-next { font-size: 2em; left: 10px; right: auto; }
     .lightbox-next { left: auto; right: 10px; }
                      }
+/* ... (visas ankstesnis kodas iki reklamos blokų lieka toks pat) ... */
+
+/* REKLAMOS BLOKŲ STILIAI */
+.ad-section, .ad-section-inner { /* ... */ }
+.adsbygoogle { /* ... */ }
+
+/* NAUJI STILIAI VAIZDO ĮRAŠUI IR TITRAMS */
+.video-section {
+    margin-bottom: 60px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-credits {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.video-credits dl {
+    display: inline-block;
+    text-align: left;
+    max-width: 100%;
+}
+
+.video-credits dt {
+    font-weight: 600;
+    color: var(--primary-color);
+    float: left;
+    clear: left;
+    margin-right: 10px;
+}
+
+.video-credits dd {
+    margin-left: 0;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Cookie Consent Banner */
+/* ... (visas likęs stiliaus kodas) ... */
