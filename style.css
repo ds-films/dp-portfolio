@@ -1,3 +1,36 @@
+/* ... (visas ankstesnis kodas iki reklamos blokų lieka toks pat) ... */
+
+/* REKLAMOS BLOKŲ STILIAI (ATNAUJINTI) */
+.ad-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.ad-section-inner {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.adsbygoogle {
+    /* Naujas stilius - matysite bloko vietą, net jei reklama tuščia */
+    background: #f8f8f8; /* Šviesiai pilkas fonas, kad matytųsi, kur yra blokas */
+    border: 1px dashed #ddd; /* Punktyrinė linija, kad matytųsi ribos */
+    display: block;
+    min-height: 100px; /* Minimalus aukštis */
+    width: 100%;
+    text-align: center;
+    line-height: 100px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* Jei AdSense įkraus reklamą, šis stilius nebegalios ir fonas dings */
+.adsbygoogle[data-ad-status="filled"] {
+    background: transparent;
+    border: none;
+}
+
+/* ... (visas likęs stiliaus kodas) ... */
 /* Global variables and resets */
 :root {
     --primary-color: #113939;
