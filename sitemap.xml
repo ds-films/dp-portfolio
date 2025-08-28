@@ -2,75 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png</image:loc>
-      <image:caption>DP.PORTFOLIO by Dominik Šuškevič (Dominikphotofficial) logotipas.</image:caption>
-    </image:image>
-  </url>
-  
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/about.html</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.9</priority>
-  </url>
+  <!-- ... (visi ankstesni url blokai) ... -->
 
+  <!-- NAUJA KATEGORIJA -->
   <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=fotosesija</loc>
+    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=sirvetos-regioninis-parkas</loc>
     <lastmod>2025-08-08</lastmod>
     <priority>0.8</priority>
-    <!-- ... visos fotosesijos nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=miko-kipro-petrausku-namai</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos muziejaus nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=baltoji-kiele</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos kielės nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=cirkliskis-lithuania</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos Cirkliškio nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=geles</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos gėlių nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=gandras</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos gandrų nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=sventa-lithuania</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos Šventos nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=vdu-botanikos-sodas</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.8</priority>
-    <!-- ... visos VDU sodo nuotraukos ... -->
-  </url>
-  <url>
-    <loc>https://portfolio.dominikphotofficial.lt/gallery.html?category=ivairios-akimirkos</loc>
-    <lastmod>2025-08-08</lastmod>
-    <priority>0.7</priority>
-    <!-- ... visos įvairių akimirkų nuotraukos ... -->
+    <image:image><image:loc>https://i.postimg.cc/X7gd6GTN/srp-01.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/NF6TM5F4/srp-02.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/8ztRMJHX/srp-03.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/TPKDbkhh/srp-04.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/SxT9J0Sw/srp-05.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/wvsLCWdn/srp-06.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/Nftmn7CP/srp-07.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/WzLgTMNz/srp-08.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/0NjpfkXk/srp-09.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/QMzcY2vp/srp-10.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/P5rZXfjW/srp-11.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/mDM1XtYs/srp-12.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
+    <image:image><image:loc>https://i.postimg.cc/VN2bWjbg/srp-13.jpg</image:loc><image:caption>Sirvėtos Regioninis parkas. Autorius: Dominik Šuškevič.</image:caption></image:image>
   </url>
   
 </urlset>
