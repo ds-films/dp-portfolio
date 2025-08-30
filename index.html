@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DP.PORTFOLIO | Dominik Šuškevič (Dominikphotofficial)</title>
+
     <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje. Autorius: Dominik Šuškevič.">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
-    <!-- AdSense & Analytics Scripts -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1019181981195493" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPPD6T6EQY"></script>
     <script>
@@ -18,35 +18,31 @@
       gtag('config', 'G-EPPD6T6EQY');
     </script>
     
-    <!-- Bendri resursai -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section class="hero-background">
+        <header class="main-header main-header-transparent">
+            <div class="container">
+                <a href="index.html" class="logo-link">
+                    <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
+                </a>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link active">Galerijos</a>
+                    <a href="about.html" class="nav-link">Apie mane</a>
+                </nav>
+            </div>
+        </header>
 
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo-link">
-                <img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image">
-            </a>
-            <nav class="main-nav">
-                <a href="index.html" class="nav-link active">Galerijos</a>
-                <a href="about.html" class="nav-link">Apie mane</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero-static">
-        <div class="hero-content" data-aos="fade-up">
-            <h1 class="hero-title">DP.PORTFOLIO</h1>
-            <p class="hero-tagline">
-                „Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas. Minimalizmas, stilius ir nuoširdumas – viskas, ką įdedu į kiekvieną kadrą.“
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">DP.PORTFOLIO</h1>
+            <p class="hero-tagline" data-aos-delay="200" data-aos="fade-up">
+                „Dominikphotofficial portfolio – tai mano geriausių fotografijų kolekcija. Čia surinkti kadrai, atspindintys emocijas, atmosferą ir unikalias akimirkas.“
             </p>
         </div>
-        <a href="#galleries" class="scroll-down" aria-label="Slinkti žemyn">
-            <span></span>
-        </a>
+        <a href="#galleries" class="scroll-down" aria-label="Slinkti žemyn"><span></span></a>
     </section>
 
     <section class="ad-section">
@@ -57,9 +53,7 @@
                  data-ad-slot="1895474865"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
     </section>
     
@@ -67,9 +61,7 @@
         <section class="gallery-sections" id="galleries">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Mano Galerijos</h2>
-                <div class="category-grid" id="categoryGrid">
-                    <!-- Kategorijos bus sugeneruotos su JavaScript -->
-                </div>
+                <div class="category-grid" id="categoryGrid"></div>
             </div>
         </section>
     </main>
@@ -79,11 +71,8 @@
             <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
         </div>
     </footer>
-    
-    <!-- Senas slapukų langas pašalintas -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
