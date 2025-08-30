@@ -6,7 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Duomenų bazė visoms kategorijoms
     const categoriesData = {
-        "sirvetos-regioninis-parkas": { name: "Sirvėtos Regioninis parkas", cover: "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", images: [ "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", "https://i.postimg.cc/NF6TM5F4/srp-02.jpg", "https://i.postimg.cc/8ztRMJHX/srp-03.jpg", "https://i.postimg.cc/TPKDbkhh/srp-04.jpg", "https://i.postimg.cc/SxT9J0Sw/srp-05.jpg", "https://i.postimg.cc/wvsLCWdn/srp-06.jpg", "https://i.postimg.cc/Nftmn7CP/srp-07.jpg", "https://i.postimg.cc/WzLgTMNz/srp-08.jpg", "https://i.postimg.cc/0NjpfkXk/srp-09.jpg", "https://i.postimg.cc/QMzcY2vp/srp-10.jpg", "https://i.postimg.cc/Wpg0Sf8k/srp-11.jpg", "https://i.postimg.cc/mDM1XtYs/srp-12.jpg", "https://i.postimg.cc/VN2bWjbg/srp-13.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijos ir filmas iš Sirvėtos regioninio parko.", keywords: `Sirvėtos regioninis parkas, filmas, video, gamta, ${globalKeywords}`, videoUrl: 'https://ds-films.github.io/srp/', videoCredits: { author: 'Dominik Šuškevič', screenwriter: 'Dominik Šuškevič', director: 'Dominik Šuškevič' } },
+        "moletu-observatorija": { 
+            name: "Molėtų Observatorija", 
+            cover: "https://i.postimg.cc/PrnGqrgJ/Moletu-Observatory.png", 
+            images: [ "https://i.postimg.cc/PrnGqrgJ/Moletu-Observatory.png", "https://i.postimg.cc/3x3PgfJH/Teleskopas-165-cm.png", "https://i.postimg.cc/RV7kJxmR/Teleskopas-165-cm-02.png", "https://i.postimg.cc/JzKSK3GH/Teleskopas-165-cm-03.png" ], 
+            description: "Dominik Šuškevič (Dominikphotofficial) fotografijos iš Molėtų astronomijos observatorijos.", 
+            keywords: `Molėtų observatorija, teleskopas, astronomija, Lietuva, ${globalKeywords}` 
+        },
+        "sirvetos-regioninis-parkas": { 
+            name: "Sirvėtos Regioninis parkas", 
+            cover: "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", 
+            images: [ "https://i.postimg.cc/X7gd6GTN/srp-01.jpg", "https://i.postimg.cc/NF6TM5F4/srp-02.jpg", "https://i.postimg.cc/8ztRMJHX/srp-03.jpg", "https://i.postimg.cc/TPKDbkhh/srp-04.jpg", "https://i.postimg.cc/SxT9J0Sw/srp-05.jpg", "https://i.postimg.cc/wvsLCWdn/srp-06.jpg", "https://i.postimg.cc/Nftmn7CP/srp-07.jpg", "https://i.postimg.cc/WzLgTMNz/srp-08.jpg", "https://i.postimg.cc/0NjpfkXk/srp-09.jpg", "https://i.postimg.cc/QMzcY2vp/srp-10.jpg", "https://i.postimg.cc/Wpg0Sf8k/srp-11.jpg", "https://i.postimg.cc/mDM1XtYs/srp-12.jpg", "https://i.postimg.cc/VN2bWjbg/srp-13.jpg" ], 
+            description: "Dominik Šuškevič (Dominikphotofficial) fotografijos ir filmas iš Sirvėtos regioninio parko.", 
+            keywords: `Sirvėtos regioninis parkas, filmas, video, gamta, ${globalKeywords}`, 
+            videoUrl: 'https://ds-films.github.io/srp/', 
+            videoCredits: { author: 'Dominik Šuškevič', screenwriter: 'Dominik Šuškevič', director: 'Dominik Šuškevič' } 
+        },
         "fotosesija": { name: "Fotosesija", cover: "https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg", images: [ "https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg", "https://i.postimg.cc/MK4kZ4cM/fotosesija-02.jpg", "https://i.postimg.cc/rmq3Y2Hb/fotosesija-03.jpg", "https://i.postimg.cc/YCm5v3gX/fotosesija-04.jpg", "https://i.postimg.cc/25RPhZ7C/fotosesija-05.jpg", "https://i.postimg.cc/TwQSzHMP/fotosesija-06.jpg", "https://i.postimg.cc/8cK26XtY/fotosesija-07.jpg", "https://i.postimg.cc/nV3bgMp1/fotosesija-08.jpg", "https://i.postimg.cc/TYhM6GPv/fotosesija-09.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) portretų ir asmeninių fotosesijų galerija.", keywords: `fotosesija, portretai, asmeninė fotosesija, ${globalKeywords}` },
         "miko-kipro-petrausku-namai": { name: "Miko ir Kipro Petrauskų Namai", cover: "https://i.postimg.cc/8k0XLvTx/miko-ir-kipro-petrausku-namai-01.jpg", images: [ "https://i.postimg.cc/8k0XLvTx/miko-ir-kipro-petrausku-namai-01.jpg", "https://i.postimg.cc/VL0GgN6v/miko-ir-kipro-petrausku-namai-02.jpg", "https://i.postimg.cc/DwqCVY1K/miko-ir-kipro-petrausku-namai-03.jpg", "https://i.postimg.cc/TPftTqc5/miko-ir-kipro-petrausku-namai-04.jpg", "https://i.postimg.cc/wBpG7d9v/miko-ir-kipro-petrausku-namai-05.jpg", "https://i.postimg.cc/G2M778G8/miko-ir-kipro-petrausku-namai-06.jpg", "https://i.postimg.cc/GtHMZLxM/miko-ir-kipro-petrausku-namai-07.jpg", "https://i.postimg.cc/qqSmrPmp/miko-ir-kipro-petrausku-namai-08.jpg", "https://i.postimg.cc/Ls30P0sV/miko-ir-kipro-petrausku-namai-09.jpg", "https://i.postimg.cc/0jQ3PdP0/miko-ir-kipro-petrausku-namai-10.jpg", "https://i.postimg.cc/9FDSkpxW/miko-ir-kipro-petrausku-namai-11.jpg", "https://i.postimg.cc/xjxhg73x/miko-ir-kipro-petrausku-namai-12.jpg", "https://i.postimg.cc/VvVh6rNQ/miko-ir-kipro-petrausku-namai-13.jpg", "https://i.postimg.cc/g29MTPXD/miko-ir-kipro-petrausku-namai-14.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijos iš Miko ir Kipro Petrauskų namų.", keywords: `Mikas Petrauskas, Kipras Petrauskas, muziejus, Kaunas, ${globalKeywords}` },
         "baltoji-kiele": { name: "Baltoji kielė", cover: "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", images: [ "https://i.postimg.cc/KYbYwNkK/bird-01.jpg", "https://i.postimg.cc/1zKzQqwv/bird-02.jpg", "https://i.postimg.cc/1tf4rzVM/bird-03.jpg", "https://i.postimg.cc/Xv2p55qp/bird-04.jpg", "https://i.postimg.cc/gJQjSPvp/bird-05.jpg", "https://i.postimg.cc/GtvLXTLP/bird-06.jpg", "https://i.postimg.cc/hPqPfss2/bird-07.jpg", "https://i.postimg.cc/9FtXT9NC/bird-08.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijų galerija: Baltoji kielė.", keywords: `Baltoji kielė, paukščiai, gamtos fotografija, ${globalKeywords}` },
@@ -17,16 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
         "vdu-botanikos-sodas": { name: "VDU | BOTANIKOS SODAS", cover: "https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg", images: [ "https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg", "https://i.postimg.cc/FKvBSf85/vdu-botanikos-sodas-02.jpg", "https://i.postimg.cc/W4SXJ50g/vdu-botanikos-sodas-03.jpg", "https://i.postimg.cc/Wzx91tgy/vdu-botanikos-sodas-04.jpg", "https://i.postimg.cc/vBH2PJG0/vdu-botanikos-sodas-05.jpg", "https://i.postimg.cc/RV3yxxK8/vdu-botanikos-sodas-06.jpg", "https://i.postimg.cc/pLf0PWT0/vdu-botanikos-sodas_07.jpg", "https://i.postimg.cc/zXfwXTxL/vdu-botanikos-sodas-08.jpg", "https://i.postimg.cc/6QCn1cpP/vdu-botanikos-sodas-09.jpg", "https://i.postimg.cc/L60tqhWx/vdu-botanikos-sodas-10.jpg", "https://i.postimg.cc/kg6xWq3q/vdu-botanikos-sodas-11.jpg", "https://i.postimg.cc/zvGhv1Fm/vdu-botanikos-sodas-12.jpg", "https://i.postimg.cc/XJ8FnvFc/vdu-botanikos-sodas-13.jpg", "https://i.postimg.cc/4NntTs3V/vdu-botanikos-sodas-14.jpg", "https://i.postimg.cc/TYSbdFyS/vdu-botanikos-sodas-15.jpg", "https://i.postimg.cc/Z5ddCHpq/vdu-botanikos-sodas-16.jpg", "https://i.postimg.cc/13kDH2s6/vdu-botanikos-sodas-17.jpg", "https://i.postimg.cc/501LczH2/vdu-botanikos-sodas-18.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) fotografijų galerija: VDU Botanikos sodas Kaune.", keywords: `VDU Botanikos sodas, Kaunas, botanika, ${globalKeywords}` },
         "ivairios-akimirkos": { name: "Įvairios Akimirkos", cover: "https://i.postimg.cc/Zq9CrRdH/image.jpg", images: [ "https://i.postimg.cc/Zq9CrRdH/image.jpg", "https://i.postimg.cc/ZR83dRGg/Latvija-riga-namas.jpg", "https://i.postimg.cc/FKJ0hGDh/Love.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) įvairių akimirkų kolekcija.", keywords: `įvairios akimirkos, menas, kelionės, meilė, ${globalKeywords}` }
     };
-
-    // --- LIGHTBOX LOGIKA ---
+    
     let currentGalleryImages = [];
     let currentImageIndex = 0;
     const lightbox = createLightbox();
+
     function createLightbox() {
         const lightboxElement = document.createElement('div');
         lightboxElement.id = 'lightbox';
         lightboxElement.classList.add('lightbox');
-        lightboxElement.innerHTML = `<div class="lightbox-content"><img src="" class="lightbox-image" alt="Didelė nuotrauka"></div><button class="lightbox-close" aria-label="Uždaryti">&times;</button><button class="lightbox-prev" aria-label="Ankstesnė nuotrauka">&#10094;</button><button class="lightbox-next" aria-label="Kita nuotrauka">&#10095;</button><div class="lightbox-counter"></div>`;
+        lightboxElement.innerHTML = `
+            <div class="lightbox-content">
+                <img src="" class="lightbox-image" alt="Didelė nuotrauka">
+            </div>
+            <button class="lightbox-close" aria-label="Uždaryti">&times;</button>
+            <button class="lightbox-prev" aria-label="Ankstesnė nuotrauka">&#10094;</button>
+            <button class="lightbox-next" aria-label="Kita nuotrauka">&#10095;</button>
+            <div class="lightbox-counter"></div>
+        `;
         document.body.appendChild(lightboxElement);
         const closeBtn = lightboxElement.querySelector('.lightbox-close');
         const prevBtn = lightboxElement.querySelector('.lightbox-prev');
@@ -36,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.addEventListener('click', showNextImage);
         return lightboxElement;
     }
+
     function openLightbox(images, index) {
         currentGalleryImages = images;
         currentImageIndex = index;
@@ -43,34 +67,38 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.add('visible');
         showImage(currentImageIndex);
     }
+
     function closeLightbox() {
         document.removeEventListener('keydown', handleKeydown);
         lightbox.classList.remove('visible');
     }
+
     function showImage(index) {
         const imageElement = lightbox.querySelector('.lightbox-image');
         const counterElement = lightbox.querySelector('.lightbox-counter');
         imageElement.classList.remove('loaded');
         setTimeout(() => {
             imageElement.src = currentGalleryImages[index];
-            imageElement.onload = () => { imageElement.classList.add('loaded'); };
+            imageElement.onload = () => imageElement.classList.add('loaded');
         }, 150);
         counterElement.textContent = `${index + 1} / ${currentGalleryImages.length}`;
     }
+
     function showNextImage() { currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length; showImage(currentImageIndex); }
     function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; showImage(currentImageIndex); }
+
     function handleKeydown(e) {
         if (e.key === 'ArrowRight') showNextImage();
         if (e.key === 'ArrowLeft') showPrevImage();
         if (e.key === 'Escape') closeLightbox();
     }
     
-    // --- BENDRA PUSLAPIŲ LOGIKA ---
     function updateMetaTag(property, content, isOgOrName = 'name') {
         const selector = `meta[${isOgOrName}="${property}"]`;
         let metaTag = document.querySelector(selector);
         if (metaTag) metaTag.setAttribute('content', content);
     }
+    
     const categoryGrid = document.getElementById('categoryGrid');
     if (categoryGrid) {
         const categories = Object.keys(categoriesData);
@@ -85,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             categoryGrid.appendChild(link);
         });
     }
+
     const galleryCategoryTitle = document.getElementById('galleryCategoryTitle');
     const imageGrid = document.getElementById('imageGrid');
     const breadcrumbsContainer = document.getElementById('breadcrumbs-container');
@@ -101,9 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateMetaTag('keywords', category.keywords);
             document.querySelector('link[rel="canonical"]').setAttribute('href', pageUrl);
             updateMetaTag('og:title', `${category.name} | DP.PORTFOLIO`, 'property');
-            updateMetaTag('og:description', category.description, 'property');
-            updateMetaTag('og:url', pageUrl, 'property');
-            updateMetaTag('og:image', category.cover, 'property');
+            
             breadcrumbsContainer.innerHTML = `<a href="index.html">Pagrindinis</a><span class="separator">/</span><a href="index.html">Galerijos</a><span class="separator">/</span><span>${category.name}</span>`;
             galleryCategoryTitle.textContent = category.name;
             
