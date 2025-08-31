@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     AOS.init({ duration: 1000, once: true, mirror: false });
-
     const BASE_URL = "https://portfolio.dominikphotofficial.lt/";
     const globalKeywords = "dominikphotofficial, dominikphotofficial.lt, portfolio, dp-portfolio, dp, dominik šuškevič, photos dominik šuškevič";
     
@@ -18,14 +17,61 @@ document.addEventListener('DOMContentLoaded', () => {
         "ivairios-akimirkos": { name: "Įvairios Akimirkos", cover: "https://i.postimg.cc/Zq9CrRdH/image.jpg", images: [ "https://i.postimg.cc/Zq9CrRdH/image.jpg", "https://i.postimg.cc/ZR83dRGg/Latvija-riga-namas.jpg", "https://i.postimg.cc/FKJ0hGDh/Love.jpg" ], description: "Dominik Šuškevič (Dominikphotofficial) įvairių akimirkų kolekcija.", keywords: `įvairios akimirkos, menas, kelionės, meilė, ${globalKeywords}` }
     };
     
+    const filmsData = [
+        { name: 'Ruduo Prie Gimnazijos', url: 'https://ds-films.github.io/ruduo-prie-gimnazijos-2023/', cover: 'https://i.postimg.cc/jqck7dQB/sventa_08.jpg' },
+        { name: 'ALL VIDEOS', url: 'https://ds-films.github.io/dp-all-videos/', cover: 'https://i.postimg.cc/FFbXn4bx/sventa_03.jpg' },
+        { name: 'NATURE VIDEO', url: 'https://ds-films.github.io/nature-video-2024/', cover: 'https://i.postimg.cc/8ztRMJHX/srp-03.jpg' },
+        { name: 'Katinas su baime', url: 'https://ds-films.github.io/katinas-su-baime/', cover: 'https://i.postimg.cc/g29MTPXD/miko-ir-kipro-petrausku-namai-14.jpg' }
+    ];
+    
     let currentGalleryImages = [], currentImageIndex = 0;
     const lightbox = createLightbox();
-    function createLightbox() { /*... (Visas lightbox kodas) ...*/ }
-    function openLightbox(images, index) { /*... (Visas lightbox kodas) ...*/ }
-    // ... visos kitos lightbox funkcijos ...
-    function updateMetaTag(property, content, isOgOrName = 'name') { /* ... */ }
 
-    // PAGRINDINIO PUSLAPIO LOGIKA
+    function createLightbox() {
+        const lightboxElement = document.createElement('div');
+        lightboxElement.id = 'lightbox';
+        lightboxElement.classList.add('lightbox');
+        lightboxElement.innerHTML = `<div class="lightbox-content"><img src="" class="lightbox-image" alt="Didelė nuotrauka"></div><button class="lightbox-close" aria-label="Uždaryti">&times;</button><button class="lightbox-prev" aria-label="Ankstesnė nuotrauka">&#10094;</button><button class="lightbox-next" aria-label="Kita nuotrauka">&#10095;</button><div class="lightbox-counter"></div>`;
+        document.body.appendChild(lightboxElement);
+        const closeBtn = lightboxElement.querySelector('.lightbox-close');
+        const prevBtn = lightboxElement.querySelector('.lightbox-prev');
+        const nextBtn = lightboxElement.querySelector('.lightbox-next');
+        closeBtn.addEventListener('click', closeLightbox);
+        prevBtn.addEventListener('click', showPrevImage);
+        nextBtn.addEventListener('click', showNextImage);
+        return lightboxElement;
+    }
+
+    function openLightbox(images, index) { currentGalleryImages = images; currentImageIndex = index; document.addEventListener('keydown', handleKeydown); lightbox.classList.add('visible'); showImage(currentImageIndex); }
+    function closeLightbox() { document.removeEventListener('keydown', handleKeydown); lightbox.classList.remove('visible'); }
+
+    function showImage(index) {
+        const imageElement = lightbox.querySelector('.lightbox-image');
+        const counterElement = lightbox.querySelector('.lightbox-counter');
+        imageElement.classList.remove('loaded');
+        setTimeout(() => {
+            imageElement.src = currentGalleryImages[index];
+            imageElement.onload = () => imageElement.classList.add('loaded');
+        }, 150);
+        counterElement.textContent = `${index + 1} / ${currentGalleryImages.length}`;
+    }
+
+    function showNextImage() { currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length; showImage(currentImageIndex); }
+    function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; showImage(currentImageIndex); }
+    
+    function handleKeydown(e) {
+        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'ArrowLeft') showPrevImage();
+        if (e.key === 'Escape') closeLightbox();
+    }
+    
+    function updateMetaTag(property, content) {
+        const selector = `meta[name="${property}"]`;
+        let metaTag = document.querySelector(selector);
+        if (metaTag) metaTag.setAttribute('content', content);
+    }
+
+    // NUOTRAUKŲ GALERIJŲ LOGIKA
     const categoryGrid = document.getElementById('categoryGrid');
     if (categoryGrid) {
         const categories = Object.keys(categoriesData);
@@ -41,8 +87,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // GALERIJOS PUSLAPIO LOGIKA
+    // FILMŲ GALERIJOS LOGIKA
+    const filmsGrid = document.querySelector('#films-grid .category-grid');
+    if (filmsGrid) {
+        filmsData.forEach((film, index) => {
+            const link = document.createElement('a');
+            link.href = film.url;
+            link.target = "_blank";
+            link.classList.add('gallery-item-link');
+            link.setAttribute('data-aos', 'fade-up');
+            link.setAttribute('data-aos-delay', (index % 3) * 100);
+            link.innerHTML = `<div class="gallery-item"><img src="${film.cover}" alt="${film.name} filmo viršelis"><div class="overlay"><span class="overlay-icon">▶</span><h3>${film.name}</h3></div></div>`;
+            filmsGrid.appendChild(link);
+        });
+    }
+
+    // VIENOS NUOTRAUKŲ GALERIJOS PUSLAPIO LOGIKA
     const galleryCategoryTitle = document.getElementById('galleryCategoryTitle');
     const imageGrid = document.getElementById('imageGrid');
-    // ... visas likęs kodas galerijos ir video rodymui ...
+    const breadcrumbsContainer = document.getElementById('breadcrumbs-container');
+    const videoContainer = document.getElementById('video-container');
+    
+    if (galleryCategoryTitle && imageGrid && breadcrumbsContainer) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryKey = urlParams.get('category');
+        const category = categoriesData[categoryKey];
+        if (category) {
+            document.title = `${category.name} | DP.PORTFOLIO`;
+            updateMetaTag('description', category.description);
+            breadcrumbsContainer.innerHTML = `<a href="index.html">Pagrindinis</a><span class="separator">/</span><a href="index.html">Galerijos</a><span class="separator">/</span><span>${category.name}</span>`;
+            galleryCategoryTitle.textContent = category.name;
+            
+            if (category.videoUrl && videoContainer) {
+                const credits = category.videoCredits;
+                videoContainer.innerHTML = `<div class="video-wrapper" data-aos="fade-up"><iframe src="${category.videoUrl}" frameborder="0" allowfullscreen></iframe></div><div class="video-credits" data-aos="fade-up" data-aos-delay="100"><dl><dt>Autorius:</dt><dd>${credits.author}</dd><dt>Scenaristas:</dt><dd>${credits.screenwriter}</dd><dt>Režisierius:</dt><dd>${credits.director}</dd></dl></div>`;
+            }
+
+            category.images.forEach((imageUrl, index) => {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = `${category.name} nuotrauka ${index + 1}`;
+                img.setAttribute('data-aos', 'fade-up');
+                img.setAttribute('data-aos-delay', index * 50);
+                img.addEventListener('click', () => openLightbox(category.images, index));
+                imageGrid.appendChild(img);
+            });
+        } else {
+            galleryCategoryTitle.textContent = "Kategorija nerasta";
+        }
+    }
 });
