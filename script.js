@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentGalleryImages = [], currentImageIndex = 0;
     const lightbox = createLightbox();
-
     function createLightbox() {
         const lightboxElement = document.createElement('div');
         lightboxElement.id = 'lightbox';
@@ -41,10 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.addEventListener('click', showNextImage);
         return lightboxElement;
     }
-
     function openLightbox(images, index) { currentGalleryImages = images; currentImageIndex = index; document.addEventListener('keydown', handleKeydown); lightbox.classList.add('visible'); showImage(currentImageIndex); }
     function closeLightbox() { document.removeEventListener('keydown', handleKeydown); lightbox.classList.remove('visible'); }
-
     function showImage(index) {
         const imageElement = lightbox.querySelector('.lightbox-image');
         const counterElement = lightbox.querySelector('.lightbox-counter');
@@ -55,23 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 150);
         counterElement.textContent = `${index + 1} / ${currentGalleryImages.length}`;
     }
-
     function showNextImage() { currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length; showImage(currentImageIndex); }
     function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; showImage(currentImageIndex); }
-    
     function handleKeydown(e) {
         if (e.key === 'ArrowRight') showNextImage();
         if (e.key === 'ArrowLeft') showPrevImage();
         if (e.key === 'Escape') closeLightbox();
     }
-    
     function updateMetaTag(property, content) {
         const selector = `meta[name="${property}"]`;
         let metaTag = document.querySelector(selector);
         if (metaTag) metaTag.setAttribute('content', content);
     }
-
-    // NUOTRAUKŲ GALERIJŲ LOGIKA
     const categoryGrid = document.getElementById('categoryGrid');
     if (categoryGrid) {
         const categories = Object.keys(categoriesData);
@@ -86,8 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
             categoryGrid.appendChild(link);
         });
     }
-
-    // FILMŲ GALERIJOS LOGIKA
     const filmsGrid = document.querySelector('#films-grid .category-grid');
     if (filmsGrid) {
         filmsData.forEach((film, index) => {
@@ -101,13 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
             filmsGrid.appendChild(link);
         });
     }
-
-    // VIENOS NUOTRAUKŲ GALERIJOS PUSLAPIO LOGIKA
     const galleryCategoryTitle = document.getElementById('galleryCategoryTitle');
     const imageGrid = document.getElementById('imageGrid');
     const breadcrumbsContainer = document.getElementById('breadcrumbs-container');
     const videoContainer = document.getElementById('video-container');
-    
     if (galleryCategoryTitle && imageGrid && breadcrumbsContainer) {
         const urlParams = new URLSearchParams(window.location.search);
         const categoryKey = urlParams.get('category');
@@ -117,12 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
             updateMetaTag('description', category.description);
             breadcrumbsContainer.innerHTML = `<a href="index.html">Pagrindinis</a><span class="separator">/</span><a href="index.html">Galerijos</a><span class="separator">/</span><span>${category.name}</span>`;
             galleryCategoryTitle.textContent = category.name;
-            
             if (category.videoUrl && videoContainer) {
                 const credits = category.videoCredits;
                 videoContainer.innerHTML = `<div class="video-wrapper" data-aos="fade-up"><iframe src="${category.videoUrl}" frameborder="0" allowfullscreen></iframe></div><div class="video-credits" data-aos="fade-up" data-aos-delay="100"><dl><dt>Autorius:</dt><dd>${credits.author}</dd><dt>Scenaristas:</dt><dd>${credits.screenwriter}</dd><dt>Režisierius:</dt><dd>${credits.director}</dd></dl></div>`;
             }
-
             category.images.forEach((imageUrl, index) => {
                 const img = document.createElement('img');
                 img.src = imageUrl;
