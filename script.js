@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     AOS.init({ duration: 1000, once: true, mirror: false });
 
     const categoriesData = {
+        "noka": { name: "NOKA", cover: "https://i.postimg.cc/28SthTZg/noka-car-01.jpg" },
+        "bmw-e36": { name: "BMW E36", cover: "https://i.postimg.cc/vTpSGtSm/BMWE36-01.jpg" },
         "moletu-observatorija": { name: "Molėtų Observatorija", cover: "https://i.postimg.cc/PrnGqrgJ/Moletu-Observatory.png" },
         "sirvetos-regioninis-parkas": { name: "Sirvėtos Regioninis parkas", cover: "https://i.postimg.cc/X7gd6GTN/srp-01.jpg" },
         "fotosesija": { name: "Fotosesija", cover: "https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg" },
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { key: 'srp', name: 'SRP', cover: 'https://i.postimg.cc/1txkcDS6/srp.jpg' }
     ];
     
-    // Galerijų sąrašo generavimas (galerijos.html)
+    // Galerijų sąrašo generavimas (index.html)
     const categoryGrid = document.getElementById('categoryGrid');
     if (categoryGrid) {
         Object.keys(categoriesData).forEach((key, index) => {
@@ -32,23 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
             link.href = `galerijos/${key}.html`;
             link.classList.add('gallery-item-link');
             link.setAttribute('data-aos', 'fade-up');
-            link.setAttribute('data-aos-delay', (index % 3) * 100);
+            link.setAttribute('data-aos-delay', (index % 3) * 50);
             link.innerHTML = `<div class="gallery-item"><img src="${category.cover}" alt="${category.name}"><div class="overlay"><h3>${category.name}</h3></div></div>`;
             categoryGrid.appendChild(link);
         });
     }
 
-    // Filmų sąrašo generavimas (filmai.html)
+    // Filmų sąrašo generavimas
     const filmsGrid = document.getElementById('filmsGrid');
     if (filmsGrid) {
+        const currentPageKey = document.body.dataset.pageKey;
         filmsData.forEach((film, index) => {
-            const link = document.createElement('a');
-            link.href = `filmai/${film.key}.html`;
-            link.classList.add('gallery-item-link');
-            link.setAttribute('data-aos', 'fade-up');
-            link.setAttribute('data-aos-delay', (index % 3) * 100);
-            link.innerHTML = `<div class="gallery-item"><img src="${film.cover}" alt="${film.name}"><div class="overlay"><span class="overlay-icon">▶</span><h3>${film.name}</h3></div></div>`;
-            filmsGrid.appendChild(link);
+            if (film.key !== currentPageKey) {
+                const link = document.createElement('a');
+                link.href = `${film.key}.html`;
+                link.classList.add('gallery-item-link');
+                link.setAttribute('data-aos', 'fade-up');
+                link.setAttribute('data-aos-delay', (index % 3) * 50);
+                link.innerHTML = `<div class="gallery-item"><img src="${film.cover}" alt="${film.name}"><div class="overlay"><span class="overlay-icon">▶</span><h3>${film.name}</h3></div></div>`;
+                filmsGrid.appendChild(link);
+            }
         });
     }
     
@@ -65,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    let currentGalleryImages = [], currentImageIndex = 0;
     function createLightbox() {
         const lightboxElement = document.createElement('div');
         lightboxElement.id = 'lightbox';
@@ -73,8 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(lightboxElement);
         return lightboxElement;
     }
-
-    let currentGalleryImages = [], currentImageIndex = 0;
     function openLightbox(lightbox, images, index) {
         currentGalleryImages = images;
         currentImageIndex = index;
@@ -82,13 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.add('visible');
         showImage(lightbox, currentImageIndex);
     }
-
     function closeLightbox() {
         const lightbox = document.getElementById('lightbox');
         document.removeEventListener('keydown', handleKeydown);
         lightbox.classList.remove('visible');
     }
-
     function showImage(lightbox, index) {
         const imageElement = lightbox.querySelector('.lightbox-image');
         const counterElement = lightbox.querySelector('.lightbox-counter');
@@ -99,17 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 150);
         counterElement.textContent = `${index + 1} / ${currentGalleryImages.length}`;
     }
-
     function showNextImage() { currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length; showImage(document.getElementById('lightbox'), currentImageIndex); }
     function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; showImage(document.getElementById('lightbox'), currentImageIndex); }
-    
     function handleKeydown(e) {
         if (e.key === 'ArrowRight') showNextImage();
         if (e.key === 'ArrowLeft') showPrevImage();
         if (e.key === 'Escape') closeLightbox();
     }
-
-    // Priskiriame mygtukų veiksmus tik vieną kartą
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
