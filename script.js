@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { key: 'srp', name: 'SRP', cover: 'https://i.postimg.cc/1txkcDS6/srp.jpg' }
     ];
     
-    // Galerijų sąrašo generavimas (index.html)
+    // Galerijų sąrašo generavimas (galerijos.html)
     const categoryGrid = document.getElementById('categoryGrid');
     if (categoryGrid) {
         Object.keys(categoriesData).forEach((key, index) => {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filmsData.forEach((film, index) => {
             if (film.key !== currentPageKey) {
                 const link = document.createElement('a');
-                link.href = `${film.key}.html`;
+                link.href = currentPageKey ? `${film.key}.html` : `filmai/${film.key}.html`;
                 link.classList.add('gallery-item-link');
                 link.setAttribute('data-aos', 'fade-up');
                 link.setAttribute('data-aos-delay', (index % 3) * 50);
