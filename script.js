@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     AOS.init({ duration: 1000, once: true, mirror: false });
-
+    
     const categoriesData = {
         "noka": { name: "NOKA", cover: "https://i.postimg.cc/28SthTZg/noka-car-01.jpg" },
         "bmw-e36": { name: "BMW E36", cover: "https://i.postimg.cc/vTpSGtSm/BMWE36-01.jpg" },
@@ -24,8 +24,36 @@ document.addEventListener('DOMContentLoaded', () => {
         { key: 'exit-2024', name: 'Exit (2024)', cover: 'https://i.postimg.cc/y8ktMLYc/exit.jpg' },
         { key: 'srp', name: 'SRP', cover: 'https://i.postimg.cc/1txkcDS6/srp.jpg' }
     ];
-    
-    // Galerijų sąrašo generavimas (galerijos.html)
+
+    // HERO SLIDESHOW LOGIKA
+    const slideshowContainer = document.querySelector('.slideshow-background');
+    if (slideshowContainer) {
+        const slideshowImages = [
+            "https://i.postimg.cc/BbnWtfcD/fotosesija-01.jpg",
+            "https://i.postimg.cc/vTpSGtSm/BMWE36-01.jpg",
+            "https://i.postimg.cc/X7gd6GTN/srp-01.jpg",
+            "https://i.postimg.cc/KYbYwNkK/bird-01.jpg",
+            "https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg"
+        ];
+        slideshowImages.forEach(imgUrl => {
+            const slide = document.createElement('div');
+            slide.classList.add('slide');
+            slide.style.backgroundImage = `url(${imgUrl})`;
+            slideshowContainer.appendChild(slide);
+        });
+        const slides = document.querySelectorAll('.slideshow-background .slide');
+        let currentSlide = 0;
+        if (slides.length > 0) {
+            slides[0].classList.add('active');
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000);
+        }
+    }
+
+    // Galerijų sąrašo generavimas
     const categoryGrid = document.getElementById('categoryGrid');
     if (categoryGrid) {
         Object.keys(categoriesData).forEach((key, index) => {
@@ -79,35 +107,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(lightboxElement);
         return lightboxElement;
     }
-    function openLightbox(lightbox, images, index) {
-        currentGalleryImages = images;
-        currentImageIndex = index;
-        document.addEventListener('keydown', handleKeydown);
-        lightbox.classList.add('visible');
-        showImage(lightbox, currentImageIndex);
-    }
-    function closeLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        document.removeEventListener('keydown', handleKeydown);
-        lightbox.classList.remove('visible');
-    }
+    function openLightbox(lightbox, images, index) { currentGalleryImages = images; currentImageIndex = index; document.addEventListener('keydown', handleKeydown); lightbox.classList.add('visible'); showImage(lightbox, currentImageIndex); }
+    function closeLightbox() { const lightbox = document.getElementById('lightbox'); document.removeEventListener('keydown', handleKeydown); lightbox.classList.remove('visible'); }
     function showImage(lightbox, index) {
         const imageElement = lightbox.querySelector('.lightbox-image');
         const counterElement = lightbox.querySelector('.lightbox-counter');
         imageElement.classList.remove('loaded');
-        setTimeout(() => {
-            imageElement.src = currentGalleryImages[index];
-            imageElement.onload = () => imageElement.classList.add('loaded');
-        }, 150);
+        setTimeout(() => { imageElement.src = currentGalleryImages[index]; imageElement.onload = () => imageElement.classList.add('loaded'); }, 150);
         counterElement.textContent = `${index + 1} / ${currentGalleryImages.length}`;
     }
     function showNextImage() { currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length; showImage(document.getElementById('lightbox'), currentImageIndex); }
     function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; showImage(document.getElementById('lightbox'), currentImageIndex); }
-    function handleKeydown(e) {
-        if (e.key === 'ArrowRight') showNextImage();
-        if (e.key === 'ArrowLeft') showPrevImage();
-        if (e.key === 'Escape') closeLightbox();
-    }
+    function handleKeydown(e) { if (e.key === 'ArrowRight') showNextImage(); if (e.key === 'ArrowLeft') showPrevImage(); if (e.key === 'Escape') closeLightbox(); }
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
