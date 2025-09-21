@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
+    <title>DP.PORTFOLIO | Fotografijų Galerijos</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DP.PORTFOLIO | Dominik Šuškevič</title>
-    <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija. Atmosferiniai kadrai, stilius ir įkvėpimas kiekvienoje fotografijoje.">
+    <meta name="description" content="Dominik Šuškevič (Dominikphotofficial) autorinių fotografijų galerijos. Atraskite unikalius kadrus ir profesionalias fotosesijas.">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
@@ -22,47 +22,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="hero-slideshow">
-        <div class="slideshow-background">
-            <!-- Fono nuotraukos bus įdėtos čia per JavaScript -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo-link"><img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image"></a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Galerijos</a>
+                <a href="about.html" class="nav-link">Apie mane</a>
+            </nav>
         </div>
-        <header class="main-header main-header-transparent">
-            <div class="container">
-                <a href="index.html" class="logo-link"><img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image"></a>
-                <nav class="main-nav">
-                    <a href="galerijos.html" class="nav-link">Galerijos</a>
-                    <a href="about.html" class="nav-link">Apie mane</a>
-                </nav>
-            </div>
-        </header>
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up">DP.PORTFOLIO</h1>
-            <p class="hero-tagline" data-aos-delay="200" data-aos="fade-up">Akimirkos, užfiksuotos amžinai</p>
-        </div>
-        <a href="#featured-galleries" class="scroll-down" aria-label="Slinkti žemyn"><span></span></a>
-    </section>
-
+    </header>
     <main>
-        <section class="gallery-sections" id="featured-galleries">
+        <section class="gallery-sections">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Naujausios Galerijos</h2>
+                <h1 class="section-title">Mano Galerijos</h1>
                 <div class="category-grid" id="categoryGrid">
-                    <!-- Kategorijos bus sugeneruotos čia -->
-                </div>
-                <div class="view-all-wrapper" data-aos="fade-up">
-                    <a href="galerijos.html" class="btn btn-primary">Žiūrėti visas galerijas</a>
+                    <!-- Nuotraukų galerijos bus sugeneruotos čia -->
                 </div>
             </div>
         </section>
+        <section class="ad-section">
+            <div class="container">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1019181981195493" data-ad-slot="1895474865" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </section>
     </main>
-
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
         </div>
     </footer>
-    
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
