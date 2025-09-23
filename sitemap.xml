@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
+  <url><loc>https://portfolio.dominikphotofficial.lt/index.html</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerijos.html</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/about.html</loc></url>
+  <!-- Galerijų puslapiai -->
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=noka</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=bmw-e36</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=moletu-observatorija</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=sirvetos-regioninis-parkas</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=fotosesija</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=miko-kipro-petrausku-namai</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=baltoji-kiele</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=cirkliskis-lithuania</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=geles</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=gandras</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=sventa-lithuania</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=vdu-botanikos-sodas</loc></url>
+  <url><loc>https://portfolio.dominikphotofficial.lt/galerija.html?id=ivairios-akimirkos</loc></url>
+</urlset>
+        
   <url>
     <loc>https://portfolio.dominikphotofficial.lt/</loc>
     <lastmod>2025-08-08</lastmod>
@@ -229,3 +247,4 @@
   </url>
 
 </urlset>
+
