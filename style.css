@@ -16,6 +16,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
     background-color: var(--color-background);
@@ -109,8 +113,7 @@ nav a.active::after {
     width: 100%;
 }
 
-
-/* --- Sekcijų valdymas --- */
+/* --- Sekcijų valdymas (index.html) --- */
 .view {
     display: none;
 }
@@ -132,6 +135,8 @@ nav a.active::after {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    aspect-ratio: 3 / 2;
+    display: block; /* Svarbu, kad <a> elgtųsi kaip blokas */
 }
 
 .album-card:hover {
@@ -175,7 +180,7 @@ nav a.active::after {
     opacity: 0;
 }
 
-/* --- Galerijos vaizdas --- */
+/* --- Galerijos vaizdas (albumų puslapiams) --- */
 .gallery-header {
     display: flex;
     justify-content: space-between;
@@ -183,7 +188,7 @@ nav a.active::after {
     margin-bottom: 30px;
 }
 
-#back-to-albums {
+#back-to-albums, .gallery-header a {
     background: none;
     border: none;
     font-family: var(--font-body);
@@ -203,6 +208,7 @@ nav a.active::after {
     cursor: pointer;
     overflow: hidden;
     border-radius: var(--border-radius);
+    aspect-ratio: 3 / 2;
 }
 
 .photo-item img {
@@ -216,10 +222,6 @@ nav a.active::after {
 .photo-item:hover img {
     transform: scale(1.05);
 }
-
-/* Nuotraukų santykis */
-.aspect-3-2 { aspect-ratio: 3 / 2; }
-.aspect-1-1 { aspect-ratio: 1 / 1; }
 
 /* --- Tekstinės skiltys (Apie, Kontaktai) --- */
 .text-content {
@@ -246,7 +248,7 @@ nav a.active::after {
     font-size: 1.1rem;
 }
 
-/* --- Lightbox --- */
+/* --- Lightbox (albumų puslapiams) --- */
 .lightbox {
     position: fixed;
     top: 0;
@@ -295,17 +297,8 @@ nav a.active::after {
     opacity: 0.7;
 }
 
-.lightbox-close {
-    top: 20px;
-    right: 30px;
-    font-size: 3rem;
-}
-
-.lightbox-prev, .lightbox-next {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
+.lightbox-close { top: 20px; right: 30px; font-size: 3rem; }
+.lightbox-prev, .lightbox-next { top: 50%; transform: translateY(-50%); }
 .lightbox-prev { left: 20px; }
 .lightbox-next { right: 20px; }
 
@@ -333,31 +326,12 @@ nav a.active::after {
     overflow: hidden;
     transition: max-height 0.4s ease-in-out;
 }
-.exif-data.visible {
-    max-height: 100px;
-    padding-top: 10px;
-}
+.exif-data.visible { max-height: 100px; padding-top: 10px; }
 
 /* --- Mobilioji versija --- */
 @media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    nav ul {
-        gap: 20px;
-    }
-    .album-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .photo-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .gallery-header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
+    header .container { flex-direction: column; gap: 20px; }
+    nav ul { gap: 20px; }
+    .album-grid, .photo-grid { grid-template-columns: 1fr; gap: 20px; }
+    .gallery-header { flex-direction: column; gap: 15px; text-align: center; }
 }
