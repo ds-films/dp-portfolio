@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Pagrindinė funkcija ---
     async function init() {
-        if (!albumGrid) return; // Vykdyti tik jei yra albumų tinklelis
+        if (!albumGrid) return;
         try {
             const response = await fetch('gallery-data.json');
             const galleryData = await response.json();
@@ -45,26 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 switchView(targetViewId);
                 
-                // Atnaujinti aktyvią nuorodą
                 navLinks.forEach(l => l.classList.remove('active'));
                 e.currentTarget.classList.add('active');
                 
-                // Atnaujinti URL hash be puslapio persikrovimo
-                if (history.pushState) {
-                    history.pushState(null, null, targetViewId === 'albums' ? ' ' : `#${targetViewId}`);
-                }
+                // Atnaujinti URL, kad būtų galima kopijuoti nuorodą
+                history.pushState(null, null, targetViewId === 'albums' ? window.location.pathname : `#${targetViewId}`);
             });
         });
 
-        // Tikriname URL #hash, kad atidarytume reikiamą skiltį
-        const hash = window.location.hash.substring(1);
-        if (hash === 'about' || hash === 'contact') {
-            switchView(hash);
-            navLinks.forEach(l => l.classList.remove('active'));
-            document.querySelector(`nav a[data-nav="${hash}"]`).classList.add('active');
-        } else {
-            switchView('albums');
-        }
+        // NAUJA DALIS: Tikriname URL puslapio įkrovimo metu
+        handleInitialHash();
     }
     
     function switchView(viewId) {
@@ -72,6 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetViewElement = document.getElementById(`${viewId}-view`);
         if (targetViewElement) {
             targetViewElement.classList.add('active');
+        }
+    }
+
+    function handleInitialHash() {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'about' || hash === 'contact') {
+            switchView(hash);
+            navLinks.forEach(l => l.classList.remove('active'));
+            document.querySelector(`nav a[data-nav="${hash}"]`).classList.add('active');
+        } else {
+            switchView('albums');
         }
     }
 
