@@ -26,8 +26,8 @@
             <nav>
                 <ul>
                     <li><a href="#" data-nav="albums" class="active">Albumai</a></li>
-                    <li><a href="#" data-nav="about">Apie mane</a></li>
-                    <li><a href="#" data-nav="contact">Kontaktai</a></li>
+                    <li><a href="#about" data-nav="about">Apie mane</a></li>
+                    <li><a href="#contact" data-nav="contact">Kontaktai</a></li>
                 </ul>
             </nav>
         </div>
@@ -41,19 +41,9 @@
             </div>
         </section>
 
-        <!-- Galerijos vaizdas (generuojamas su JS) -->
-        <section id="gallery-view" class="view">
-            <div class="gallery-header">
-                <button id="back-to-albums">&larr; Grįžti į albumus</button>
-                <h2 id="gallery-title"></h2>
-            </div>
-            <div id="photo-grid" class="photo-grid">
-                <!-- Photos will be inserted here by JavaScript -->
-            </div>
-        </section>
-
         <!-- Apie mane skiltis -->
         <section id="about-view" class="view text-content">
+            <a name="about"></a> <!-- Anchor for navigation -->
             <h2>Apie mane</h2>
             <p>
                 Fotografija man – tai ne tik vaizdų fiksavimas, bet ir istorijų pasakojimas. Mano stilius yra minimalizmas, kuriame svarbiausia yra erdvė, šviesa ir emocija. Vengiu nereikalingų detalių, kad kiekvienas kadras galėtų kvėpuoti ir kalbėti pats už save.
@@ -68,30 +58,15 @@
 
         <!-- Kontaktų skiltis -->
         <section id="contact-view" class="view text-content">
+            <a name="contact"></a> <!-- Anchor for navigation -->
             <h2>Kontaktai</h2>
             <p>Dėl fotosesijų ar kitų klausimų galite susisiekti:</p>
             <ul class="contact-list">
-                <li><strong>El. paštas:</strong> <a href="mailto:dominik.suskevic@gmail.com">dominik.suskevic@gmail.com</a></li>
-                <li><strong>Telefonas:</strong> <a href="tel:+37000000000">+370 XXX XXXXX</a></li>
+                <li><strong>El. paštas:</strong> <a href="mailto:Dominikphotofficial.lt@gmail.com">Dominikphotofficial.lt@gmail.com</a></li>
+                <li><strong>Telefonas:</strong> <a href="tel:+37062337615">+370 623 37615</a></li>
             </ul>
         </section>
     </main>
 
-    <!-- Lightbox (peržiūros langas) -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <span class="lightbox-prev">&#10094;</span>
-        <span class="lightbox-next">&#10095;</span>
-        <div class="lightbox-content">
-            <img src="" alt="Didinta nuotrauka" id="lightbox-img">
-            <div class="lightbox-info">
-                <button id="exif-toggle">EXIF Info</button>
-                <div id="exif-data" class="exif-data">
-                    <!-- EXIF data will be inserted here -->
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
-</html>
+                                                    </html>
