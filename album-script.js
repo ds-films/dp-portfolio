@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Lightbox elementai
     const lightbox = document.getElementById('lightbox');
-    if (!lightbox) return; // Nėra lightbox'o, nieko nedaryti
+    if (!lightbox) return; 
 
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
