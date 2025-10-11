@@ -1,0 +1,98 @@
+[
+    {
+        "id": "rundale-palace",
+        "title": "Rundāle Palace",
+        "coverImage": "https://via.placeholder.com/600x400.png/113939/FFFFFF?text=Rundāle",
+        "images": [
+            {
+                "src": "https://via.placeholder.com/1200x800.png/E8E8E8/333333?text=Rundāle+1",
+                "alt": "Rundalės rūmų sodas",
+                "aspectRatio": "3:2",
+                "exif": {
+                    "camera": "Canon PowerShot S5 IS",
+                    "date": "2023-08-15",
+                    "location": "Rundāle, Latvija"
+                }
+            },
+            {
+                "src": "https://via.placeholder.com/1200x800.png/E8E8E8/333333?text=Rundāle+2",
+                "alt": "Rūmų architektūros detalė",
+                "aspectRatio": "3:2"
+            },
+            {
+                "src": "https://via.placeholder.com/1000x1000.png/E8E8E8/333333?text=Rundāle+3",
+                "alt": "Rūmų fontanas",
+                "aspectRatio": "1:1",
+                "exif": {
+                    "camera": "Canon PowerShot S5 IS",
+                    "date": "2023-08-15",
+                    "location": "Rundāle, Latvija"
+                }
+            },
+            {
+                "src": "https://via.placeholder.com/1200x800.png/E8E8E8/333333?text=Rundāle+4",
+                "alt": "Rožių alėja",
+                "aspectRatio": "3:2"
+            }
+        ]
+    },
+    {
+        "id": "bmw-e36",
+        "title": "BMW E36",
+        "coverImage": "https://via.placeholder.com/600x400.png/113939/FFFFFF?text=BMW+E36",
+        "images": [
+            {
+                "src": "https://via.placeholder.com/1200x800.png/CCCCCC/333333?text=BMW+1",
+                "alt": "BMW E36 priekis",
+                "aspectRatio": "3:2",
+                "exif": {
+                    "camera": "Canon PowerShot S5 IS",
+                    "date": "2023-09-22",
+                    "location": "Vilnius, Lietuva"
+                }
+            },
+            {
+                "src": "https://via.placeholder.com/1000x1000.png/CCCCCC/333333?text=BMW+2",
+                "alt": "BMW E36 interjero detalė",
+                "aspectRatio": "1:1"
+            },
+            {
+                "src": "https://via.placeholder.com/1200x800.png/CCCCCC/333333?text=BMW+3",
+                "alt": "BMW E36 šonas saulėlydyje",
+                "aspectRatio": "3:2",
+                "exif": {
+                    "camera": "Canon PowerShot S5 IS",
+                    "date": "2023-09-22",
+                    "location": "Kaunas, Lietuva"
+                }
+            }
+        ]
+    },
+    {
+        "id": "geles",
+        "title": "Gėlės",
+        "coverImage": "https://via.placeholder.com/600x400.png/113939/FFFFFF?text=Gėlės",
+        "images": [
+            {
+                "src": "https://via.placeholder.com/1000x1000.png/F0F0F0/333333?text=Gėlė+1",
+                "alt": "Rožės žiedas iš arti",
+                "aspectRatio": "1:1"
+            },
+            {
+                "src": "https://via.placeholder.com/1200x800.png/F0F0F0/333333?text=Gėlė+2",
+                "alt": "Laukinių gėlių pieva",
+                "aspectRatio": "3:2",
+                 "exif": {
+                    "camera": "Canon PowerShot S5 IS",
+                    "date": "2023-06-10",
+                    "location": "Trakų raj., Lietuva"
+                }
+            },
+            {
+                "src": "https://via.placeholder.com/1000x1000.png/F0F0F0/333333?text=Gėlė+3",
+                "alt": "Vandens lašas ant gėlės lapo",
+                "aspectRatio": "1:1"
+            }
+        ]
+    }
+]
