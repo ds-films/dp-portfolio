@@ -3,66 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DP.PORTFOLIO | Dominik Šuškevič</title>
-    <meta name="description" content="Dominikphotofficial portfolio – autorinė fotogalerija ir filmų kolekcija.">
-    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/">
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png">
     
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1019181981195493" crossorigin="anonymous"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPPD6T6EQY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-EPPD6T6EQY');
-    </script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <section class="hero-slideshow">
-        <div class="slideshow-background">
-            <!-- Fono nuotraukos bus įdėtos čia per JavaScript -->
-        </div>
-        <header class="main-header main-header-transparent">
-            <div class="container">
-                <a href="index.html" class="logo-link"><img src="https://i.postimg.cc/wvS72Vx4/logo-dp-portfolio.png" alt="DP.PORTFOLIO Logo" class="logo-image"></a>
-                <nav class="main-nav">
-                    <a href="galerijos.html" class="nav-link">Galerijos</a>
-                    <a href="about.html" class="nav-link">Apie mane</a>
-                </nav>
-            </div>
-        </header>
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up">DP.PORTFOLIO</h1>
-            <p class="hero-tagline" data-aos-delay="200" data-aos="fade-up">Akimirkos, užfiksuotos amžinai</p>
-        </div>
-        <a href="#featured-galleries" class="scroll-down" aria-label="Slinkti žemyn"><span></span></a>
-    </section>
+    <!-- SEO -->
+    <title>DP.PORTFOLIO | Dominik Šuškevič Photography</title>
+    <meta name="description" content="Dominik Šuškevič Photography portfolio. Minimalistinė fotografija, kurianti atmosferą ir fiksuojanti nuoširdžias akimirkas.">
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt">
 
-    <main>
-        <section class="gallery-sections" id="featured-galleries">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Naujausios Galerijos</h2>
-                <div class="category-grid" id="categoryGrid">
-                    <!-- Kategorijos bus sugeneruotos čia -->
-                </div>
-                <div class="view-all-wrapper" data-aos="fade-up">
-                    <a href="galerijos.html" class="btn btn-primary">Žiūrėti visas galerijas</a>
-                </div>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:wght@500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body class="fade-in">
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo" data-nav="albums">DP.PORTFOLIO</a>
+            <nav>
+                <ul>
+                    <li><a href="#" data-nav="albums" class="active">Albumai</a></li>
+                    <li><a href="#" data-nav="about">Apie mane</a></li>
+                    <li><a href="#" data-nav="contact">Kontaktai</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Albumų tinklelis (generuojamas su JS) -->
+        <section id="albums-view" class="view active">
+            <div id="album-grid" class="album-grid">
+                <!-- Album cards will be inserted here by JavaScript -->
             </div>
+        </section>
+
+        <!-- Galerijos vaizdas (generuojamas su JS) -->
+        <section id="gallery-view" class="view">
+            <div class="gallery-header">
+                <button id="back-to-albums">&larr; Grįžti į albumus</button>
+                <h2 id="gallery-title"></h2>
+            </div>
+            <div id="photo-grid" class="photo-grid">
+                <!-- Photos will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Apie mane skiltis -->
+        <section id="about-view" class="view text-content">
+            <h2>Apie mane</h2>
+            <p>
+                Fotografija man – tai ne tik vaizdų fiksavimas, bet ir istorijų pasakojimas. Mano stilius yra minimalizmas, kuriame svarbiausia yra erdvė, šviesa ir emocija. Vengiu nereikalingų detalių, kad kiekvienas kadras galėtų kvėpuoti ir kalbėti pats už save.
+            </p>
+            <p>
+                Tikiu, kad geriausios nuotraukos gimsta iš natūralumo ir nuoširdumo. Siekiu sukurti tokią atmosferą, kurioje žmonės jaučiasi laisvai ir pamiršta apie fotoaparatą. Būtent tada pavyksta užfiksuoti tikras, nesuvaidintas akimirkas – tas, kurios išlieka ilgam.
+            </p>
+            <p>
+                Mano portfolio atspindi šią filosofiją. Kviečiu pasižvalgyti ir pajusti.
+            </p>
+        </section>
+
+        <!-- Kontaktų skiltis -->
+        <section id="contact-view" class="view text-content">
+            <h2>Kontaktai</h2>
+            <p>Dėl fotosesijų ar kitų klausimų galite susisiekti:</p>
+            <ul class="contact-list">
+                <li><strong>El. paštas:</strong> <a href="mailto:dominik.suskevic@gmail.com">dominik.suskevic@gmail.com</a></li>
+                <li><strong>Telefonas:</strong> <a href="tel:+37000000000">+370 XXX XXXXX</a></li>
+            </ul>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Dominikphotofficial. Visos teisės saugomos.</p>
+    <!-- Lightbox (peržiūros langas) -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-prev">&#10094;</span>
+        <span class="lightbox-next">&#10095;</span>
+        <div class="lightbox-content">
+            <img src="" alt="Didinta nuotrauka" id="lightbox-img">
+            <div class="lightbox-info">
+                <button id="exif-toggle">EXIF Info</button>
+                <div id="exif-data" class="exif-data">
+                    <!-- EXIF data will be inserted here -->
+                </div>
+            </div>
         </div>
-    </footer>
-    
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    </div>
+
 </body>
-                    </html>
+</html>
