@@ -18,7 +18,8 @@ body.loaded .site-content { opacity: 1; }
 
 header { padding: 30px 0; border-bottom: 1px solid #f0f0f0; margin-bottom: 40px; }
 header .container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; letter-spacing: 1px; color: var(--color-text); }
+/* --- ИЗМЕНЕНИЕ ЗДЕСЬ --- */
+.logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 600; letter-spacing: 1px; color: var(--color-text); }
 nav ul { list-style: none; display: flex; gap: 30px; }
 nav a { font-family: var(--font-heading); font-size: 1rem; font-weight: 500; color: var(--color-text); position: relative; padding-bottom: 5px; }
 nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--color-accent); transition: width var(--transition-fast); }
@@ -63,4 +64,4 @@ nav a:hover::after, nav a.active::after { width: 100%; }
     nav ul { gap: 20px; }
     .album-grid, .photo-grid { grid-template-columns: 1fr; gap: 20px; }
     .gallery-header { flex-direction: column; gap: 15px; text-align: center; }
-                 }
+}
