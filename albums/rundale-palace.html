@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rundāle Palace | DP.PORTFOLIO</title>
+    <meta name="description" content="Albumas, skirtas Rundalės rūmams.">
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/albums/rundale-palace.html">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script defer src="../script.js"></script>
+</head>
+<body>
+    <div id="preloader"><div class="spinner"></div></div>
+    <div class="site-content">
+        <header>
+            <div class="container">
+                <a href="../index.html" class="logo">DP.PORTFOLIO</a>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html" class="nav-link">Albumai</a></li>
+                        <li><a href="../about.html" class="nav-link">Apie mane</a></li>
+                        <li><a href="../contacts.html" class="nav-link">Kontaktai</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="container">
+            <div class="gallery-header">
+                <h2>Rundāle Palace</h2>
+                <a href="../index.html" id="back-to-albums">&larr; Visi albumai</a>
+            </div>
+            <div class="photo-grid">
+                <!-- Вставляйте фото сюда, добавляя data-author и data-camera -->
+                <div class="photo-item" data-src="https://i.postimg.cc/qMzqYg9V/LATVIJA-2025-31.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS">
+                    <img src="https://i.postimg.cc/qMzqYg9V/LATVIJA-2025-31.jpg" alt="Rundāle Palace photo" loading="lazy">
+                </div>
+                <div class="photo-item" data-src="https://i.postimg.cc/4N74Pq9v/LATVIJA-2025-32.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS">
+                    <img src="https://i.postimg.cc/4N74Pq9v/LATVIJA-2025-32.jpg" alt="Rundāle Palace photo" loading="lazy">
+                </div>
+                <!-- ... и так далее для всех 23 фотографий ... -->
+            </div>
+        </main>
+        <footer class="site-footer">
+            <div class="container">
+                <p>&copy; <span id="year"></span> DP.PORTFOLIO | Dominik Šuškevič Photography.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close lightbox-ui">&times;</span>
+        <span class="lightbox-prev lightbox-ui">&#10094;</span>
+        <span class="lightbox-next lightbox-ui">&#10095;</span>
+        <div class="lightbox-info lightbox-ui"></div>
+        <div class="lightbox-content">
+            <img src="" alt="Didinta nuotrauka" id="lightbox-img">
+        </div>
+    </div>
+</body>
+</html>
