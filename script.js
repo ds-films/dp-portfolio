@@ -16,12 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function highlightActiveNav() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
+            if (linkPath === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    }
+
     function handleMainPage() {
         const albumGrid = document.getElementById('album-grid');
         if (!albumGrid) return;
-
-        const views = document.querySelectorAll('.view');
-        const navLinks = document.querySelectorAll('.nav-link');
 
         async function initGallery() {
             try {
@@ -29,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const galleryData = await response.json();
                 renderAlbumGrid(galleryData);
             } catch (error) {
-                console.error('Klaida įkeliant galerijos duomenis:', error);
+                console.error('Error fetching gallery data:', error);
                 albumGrid.innerHTML = '<p>Nepavyko įkelti albumų.</p>';
             }
         }
@@ -39,45 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
             albums.forEach(album => {
                 const card = document.createElement('a');
                 card.className = 'album-card';
-                card.href = `albums/album-${album.id}.html`;
+                card.href = `albums/${album.id}.html`;
                 card.innerHTML = `<img src="${album.coverImage}" alt="${album.title}" loading="lazy"><div class="album-title"><h3>${album.title}</h3></div>`;
                 albumGrid.appendChild(card);
             });
         }
-
-        function setupNavigation() {
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const href = link.getAttribute('href');
-                    if (href && href.startsWith('#')) {
-                        e.preventDefault();
-                        switchView(link.dataset.nav);
-                        document.getElementById(href.substring(1)).scrollIntoView();
-                    }
-                });
-            });
-            handleInitialHash();
-        }
-
-        function switchView(viewId) {
-            views.forEach(view => view.style.display = 'block'); // Rodyti viską, kad scroll veiktų
-            navLinks.forEach(l => l.classList.remove('active'));
-            const activeLink = document.querySelector(`.nav-link[data-nav="${viewId}"]`);
-            if (activeLink) activeLink.classList.add('active');
-        }
-
-        function handleInitialHash() {
-            const hash = window.location.hash.substring(1);
-            if (hash === 'about' || hash === 'contact') {
-                switchView(hash);
-                document.getElementById(hash).scrollIntoView();
-            } else {
-                switchView('albums');
-            }
-        }
-
         initGallery();
-        setupNavigation();
     }
 
     function handleAlbumPage() {
@@ -91,14 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const lightboxClose = document.querySelector('.lightbox-close');
         const lightboxPrev = document.querySelector('.lightbox-prev');
         const lightboxNext = document.querySelector('.lightbox-next');
-        const lightboxCounter = document.querySelector('.lightbox-counter');
+        const lightboxInfo = document.querySelector('.lightbox-info');
         let currentImageIndex = 0;
         let touchStartX = 0;
 
         function updateLightboxImage() {
             const item = photoItems[currentImageIndex];
+            const author = item.dataset.author || 'N/A';
+            const camera = item.dataset.camera || 'N/A';
             lightboxImg.src = item.dataset.src;
-            lightboxCounter.textContent = `${currentImageIndex + 1} / ${photoItems.length}`;
+            lightboxInfo.innerHTML = `<span>${author}</span> &bull; <span>${camera}</span>`;
         }
 
         function showNextImage() { currentImageIndex = (currentImageIndex + 1) % photoItems.length; updateLightboxImage(); }
@@ -126,19 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // --- Свайпы ---
         lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
         lightbox.addEventListener('touchend', (e) => {
             const touchEndX = e.changedTouches[0].clientX;
-            const swipeDiff = touchEndX - touchStartX;
-            if (swipeDiff > 50) showPrevImage();
-            if (swipeDiff < -50) showNextImage();
+            if (touchEndX - touchStartX > 50) showPrevImage();
+            if (touchStartX - touchEndX > 50) showNextImage();
         });
     }
 
-    // --- Запуск ---
+    // --- Запуск всех функций ---
     hidePreloader();
     setupFooter();
+    highlightActiveNav();
     handleMainPage();
     handleAlbumPage();
 });
