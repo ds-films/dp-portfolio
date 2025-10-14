@@ -5,20 +5,92 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+<!-- Главные страницы -->
 <url>
-  <loc>https://portfolio.dominikphotofficial.lt/</loc>
-  <lastmod>2023-10-27T10:00:00+00:00</lastmod>
+  <loc>https://portfolio.dominikphotofficial.lt/index.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://portfolio.dominikphotofficial.lt/#about</loc>
-  <lastmod>2023-10-27T10:00:00+00:00</lastmod>
+  <loc>https://portfolio.dominikphotofficial.lt/about.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://portfolio.dominikphotofficial.lt/#contact</loc>
-  <lastmod>2023-10-27T10:00:00+00:00</lastmod>
+  <loc>https://portfolio.dominikphotofficial.lt/contacts.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>0.80</priority>
+</url>
+
+<!-- Страницы альбомов -->
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/rundale-palace.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/noka-gathering.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/flowers.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/Baltoji-kiele.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/BMWE36.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/cirkliskis.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/srp.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/Sventa.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/vdu-b-s.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/Moletu-observatorija.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://portfolio.dominikphotofficial.lt/albums/Gandras.html</loc>
+  <lastmod>2023-11-20T00:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.90</priority>
 </url>
 
 </urlset>
