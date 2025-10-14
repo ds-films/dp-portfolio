@@ -5,8 +5,10 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-body); background-color: var(--color-background); color: var(--color-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-h2 { font-family: var(--font-heading); color: var(--color-accent); font-weight: 600; font-size: 2rem; margin-bottom: 20px; }
-h3 { font-family: var(--font-heading); color: white; font-weight: 500; }
+h2, h3 { font-family: var(--font-heading); color: var(--color-accent); font-weight: 600; }
+h2 { font-size: 2rem; margin-bottom: 20px; }
+h3 { font-size: 1.4rem; margin-top: 25px; margin-bottom: 10px; }
+h3:first-of-type { margin-top: 0; }
 a { color: var(--color-accent); text-decoration: none; transition: opacity var(--transition-fast); }
 a:hover { opacity: 0.7; }
 
@@ -18,7 +20,6 @@ body.loaded .site-content { opacity: 1; }
 
 header { padding: 30px 0; border-bottom: 1px solid #f0f0f0; margin-bottom: 40px; }
 header .container { display: flex; justify-content: space-between; align-items: center; }
-/* --- ИЗМЕНЕНИЕ ЗДЕСЬ --- */
 .logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 600; letter-spacing: 1px; color: var(--color-text); }
 nav ul { list-style: none; display: flex; gap: 30px; }
 nav a { font-family: var(--font-heading); font-size: 1rem; font-weight: 500; color: var(--color-text); position: relative; padding-bottom: 5px; }
@@ -35,6 +36,7 @@ nav a:hover::after, nav a.active::after { width: 100%; }
 .album-card img, .photo-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-medium); background-color: #f0f0f0; }
 .album-card:hover img, .photo-item:hover img { transform: scale(1.05); }
 .album-title { position: absolute; bottom: 0; left: 0; width: 100%; display: flex; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent); font-size: 1.5rem; text-align: left; padding: 20px; transition: opacity var(--transition-fast); }
+.album-title h3 { color: white; }
 
 .gallery-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
 #back-to-albums { background: none; border: none; font-size: 1rem; color: var(--color-accent); cursor: pointer; padding: 5px 0; }
@@ -58,10 +60,11 @@ nav a:hover::after, nav a.active::after { width: 100%; }
 .lightbox.active .lightbox-info { opacity: 1; transition-delay: 0.3s; }
 
 .site-footer { border-top: 1px solid #f0f0f0; padding: 30px 0; margin-top: 40px; text-align: center; color: #999; font-size: 0.9rem; }
+.footer-credits { font-size: 0.8rem; color: #aaa; margin-top: 5px; } /* НОВЫЙ СТИЛЬ */
 
 @media (max-width: 768px) {
     header .container { flex-direction: column; gap: 20px; }
     nav ul { gap: 20px; }
     .album-grid, .photo-grid { grid-template-columns: 1fr; gap: 20px; }
     .gallery-header { flex-direction: column; gap: 15px; text-align: center; }
-}
+             }
