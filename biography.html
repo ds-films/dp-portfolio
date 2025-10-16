@@ -9,7 +9,7 @@
     <link rel="icon" href="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" type="image/png">
     <meta property="og:title" content="Biografija | DP.PORTFOLIO">
     <meta property="og:description" content="Fotografo ir vizualiojo meno kūrėjo Dominik Šuškevič biografija.">
-    <meta property="og:image" content="https://i.postimg.cc/Xvc3zYGK/dp-logo.png">
+    <meta property="og:image" content="https://i.postimg.cc/43WdSV7M/ph-d-s-02.jpg">
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/biography.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,24 +49,23 @@
                     </div>
                     <hr class="divider">
                 </div>
+
                 <div class="carousel-section animated">
                     <div class="carousel-container">
                         <div class="carousel-track">
-                            <div class="carousel-slide"><img src="https://i.postimg.cc/43WdSV7M/ph-d-s-02.jpg" alt="Dominik Šuškevič photo 1"></div>
-                            <div class="carousel-slide"><img src="https://i.postimg.cc/s2TXN7QL/ph-d-s-03.jpg" alt="Dominik Šuškevič photo 2"></div>
+                            <div class="carousel-slide lightbox-trigger" data-src="https://i.postimg.cc/43WdSV7M/ph-d-s-02.jpg" data-author="Asmeninis archyvas"><img src="https://i.postimg.cc/43WdSV7M/ph-d-s-02.jpg" alt="Dominik Šuškevič, portretas 1"></div>
+                            <div class="carousel-slide lightbox-trigger" data-src="https://i.postimg.cc/s2TXN7QL/ph-d-s-03.jpg" data-author="Asmeninis archyvas"><img src="https://i.postimg.cc/s2TXN7QL/ph-d-s-03.jpg" alt="Dominik Šuškevič, portretas 2"></div>
                         </div>
                         <button class="carousel-button prev">&#10094;</button>
                         <button class="carousel-button next">&#10095;</button>
                     </div>
                 </div>
+
                 <div class="text-content animated">
                     <p><strong>Dominik Šuškevič</strong> (g. 2011 m. spalio 5 d.) – keturiolikos metų vizualiojo meno kūrėjas iš Lietuvos. Gimęs Švenčionyse, šiuo metu jis gyvena ir kuria Kaune. Dominik Šuškevič yra universalus menininkas, sėkmingai įkūnijantis režisieriaus, operatoriaus, fotografo, aktoriaus ir scenaristo vaidmenis.</p>
                     <h3>Kūrybinė Kelionė</h3>
                     <p>Savo meninę kelionę Dominik Šuškevič pradėjo dalyvaudamas Švenčionėlių Mindaugo gimnazijos ir Kultūros namų teatro studijos veikloje. Nuo 2021 metų jis ypač intensyviai pasinėrė į vizualųjį turinį, gilindamas savo aistrą kinematografijai ir fotografijai.</p>
                     <p>Nuo 2022 metų jis rimtai kuria trumpametražius filmus, kuriuose savarankiškai atlieka visus pagrindinius gamybos vaidmenis: nuo scenarijaus iki režisūros ir montažo. Pripažinti jo darbai apima tokius filmus kaip „Katinas su baime“ ir „Pabaiga“.</p>
-                    <h3>Technika ir Stilius</h3>
-                    <p>Fotografijos srityje Dominik Šuškevič naudoja „Samsung A34“ išmanųjį telefoną ir CANON POWERSHOT S5 IS fotoaparatą. Jo kūrybinis stilius yra intuityvus, emocionalus ir labai atmosferiškas, pasižymintis gebėjimu per šviesos žaismą ir tylą perteikti subtilius personažų jausmus. Montavimui jis naudojasi „CapCut“.</p>
-                    <p>Pagrindinis jo ambicingas tikslas – sukurti pilnametražį filmą ir naudoti savo meną kaip būdą kalbėtis su pasauliu, paliekant pėdsaką žmonių širdyse.</p>
                 </div>
             </div>
         </main>
@@ -77,5 +76,19 @@
             </div>
         </footer>
     </div>
+    
+    <!-- Lightbox struktūra (bendrinė visai svetainei) -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-header">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-counter"></div>
+        </div>
+        <span class="lightbox-close lightbox-ui">&times;</span>
+        <span class="lightbox-prev lightbox-ui">&#10094;</span>
+        <span class="lightbox-next lightbox-ui">&#10095;</span>
+        <div class="lightbox-content">
+            <img src="" alt="Didinta nuotrauka" id="lightbox-img">
+        </div>
+    </div>
 </body>
-            </html>
+</html>
