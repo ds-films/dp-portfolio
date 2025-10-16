@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function initScrollAnimations() {
         const animatedElements = document.querySelectorAll('.animated');
         if (animatedElements.length === 0) return;
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, { threshold: 0.1 });
-
         animatedElements.forEach(el => observer.observe(el));
     }
 
@@ -70,12 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchAlbums();
     }
 
-    function handleAlbumPage() {
+    function initLightbox() {
+        const galleryItems = Array.from(document.querySelectorAll('.lightbox-trigger'));
         const lightbox = document.getElementById('lightbox');
-        if (!lightbox) return;
-
-        const photoItems = Array.from(document.querySelectorAll('.photo-item'));
-        if (photoItems.length === 0) return;
+        if (galleryItems.length === 0 || !lightbox) return;
 
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.querySelector('.lightbox-close');
@@ -86,28 +82,37 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentImageIndex = 0;
 
         function updateLightbox() {
-            const item = photoItems[currentImageIndex];
+            const item = galleryItems[currentImageIndex];
             lightboxImg.src = item.dataset.src;
-            lightboxCaption.textContent = item.querySelector('img').alt;
-            lightboxCounter.textContent = `${currentImageIndex + 1} / ${photoItems.length}`;
+            lightboxCaption.textContent = item.querySelector('img')?.alt || '';
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryItems.length}`;
         }
 
-        function showNextImage() { currentImageIndex = (currentImageIndex + 1) % photoItems.length; updateLightbox(); }
-        function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + photoItems.length) % photoItems.length; updateLightbox(); }
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+        }
+        
         function closeLightbox() { lightbox.classList.remove('active'); }
+        function showNextImage() { currentImageIndex = (currentImageIndex + 1) % galleryItems.length; updateLightbox(); }
+        function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length; updateLightbox(); }
 
-        photoItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentImageIndex = index;
-                updateLightbox();
-                lightbox.classList.add('active');
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                openLightbox(index);
             });
         });
 
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxPrev.addEventListener('click', showPrevImage);
         lightboxNext.addEventListener('click', showNextImage);
-        lightbox.addEventListener('click', (e) => { if (e.target === lightboxContent) return; closeLightbox(); });
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
 
         document.addEventListener('keydown', (e) => {
             if (lightbox.classList.contains('active')) {
@@ -118,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function handleBiographyPage() {
+    function handleBiographyCarousel() {
         const carouselContainer = document.querySelector('.carousel-container');
         if (!carouselContainer) return;
 
@@ -128,8 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevButton = carouselContainer.querySelector('.carousel-button.prev');
         let currentSlide = 0;
 
-        const moveToSlide = (targetSlide) => {
-            track.style.transform = 'translateX(-' + slides[targetSlide].offsetLeft + 'px)';
+        function updateSlidePositions() {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            slides.forEach((slide, index) => {
+                slide.style.left = slideWidth * index + 'px';
+            });
+            moveToSlide(currentSlide, false);
+        }
+
+        const moveToSlide = (targetSlide, animate = true) => {
+            if (!slides[targetSlide]) return;
+            track.style.transition = animate ? 'transform var(--transition-fast)' : 'none';
+            track.style.transform = 'translateX(-' + slides[targetSlide].style.left + ')';
             currentSlide = targetSlide;
         };
 
@@ -143,13 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
             moveToSlide(prevSlide);
         });
 
-        window.addEventListener('resize', () => {
-            slides.forEach((slide, index) => {
-                const slideWidth = slide.getBoundingClientRect().width;
-                slide.style.left = slideWidth * index + 'px';
-            });
-            moveToSlide(currentSlide);
-        });
+        window.addEventListener('resize', updateSlidePositions);
+        updateSlidePositions();
     }
 
     // --- Paleidimas ---
@@ -159,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initActiveNav();
         initScrollAnimations();
         handleMainPage();
-        handleAlbumPage();
-        handleBiographyPage();
+        handleBiographyCarousel();
+        initLightbox(); 
     });
 });
