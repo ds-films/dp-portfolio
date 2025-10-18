@@ -15,9 +15,9 @@ html { scroll-behavior: smooth; }
 body { font-family: var(--font-body); background-color: var(--color-background); color: var(--color-text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 h1, h2, h3 { font-family: var(--font-heading); color: var(--color-text); font-weight: 600; }
-h1 { font-size: 3.5rem; text-align: center; margin-bottom: 20px; letter-spacing: -1px; }
-h2 { font-size: 2.5rem; margin-bottom: 30px; }
-h3 { font-size: 1.5rem; font-weight: 600; }
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); text-align: center; margin-bottom: 20px; letter-spacing: -1px; }
+h2 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 30px; }
+h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; }
 a { color: var(--color-accent); text-decoration: none; transition: color var(--transition-fast); }
 a:hover { color: var(--color-text); }
 hr.divider { border: none; height: 1px; background-color: var(--border-color); margin: 30px auto; max-width: 400px; }
@@ -54,14 +54,14 @@ nav a.active, nav a:hover { color: var(--color-accent); }
 
 .bio-header { text-align: center; padding: 60px 0 30px; }
 .bio-profile-pic { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-.bio-name { font-size: 3rem; color: var(--color-accent); }
+.bio-name { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-accent); }
 .social-links { display: flex; justify-content: center; gap: 30px; }
 .social-links a { color: var(--color-subtle); }
 .social-links a:hover { color: var(--color-accent); }
 .social-links svg { width: 24px; height: 24px; }
 .carousel-section { max-width: 900px; margin: 40px auto; }
 .carousel-container { position: relative; overflow: hidden; border-radius: var(--border-radius); }
-.carousel-track { display: flex; transition: transform var(--transition-fast); }
+.carousel-track { display: flex; }
 .carousel-slide { flex-shrink: 0; width: 100%; cursor: pointer; }
 .carousel-slide img { width: 100%; display: block; aspect-ratio: 3/2; object-fit: cover; }
 .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.8); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; opacity: 0; transition: opacity var(--transition-fast); z-index: 10; }
@@ -97,8 +97,28 @@ nav a.active, nav a:hover { color: var(--color-accent); }
 .site-footer { padding: 40px 0; margin-top: 40px; text-align: center; color: #aaa; font-size: 0.9rem; border-top: 1px solid var(--border-color); }
 .footer-credits { font-size: 0.8rem; color: #ccc; margin-top: 8px; }
 
+/* --- Responsinis dizainas (Media Queries) --- */
+
+/* Planšetiniai kompiuteriai ir didesni telefonai */
+@media (max-width: 1024px) {
+    .album-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    nav ul { gap: 30px; }
+}
+
+/* Mobilieji telefonai */
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    header .container { flex-direction: column; gap: 20px; }
-    .album-grid { grid-template-columns: 1fr; }
+    header .container { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
+    nav { order: 3; width: 100%; margin-top: 20px; }
+    nav ul { justify-content: space-around; gap: 15px; }
+    nav a { font-size: 0.8rem; }
+    
+    .album-grid, .photo-grid { grid-template-columns: 1fr; }
+    
+    .page-title-section { padding: 60px 0; margin-bottom: 40px; }
+    .content-wrapper { padding-bottom: 40px; }
+
+    .lightbox-prev, .lightbox-next { font-size: 2rem; padding: 10px; }
+    .lightbox-prev { left: 5px; }
+    .lightbox-next { right: 5px; }
+    .lightbox-header { top: 15px; left: 15px; right: 15px; flex-direction: column; gap: 5px; }
 }
