@@ -82,10 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentImageIndex = 0;
         let touchStartX = 0;
 
+        // NAUJAS PAKEITIMAS: Paimame albumo pavadinimą iš H1 antraštės
+        const albumTitle = document.querySelector('.page-title-section h1')?.textContent || document.querySelector('.bio-name')?.textContent || 'Galerija';
+
         function updateLightbox() {
             const item = galleryItems[currentImageIndex];
             lightboxImg.src = item.dataset.src;
-            lightboxCaption.textContent = item.querySelector('img')?.alt || '';
+            lightboxCaption.textContent = albumTitle; // Visada rodomas albumo pavadinimas
             lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryItems.length}`;
         }
 
@@ -109,11 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxPrev.addEventListener('click', showPrevImage);
         lightboxNext.addEventListener('click', showNextImage);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 
         document.addEventListener('keydown', (e) => {
             if (lightbox.classList.contains('active')) {
@@ -123,19 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        lightbox.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        }, { passive: true });
-
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
         lightbox.addEventListener('touchend', (e) => {
             if (touchStartX === 0) return;
             const touchEndX = e.changedTouches[0].clientX;
             const swipeDiff = touchEndX - touchStartX;
-            if (swipeDiff > 50) {
-                showPrevImage();
-            } else if (swipeDiff < -50) {
-                showNextImage();
-            }
+            if (swipeDiff > 50) showPrevImage();
+            else if (swipeDiff < -50) showNextImage();
             touchStartX = 0;
         });
     }
@@ -149,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextButton = carouselContainer.querySelector('.carousel-button.next');
         const prevButton = carouselContainer.querySelector('.carousel-button.prev');
         if (slides.length <= 1) {
-            nextButton.style.display = 'none';
-            prevButton.style.display = 'none';
+            if(nextButton) nextButton.style.display = 'none';
+            if(prevButton) prevButton.style.display = 'none';
             return;
         };
         let currentSlide = 0;
