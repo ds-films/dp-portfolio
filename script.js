@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lightboxCaption = document.querySelector('.lightbox-caption');
         const lightboxCounter = document.querySelector('.lightbox-counter');
         let currentImageIndex = 0;
+        let touchStartX = 0;
 
         function updateLightbox() {
             const item = galleryItems[currentImageIndex];
@@ -121,6 +122,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (e.key === 'ArrowRight') showNextImage();
             }
         });
+
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            if (touchStartX === 0) return;
+            const touchEndX = e.changedTouches[0].clientX;
+            const swipeDiff = touchEndX - touchStartX;
+            if (swipeDiff > 50) {
+                showPrevImage();
+            } else if (swipeDiff < -50) {
+                showNextImage();
+            }
+            touchStartX = 0;
+        });
     }
 
     function handleBiographyCarousel() {
@@ -131,20 +148,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const slides = Array.from(track.children);
         const nextButton = carouselContainer.querySelector('.carousel-button.next');
         const prevButton = carouselContainer.querySelector('.carousel-button.prev');
+        if (slides.length <= 1) {
+            nextButton.style.display = 'none';
+            prevButton.style.display = 'none';
+            return;
+        };
         let currentSlide = 0;
 
-        function updateSlidePositions() {
+        const moveToSlide = (targetSlide) => {
             const slideWidth = slides[0].getBoundingClientRect().width;
-            slides.forEach((slide, index) => {
-                slide.style.left = slideWidth * index + 'px';
-            });
-            moveToSlide(currentSlide, false);
-        }
-
-        const moveToSlide = (targetSlide, animate = true) => {
-            if (!slides[targetSlide]) return;
-            track.style.transition = animate ? 'transform var(--transition-fast)' : 'none';
-            track.style.transform = 'translateX(-' + slides[targetSlide].style.left + ')';
+            track.style.transform = `translateX(-${slideWidth * targetSlide}px)`;
             currentSlide = targetSlide;
         };
 
@@ -157,9 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
             moveToSlide(prevSlide);
         });
-
-        window.addEventListener('resize', updateSlidePositions);
-        updateSlidePositions();
+        
+        window.addEventListener('resize', () => moveToSlide(currentSlide));
     }
 
     // --- Paleidimas ---
