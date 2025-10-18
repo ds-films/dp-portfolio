@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
             preloader.style.opacity = '0';
-            setTimeout(() => { preloader.style.display = 'none'; }, 500);
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500); // Atitinka CSS transition trukmę
         }
         document.body.classList.add('loaded');
     }
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initScrollAnimations() {
         const animatedElements = document.querySelectorAll('.animated');
         if (animatedElements.length === 0) return;
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -38,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, { threshold: 0.1 });
+
         animatedElements.forEach(el => observer.observe(el));
     }
 
@@ -48,11 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         async function fetchAlbums() {
             try {
                 const response = await fetch('gallery-data.json');
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 renderAlbums(data);
             } catch (error) {
                 console.error('Error fetching albums:', error);
-                albumGrid.innerHTML = '<p>Nepavyko įkelti albumų.</p>';
+                albumGrid.innerHTML = '<p>Nepavyko įkelti albumų. Bandykite perkrauti puslapį.</p>';
             }
         }
 
@@ -63,11 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>${album.title}</h3>
                 </a>
             `).join('');
-            initScrollAnimations();
+            initScrollAnimations(); // Iš naujo paleidžiame animacijas dinamiškai sukurtiems elementams
         }
         fetchAlbums();
     }
-
+    
     function initHeroSlider() {
         const slider = document.querySelector('.hero-slider');
         if (!slider) return;
@@ -76,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (slides.length <= 1) return;
 
         let currentSlide = 0;
-        
         setInterval(() => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
@@ -118,10 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function showPrevImage() { currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length; updateLightbox(); }
 
         galleryItems.forEach((item, index) => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                openLightbox(index);
-            });
+            item.addEventListener('click', (e) => { e.preventDefault(); openLightbox(index); });
         });
 
         lightboxClose.addEventListener('click', closeLightbox);
@@ -183,14 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Paleidimas ---
-    window.addEventListener('load', () => {
-        initPreloader();
-        initFooter();
-        initActiveNav();
-        initScrollAnimations();
-        handleMainPage();
-        initHeroSlider();
-        handleBiographyCarousel();
-        initLightbox(); 
-    });
+    // Šios funkcijos įvykdomos iškart, nelaukiant visų nuotraukų
+    initPreloader();
+    initFooter();
+    initActiveNav();
+    initScrollAnimations();
+    handleMainPage();
+    initHeroSlider();
+    handleBiographyCarousel();
+    initLightbox();
 });
