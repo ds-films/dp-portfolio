@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Gėlės | DP.PORTFOLIO</title>
     <meta name="description" content="Gėlių ir augalų fotografijos albumas.">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/albums/flowers.html">
@@ -11,7 +10,6 @@
     <meta property="og:description" content="Gėlių ir augalų fotografijos albumas.">
     <meta property="og:image" content="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg">
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/albums/flowers.html">
-
     <link rel="icon" href="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +17,7 @@
     <link rel="stylesheet" href="../style.css">
     <script defer src="../script.js"></script>
 </head>
-<body>
+<body class="album-page">
     <div id="preloader"><div class="spinner"></div></div>
     <div class="site-content">
         <header>
@@ -28,16 +26,21 @@
                     <img src="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" alt="DP Logo" class="logo-img">
                     <span class="logo-text">DP.PORTFOLIO</span>
                 </a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html" class="nav-link">Albumai</a></li>
-                        <li><a href="../about.html" class="nav-link">Apie mane</a></li>
-                        <li><a href="../biography.html" class="nav-link">Biografija</a></li>
-                        <li><a href="../contacts.html" class="nav-link">Kontaktai</a></li>
-                    </ul>
-                </nav>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </header>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="../index.html" class="nav-link">Albumai</a></li>
+                <li><a href="../about.html" class="nav-link">Apie mus</a></li>
+                <li><a href="../biography.html" class="nav-link">Biografija</a></li>
+                <li><a href="../contacts.html" class="nav-link">Kontaktai</a></li>
+            </ul>
+        </nav>
         <main>
             <section class="page-title-section animated">
                 <h1>Gėlės</h1>
@@ -45,52 +48,53 @@
             <section class="content-wrapper">
                 <div class="container">
                     <div class="gallery-header">
-                        <a href="../index.html" id="back-to-albums">&larr; Visi albumai</a>
+                        <a href="../index.html" id="back-to-albums">&larr; Grįžti į albumus</a>
                     </div>
                     <div class="photo-grid">
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/mrM1vkgD/Flower-02.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/mrM1vkgD/Flower-02.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/zXthW4QJ/Flower-03.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/zXthW4QJ/Flower-03.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/J08N6J3M/Flower-04.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/J08N6J3M/Flower-04.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/VNSWdzLQ/Flower-05.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/VNSWdzLQ/Flower-05.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/x887dW7X/Flower-06.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/x887dW7X/Flower-06.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/7YTsQMyr/Flower-07.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/7YTsQMyr/Flower-07.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/L6nK41Kx/Flower-08.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/L6nK41Kx/Flower-08.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/bJgcr0wB/Flower-09.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/bJgcr0wB/Flower-09.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/SsD3kyZ0/Flower-10.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/SsD3kyZ0/Flower-10.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/sXVqkB49/Flower-11.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/sXVqkB49/Flower-11.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/9FK3DQcC/Flower-12.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/9FK3DQcC/Flower-12.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/DZn37pnG/Flower-13.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/DZn37pnG/Flower-13.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/rs5hzMjF/Flower-14.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/rs5hzMjF/Flower-14.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/V6xGYdjV/Flower-15.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/V6xGYdjV/Flower-15.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/SxhB6tYv/Flower-16.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/SxhB6tYv/Flower-16.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/SQ1JRC55/Flower-17.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/SQ1JRC55/Flower-17.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/SsyJ2rm0/Flower-18.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/SsyJ2rm0/Flower-18.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/GmG2XN2w/Flower-19.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/GmG2XN2w/Flower-19.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/sgjWZsmH/Flower-20.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/sgjWZsmH/Flower-20.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/c44YvdX9/Flower-21.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/c44YvdX9/Flower-21.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/02J2N37M/Flower-22.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/02J2N37M/Flower-22.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/cJ5LCNk3/Flower-23.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/cJ5LCNk3/Flower-23.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/qBcXtb0R/Flower-24.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/qBcXtb0R/Flower-24.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/nrWW93b0/Flower-25.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/nrWW93b0/Flower-25.jpg" alt="Gėlės photo" loading="lazy"></div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/zBnF5pp9/flower-26.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS"><img src="https://i.postimg.cc/zBnF5pp9/flower-26.jpg" alt="Gėlės photo" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg"><img src="https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/mrM1vkgD/Flower-02.jpg"><img src="https://i.postimg.cc/mrM1vkgD/Flower-02.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/zXthW4QJ/Flower-03.jpg"><img src="https://i.postimg.cc/zXthW4QJ/Flower-03.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/J08N6J3M/Flower-04.jpg"><img src="https://i.postimg.cc/J08N6J3M/Flower-04.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/VNSWdzLQ/Flower-05.jpg"><img src="https://i.postimg.cc/VNSWdzLQ/Flower-05.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/x887dW7X/Flower-06.jpg"><img src="https://i.postimg.cc/x887dW7X/Flower-06.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/7YTsQMyr/Flower-07.jpg"><img src="https://i.postimg.cc/7YTsQMyr/Flower-07.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/L6nK41Kx/Flower-08.jpg"><img src="https://i.postimg.cc/L6nK41Kx/Flower-08.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/bJgcr0wB/Flower-09.jpg"><img src="https://i.postimg.cc/bJgcr0wB/Flower-09.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/SsD3kyZ0/Flower-10.jpg"><img src="https://i.postimg.cc/SsD3kyZ0/Flower-10.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/sXVqkB49/Flower-11.jpg"><img src="https://i.postimg.cc/sXVqkB49/Flower-11.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/9FK3DQcC/Flower-12.jpg"><img src="https://i.postimg.cc/9FK3DQcC/Flower-12.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/DZn37pnG/Flower-13.jpg"><img src="https://i.postimg.cc/DZn37pnG/Flower-13.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/rs5hzMjF/Flower-14.jpg"><img src="https://i.postimg.cc/rs5hzMjF/Flower-14.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/V6xGYdjV/Flower-15.jpg"><img src="https://i.postimg.cc/V6xGYdjV/Flower-15.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/SxhB6tYv/Flower-16.jpg"><img src="https://i.postimg.cc/SxhB6tYv/Flower-16.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/SQ1JRC55/Flower-17.jpg"><img src="https://i.postimg.cc/SQ1JRC55/Flower-17.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/SsyJ2rm0/Flower-18.jpg"><img src="https://i.postimg.cc/SsyJ2rm0/Flower-18.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/GmG2XN2w/Flower-19.jpg"><img src="https://i.postimg.cc/GmG2XN2w/Flower-19.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/sgjWZsmH/Flower-20.jpg"><img src="https://i.postimg.cc/sgjWZsmH/Flower-20.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/c44YvdX9/Flower-21.jpg"><img src="https://i.postimg.cc/c44YvdX9/Flower-21.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/02J2N37M/Flower-22.jpg"><img src="https://i.postimg.cc/02J2N37M/Flower-22.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/cJ5LCNk3/Flower-23.jpg"><img src="https://i.postimg.cc/cJ5LCNk3/Flower-23.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/qBcXtb0R/Flower-24.jpg"><img src="https://i.postimg.cc/qBcXtb0R/Flower-24.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/nrWW93b0/Flower-25.jpg"><img src="https://i.postimg.cc/nrWW93b0/Flower-25.jpg" alt="Gėlės" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/zBnF5pp9/flower-26.jpg"><img src="https://i.postimg.cc/zBnF5pp9/flower-26.jpg" alt="Gėlės" loading="lazy"></div>
                     </div>
                 </div>
             </section>
         </main>
         <footer class="site-footer">
             <div class="container">
-                <p>&copy; <span id="year"></span> DP.PORTFOLIO | Dominik Šuškevič Photography.</p>
-                <p class="footer-credits">Dominikphotofficial & DP.PORTFOLIO By Dominik Šuškevič</p>
+                <p class="footer-credits">© <span id="year"></span> Dominikphotofficial & DP.PORTFOLIO</p>
             </div>
         </footer>
     </div>
-    
     <div id="lightbox" class="lightbox">
+        <div class="lightbox-header">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-counter"></div>
+        </div>
         <span class="lightbox-close lightbox-ui">&times;</span>
         <span class="lightbox-prev lightbox-ui">&#10094;</span>
         <span class="lightbox-next lightbox-ui">&#10095;</span>
-        <div class="lightbox-info lightbox-ui"></div>
         <div class="lightbox-content">
             <img src="" alt="Didinta nuotrauka" id="lightbox-img">
         </div>
