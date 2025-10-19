@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>NOKA Gathering | DP.PORTFOLIO</title>
     <meta name="description" content="NOKA automobilių susitikimo fotografijos albumas.">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/albums/noka-gathering.html">
@@ -11,7 +10,6 @@
     <meta property="og:description" content="NOKA automobilių susitikimo fotografijos albumas.">
     <meta property="og:image" content="https://i.postimg.cc/28SthTZg/noka-car-01.jpg">
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/albums/noka-gathering.html">
-
     <link rel="icon" href="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +17,7 @@
     <link rel="stylesheet" href="../style.css">
     <script defer src="../script.js"></script>
 </head>
-<body>
+<body class="album-page">
     <div id="preloader"><div class="spinner"></div></div>
     <div class="site-content">
         <header>
@@ -28,16 +26,21 @@
                     <img src="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" alt="DP Logo" class="logo-img">
                     <span class="logo-text">DP.PORTFOLIO</span>
                 </a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html" class="nav-link">Albumai</a></li>
-                        <li><a href="../about.html" class="nav-link">Apie mane</a></li>
-                        <li><a href="../biography.html" class="nav-link">Biografija</a></li>
-                        <li><a href="../contacts.html" class="nav-link">Kontaktai</a></li>
-                    </ul>
-                </nav>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </header>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="../index.html" class="nav-link">Albumai</a></li>
+                <li><a href="../about.html" class="nav-link">Apie mus</a></li>
+                <li><a href="../biography.html" class="nav-link">Biografija</a></li>
+                <li><a href="../contacts.html" class="nav-link">Kontaktai</a></li>
+            </ul>
+        </nav>
         <main>
             <section class="page-title-section animated">
                 <h1>NOKA Gathering</h1>
@@ -45,38 +48,31 @@
             <section class="content-wrapper">
                 <div class="container">
                     <div class="gallery-header">
-                        <a href="../index.html" id="back-to-albums">&larr; Visi albumai</a>
+                        <a href="../index.html" id="back-to-albums">&larr; Grįžti į albumus</a>
                     </div>
                     <div class="photo-grid">
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/28SthTZg/noka-car-01.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS">
-                            <img src="https://i.postimg.cc/28SthTZg/noka-car-01.jpg" alt="NOKA Gathering photo" loading="lazy">
-                        </div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/vZ1SSBXz/noka-car-02.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS">
-                            <img src="https://i.postimg.cc/vZ1SSBXz/noka-car-02.jpg" alt="NOKA Gathering photo" loading="lazy">
-                        </div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/xTp4RHG8/noka-car-03.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS">
-                            <img src="https://i.postimg.cc/xTp4RHG8/noka-car-03.jpg" alt="NOKA Gathering photo" loading="lazy">
-                        </div>
-                        <div class="photo-item animated" data-src="https://i.postimg.cc/8zqn8S0V/noka-car-04.jpg" data-author="Dominik Šuškevič" data-camera="CANON POWERSHOT S5 IS">
-                            <img src="https://i.postimg.cc/8zqn8S0V/noka-car-04.jpg" alt="NOKA Gathering photo" loading="lazy">
-                        </div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/28SthTZg/noka-car-01.jpg"><img src="https://i.postimg.cc/28SthTZg/noka-car-01.jpg" alt="NOKA Gathering" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/vZ1SSBXz/noka-car-02.jpg"><img src="https://i.postimg.cc/vZ1SSBXz/noka-car-02.jpg" alt="NOKA Gathering" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/xTp4RHG8/noka-car-03.jpg"><img src="https://i.postimg.cc/xTp4RHG8/noka-car-03.jpg" alt="NOKA Gathering" loading="lazy"></div>
+                        <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/8zqn8S0V/noka-car-04.jpg"><img src="https://i.postimg.cc/8zqn8S0V/noka-car-04.jpg" alt="NOKA Gathering" loading="lazy"></div>
                     </div>
                 </div>
             </section>
         </main>
         <footer class="site-footer">
             <div class="container">
-                <p>&copy; <span id="year"></span> DP.PORTFOLIO | Dominik Šuškevič Photography.</p>
-                <p class="footer-credits">Dominikphotofficial & DP.PORTFOLIO By Dominik Šuškevič</p>
+                <p class="footer-credits">© <span id="year"></span> Dominikphotofficial & DP.PORTFOLIO</p>
             </div>
         </footer>
     </div>
-    
     <div id="lightbox" class="lightbox">
+        <div class="lightbox-header">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-counter"></div>
+        </div>
         <span class="lightbox-close lightbox-ui">&times;</span>
         <span class="lightbox-prev lightbox-ui">&#10094;</span>
         <span class="lightbox-next lightbox-ui">&#10095;</span>
-        <div class="lightbox-info lightbox-ui"></div>
         <div class="lightbox-content">
             <img src="" alt="Didinta nuotrauka" id="lightbox-img">
         </div>
