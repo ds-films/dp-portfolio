@@ -1,10 +1,4 @@
-# Instrukcijos visiems paieškos sistemų robotams (Google, Bing ir kt.)
 User-agent: *
-
-# Leidžiama pilnai nuskaityti visą svetainę.
-# Jūsų portfolio svetainėje nėra jokio turinio, kurį reikėtų slėpti.
 Allow: /
 
-# Nuoroda į jūsų svetainės žemėlapį (Sitemap),
-# kuri padeda robotams greičiau rasti visus puslapius ir nuotraukas.
 Sitemap: https://portfolio.dominikphotofficial.lt/sitemap.xml
