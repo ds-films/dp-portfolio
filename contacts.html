@@ -9,8 +9,10 @@
     <link rel="icon" href="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" type="image/png">
     <meta property="og:title" content="Kontaktai | DP.PORTFOLIO">
     <meta property="og:description" content="Susisiekite su fotografu Dominik Šuškevič.">
-    <meta property="og:image" content="https://i.postimg.cc/Xvc3zYGK/dp-logo.png">
+    <meta property="og:image" content="https://i.postimg.cc/d0vqq0S7/LATVIJA-2025-39.jpg">
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/contacts.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600;700&family=Josefin+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -26,19 +28,27 @@
                     <img src="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" alt="DP Logo" class="logo-img">
                     <span class="logo-text">DP.PORTFOLIO</span>
                 </a>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="nav-link">Albumai</a></li>
-                        <li><a href="about.html" class="nav-link">Apie mane</a></li>
-                        <li><a href="biography.html" class="nav-link">Biografija</a></li>
-                        <li><a href="contacts.html" class="nav-link">Kontaktai</a></li>
-                    </ul>
-                </nav>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </header>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="nav-link">Albumai</a></li>
+                <li><a href="about.html" class="nav-link">Apie mane</a></li>
+                <li><a href="biography.html" class="nav-link">Biografija</a></li>
+                <li><a href="contacts.html" class="nav-link">Kontaktai</a></li>
+            </ul>
+        </nav>
         <main>
-            <section class="page-title-section animated">
-                <h1>Susisiekime</h1>
+            <section class="hero static-hero animated" style="background-image: url('https://i.postimg.cc/d0vqq0S7/LATVIJA-2025-39.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1>Susisiekime</h1>
+                </div>
             </section>
             <section class="content-wrapper">
                 <div class="container">
@@ -54,6 +64,15 @@
         </main>
         <footer class="site-footer">
             <div class="container">
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="index.html">Albumai</a></li>
+                        <li><a href="about.html">Apie mane</a></li>
+                        <li><a href="biography.html">Biografija</a></li>
+                        <li><a href="contacts.html">Kontaktai</a></li>
+                    </ul>
+                </nav>
+                <hr class="divider">
                 <p>&copy; <span id="year"></span> DP.PORTFOLIO | Dominik Šuškevič Photography.</p>
                 <p class="footer-credits">Dominikphotofficial & DP.PORTFOLIO By Dominik Šuškevič</p>
             </div>
