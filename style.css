@@ -124,7 +124,7 @@ body:not(.home) .logo-text, body:not(.home) .nav-toggle span { color: var(--colo
 .lightbox-next { right: 10px; }
 
 .site-footer { padding: 40px 0; margin-top: 40px; text-align: center; color: var(--color-subtle); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
-.footer-credits { font-family: var(--font-heading); font-size: 1rem; color: var(--color-text); margin-top: 15px; }
+.footer-credits { font-family: var(--font-heading); font-size: 1rem; color: var(--color-text); }
 
 @media (max-width: 1024px) {
     .album-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -133,15 +133,11 @@ body:not(.home) .logo-text, body:not(.home) .nav-toggle span { color: var(--colo
 @media (max-width: 768px) {
     body:not(.home) header { flex-direction: row; }
     header .container { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
-    
     .logo-img { height: 35px; }
     .logo-text { font-size: 1.3rem; }
-
     .album-grid, .photo-grid { grid-template-columns: 1fr; }
-    
     .page-title-section { padding: 60px 0; margin-bottom: 40px; }
     .content-wrapper { padding-top: 0; padding-bottom: 40px; }
-
     .lightbox-prev, .lightbox-next { opacity: 0.7; font-size: 2rem; padding: 10px; }
     .lightbox-header { top: 15px; left: 15px; right: 15px; flex-direction: column; gap: 5px; }
-             }
+           }
