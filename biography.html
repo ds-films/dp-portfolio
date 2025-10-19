@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biografija | DP.PORTFOLIO</title>
-
-    <!-- SEO -->
     <meta name="description" content="Fotografo ir vizualiojo meno kūrėjo Dominik Šuškevič biografija.">
-    <!-- NAUJA: Pridėti raktažodžiai -->
     <meta name="keywords" content="Dominik Šuškevič, Kas toks Dominik Šuškevič?, Dominik, Šuškevič, Dominik suskevic">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/biography.html">
-    
-    <!-- Favicon & Open Graph -->
     <link rel="icon" href="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" type="image/png">
     <meta property="og:title" content="Biografija | DP.PORTFOLIO">
     <meta property="og:description" content="Fotografo ir vizualiojo meno kūrėjo Dominik Šuškevič biografija.">
     <meta property="og:image" content="https://i.postimg.cc/43WdSV7M/ph-d-s-02.jpg">
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/biography.html">
-
-    <!-- Fonts, Styles, Scripts -->
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600;700&family=Josefin+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -34,16 +29,21 @@
                     <img src="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" alt="DP Logo" class="logo-img">
                     <span class="logo-text">DP.PORTFOLIO</span>
                 </a>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="nav-link">Albumai</a></li>
-                        <li><a href="about.html" class="nav-link">Apie mane</a></li>
-                        <li><a href="biography.html" class="nav-link">Biografija</a></li>
-                        <li><a href="contacts.html" class="nav-link">Kontaktai</a></li>
-                    </ul>
-                </nav>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </header>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="nav-link">Albumai</a></li>
+                <li><a href="about.html" class="nav-link">Apie mane</a></li>
+                <li><a href="biography.html" class="nav-link">Biografija</a></li>
+                <li><a href="contacts.html" class="nav-link">Kontaktai</a></li>
+            </ul>
+        </nav>
         <main>
             <div class="container">
                 <div class="bio-header animated">
@@ -57,7 +57,6 @@
                     </div>
                     <hr class="divider">
                 </div>
-
                 <div class="carousel-section animated">
                     <div class="carousel-container">
                         <div class="carousel-track">
@@ -68,7 +67,6 @@
                         <button class="carousel-button next">&#10095;</button>
                     </div>
                 </div>
-
                 <div class="text-content animated">
                     <p><strong>Dominik Šuškevič</strong> (g. 2011 m. spalio 5 d.) – keturiolikos metų vizualiojo meno kūrėjas iš Lietuvos. Gimęs Švenčionyse, šiuo metu jis gyvena ir kuria Kaune. Dominik Šuškevič yra universalus menininkas, sėkmingai įkūnijantis režisieriaus, operatoriaus, fotografo, aktoriaus ir scenaristo vaidmenis.</p>
                     <h3>Kūrybinė Kelionė</h3>
@@ -78,6 +76,15 @@
         </main>
         <footer class="site-footer">
             <div class="container">
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="index.html">Albumai</a></li>
+                        <li><a href="about.html">Apie mane</a></li>
+                        <li><a href="biography.html">Biografija</a></li>
+                        <li><a href="contacts.html">Kontaktai</a></li>
+                    </ul>
+                </nav>
+                <hr class="divider">
                 <p>&copy; <span id="year"></span> DP.PORTFOLIO | Dominik Šuškevič Photography.</p>
                 <p class="footer-credits">Dominikphotofficial & DP.PORTFOLIO By Dominik Šuškevič</p>
             </div>
