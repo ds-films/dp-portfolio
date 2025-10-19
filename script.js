@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const preloader = document.getElementById('preloader');
         if (preloader) {
             preloader.style.opacity = '0';
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 500); // Atitinka CSS transition trukmę
+            setTimeout(() => { preloader.style.display = 'none'; }, 500);
         }
         document.body.classList.add('loaded');
     }
@@ -16,6 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (yearSpan) {
             yearSpan.textContent = new Date().getFullYear();
         }
+    }
+
+    function initMobileNav() {
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        if (!navToggle || !navMenu) return;
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        });
     }
 
     function initActiveNav() {
@@ -32,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function initScrollAnimations() {
         const animatedElements = document.querySelectorAll('.animated');
         if (animatedElements.length === 0) return;
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -41,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, { threshold: 0.1 });
-
         animatedElements.forEach(el => observer.observe(el));
     }
 
@@ -68,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>${album.title}</h3>
                 </a>
             `).join('');
-            initScrollAnimations(); // Iš naujo paleidžiame animacijas dinamiškai sukurtiems elementams
+            initScrollAnimations();
         }
         fetchAlbums();
     }
@@ -184,9 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Paleidimas ---
-    // Šios funkcijos įvykdomos iškart, nelaukiant visų nuotraukų
     initPreloader();
     initFooter();
+    initMobileNav();
     initActiveNav();
     initScrollAnimations();
     handleMainPage();
