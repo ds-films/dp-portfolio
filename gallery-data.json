@@ -1,57 +1,13 @@
 [
-    { 
-        "id": "rundale-palace", 
-        "title": "Rundāle Palace", 
-        "coverImage": "https://i.postimg.cc/SNJR5jwY/IMG_5630.jpg" 
-    },
-    { 
-        "id": "noka-gathering", 
-        "title": "NOKA Gathering", 
-        "coverImage": "https://i.postimg.cc/28SthTZg/noka-car-01.jpg" 
-    },
-    { 
-        "id": "flowers", 
-        "title": "Gėlės", 
-        "coverImage": "https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" 
-    },
-    { 
-        "id": "Baltoji-kiele", 
-        "title": "Baltoji kielė", 
-        "coverImage": "https://i.postimg.cc/KYbYwNkK/bird-01.jpg" 
-    },
-    { 
-        "id": "BMWE36", 
-        "title": "BMW E36", 
-        "coverImage": "https://i.postimg.cc/vTpSGtSm/BMWE36-01.jpg" 
-    },
-    { 
-        "id": "cirkliskis", 
-        "title": "Cirkliškis", 
-        "coverImage": "https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg" 
-    },
-    { 
-        "id": "srp", 
-        "title": "Sirvėtos regioninis parkas", 
-        "coverImage": "https://i.postimg.cc/X7gd6GTN/srp-01.jpg" 
-    },
-    { 
-        "id": "Sventa", 
-        "title": "Šventa", 
-        "coverImage": "https://i.postimg.cc/QM6Nbm4p/venta-0.jpg" 
-    },
-    { 
-        "id": "vdu-b-s", 
-        "title": "VDU Botanikos Sodas", 
-        "coverImage": "https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg" 
-    },
-    { 
-        "id": "Moletu-observatorija", 
-        "title": "Molėtų Observatorija", 
-        "coverImage": "https://i.postimg.cc/3x3PgfJH/Teleskopas-165-cm.png" 
-    },
-    { 
-        "id": "Gandras", 
-        "title": "Gandras", 
-        "coverImage": "https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg" 
-    }
+    { "id": "rundale-palace", "title": "Rundāle Palace", "coverImage": "https://i.postimg.cc/SNJR5jwY/IMG_5630.jpg" },
+    { "id": "noka-gathering", "title": "NOKA Gathering", "coverImage": "https://i.postimg.cc/28SthTZg/noka-car-01.jpg" },
+    { "id": "flowers", "title": "Gėlės", "coverImage": "https://i.postimg.cc/Dy2Q1ryc/Flower-01.jpg" },
+    { "id": "Baltoji-kiele", "title": "Baltoji kielė", "coverImage": "https://i.postimg.cc/KYbYwNkK/bird-01.jpg" },
+    { "id": "BMWE36", "title": "BMW E36", "coverImage": "https://i.postimg.cc/vTpSGtSm/BMWE36-01.jpg" },
+    { "id": "cirkliskis", "title": "Cirkliškis", "coverImage": "https://i.postimg.cc/x8pRF86C/cirkliskis-01.jpg" },
+    { "id": "srp", "title": "Sirvėtos regioninis parkas", "coverImage": "https://i.postimg.cc/X7gd6GTN/srp-01.jpg" },
+    { "id": "Sventa", "title": "Šventa", "coverImage": "https://i.postimg.cc/QM6Nbm4p/venta-0.jpg" },
+    { "id": "vdu-b-s", "title": "VDU Botanikos Sodas", "coverImage": "https://i.postimg.cc/HL0Fv0Xk/vdu-botanikos-sodas-01.jpg" },
+    { "id": "Moletu-observatorija", "title": "Molėtų Observatorija", "coverImage": "https://i.postimg.cc/3x3PgfJH/Teleskopas-165-cm.png" },
+    { "id": "Gandras", "title": "Gandras", "coverImage": "https://i.postimg.cc/KYtMgjLT/Gandras-01.jpg" }
 ]
