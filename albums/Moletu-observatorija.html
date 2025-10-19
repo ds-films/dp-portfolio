@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../style.css">
     <script defer src="../script.js"></script>
 </head>
-<body>
+<body class="album-page">
     <div id="preloader"><div class="spinner"></div></div>
     <div class="site-content">
         <header>
@@ -26,16 +26,21 @@
                     <img src="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" alt="DP Logo" class="logo-img">
                     <span class="logo-text">DP.PORTFOLIO</span>
                 </a>
-                <nav>
-                    <ul>
-                        <li><a href="../index.html" class="nav-link">Albumai</a></li>
-                        <li><a href="../about.html" class="nav-link">Apie mane</a></li>
-                        <li><a href="../biography.html" class="nav-link">Biografija</a></li>
-                        <li><a href="../contacts.html" class="nav-link">Kontaktai</a></li>
-                    </ul>
-                </nav>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </header>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="../index.html" class="nav-link">Albumai</a></li>
+                <li><a href="../about.html" class="nav-link">Apie mus</a></li>
+                <li><a href="../biography.html" class="nav-link">Biografija</a></li>
+                <li><a href="../contacts.html" class="nav-link">Kontaktai</a></li>
+            </ul>
+        </nav>
         <main>
             <section class="page-title-section animated">
                 <h1>Molėtų observatorija</h1>
@@ -46,7 +51,7 @@
             <section class="content-wrapper">
                 <div class="container">
                     <div class="gallery-header">
-                        <a href="../index.html" id="back-to-albums">&larr; Visi albumai</a>
+                        <a href="../index.html" id="back-to-albums">&larr; Grįžti į albumus</a>
                     </div>
                     <div class="photo-grid">
                         <div class="photo-item animated lightbox-trigger" data-src="https://i.postimg.cc/3x3PgfJH/Teleskopas-165-cm.png"><img src="https://i.postimg.cc/3x3PgfJH/Teleskopas-165-cm.png" alt="Molėtų observatorija" loading="lazy"></div>
@@ -58,8 +63,7 @@
         </main>
         <footer class="site-footer">
             <div class="container">
-                <p>&copy; <span id="year"></span> DP.PORTFOLIO | Dominik Šuškevič Photography.</p>
-                <p class="footer-credits">Dominikphotofficial & DP.PORTFOLIO By Dominik Šuškevič</p>
+                <p class="footer-credits">© <span id="year"></span> Dominikphotofficial & DP.PORTFOLIO</p>
             </div>
         </footer>
     </div>
@@ -76,4 +80,4 @@
         </div>
     </div>
 </body>
-                  </html>
+</html>
