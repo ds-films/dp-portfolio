@@ -12,8 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function initFooter() {
         const yearSpan = document.getElementById('year');
         if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
+            yearSpan.textContent = '2025';
         }
+    }
+    
+    function initStickyHeader() {
+        const header = document.querySelector('header');
+        if (!document.body.classList.contains('home')) return;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     }
 
     function initMobileNav() {
@@ -200,4 +213,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroSlider();
     handleBiographyCarousel();
     initLightbox();
+    initStickyHeader();
 });
