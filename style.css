@@ -137,4 +137,4 @@ body:not(.home) nav a.active, body:not(.home) nav a:hover { color: var(--color-a
     .lightbox-prev { left: 5px; }
     .lightbox-next { right: 5px; }
     .lightbox-header { top: 15px; left: 15px; right: 15px; flex-direction: column; gap: 5px; }
-          }
+                      }
