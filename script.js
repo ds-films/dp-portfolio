@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function initStickyHeader() {
         const header = document.querySelector('header');
-        if (!document.body.classList.contains('home')) return;
+        if (!header) return;
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            if (window.scrollY > 10) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -169,38 +169,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function handleBiographyCarousel() {
-        const carouselContainer = document.querySelector('.carousel-container');
-        if (!carouselContainer) return;
+    function initCarousels() {
+        const carousels = document.querySelectorAll('.carousel-container');
+        if (carousels.length === 0) return;
 
-        const track = carouselContainer.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = carouselContainer.querySelector('.carousel-button.next');
-        const prevButton = carouselContainer.querySelector('.carousel-button.prev');
-        if (slides.length <= 1) {
-            if(nextButton) nextButton.style.display = 'none';
-            if(prevButton) prevButton.style.display = 'none';
-            return;
-        };
-        let currentSlide = 0;
+        carousels.forEach(carousel => {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextButton = carousel.querySelector('.carousel-button.next');
+            const prevButton = carousel.querySelector('.carousel-button.prev');
+            let isAuto = !nextButton && !prevButton;
+            let currentSlide = 0;
 
-        const moveToSlide = (targetSlide) => {
-            const slideWidth = slides[0].getBoundingClientRect().width;
-            track.style.transform = `translateX(-${slideWidth * targetSlide}px)`;
-            currentSlide = targetSlide;
-        };
+            if (slides.length <= 1) {
+                if(nextButton) nextButton.style.display = 'none';
+                if(prevButton) prevButton.style.display = 'none';
+                return;
+            };
 
-        nextButton.addEventListener('click', () => {
-            const nextSlide = (currentSlide + 1) % slides.length;
-            moveToSlide(nextSlide);
+            const moveToSlide = (targetSlide) => {
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(-${slideWidth * targetSlide}px)`;
+                currentSlide = targetSlide;
+            };
+
+            if (isAuto) {
+                setInterval(() => {
+                    const nextSlide = (currentSlide + 1) % slides.length;
+                    moveToSlide(nextSlide);
+                }, 4000);
+            } else {
+                nextButton.addEventListener('click', () => {
+                    const nextSlide = (currentSlide + 1) % slides.length;
+                    moveToSlide(nextSlide);
+                });
+
+                prevButton.addEventListener('click', () => {
+                    const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    moveToSlide(prevSlide);
+                });
+            }
+            
+            window.addEventListener('resize', () => moveToSlide(currentSlide));
         });
-
-        prevButton.addEventListener('click', () => {
-            const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
-            moveToSlide(prevSlide);
-        });
-        
-        window.addEventListener('resize', () => moveToSlide(currentSlide));
     }
 
     // --- Paleidimas ---
@@ -211,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     handleMainPage();
     initHeroSlider();
-    handleBiographyCarousel();
+    initCarousels();
     initLightbox();
     initStickyHeader();
 });
