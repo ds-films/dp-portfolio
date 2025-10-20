@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija į Fotosesiją | DP.PORTFOLIO</title>
+    <meta name="description" content="Užsiregistruokite į nemokamą asmeninę fotosesiją. Pasiūlymas galioja nuo spalio 21 d. iki 31 d.">
+    <meta name="keywords" content="nemokama fotosesija, registracija, fotosesija, fotografas, Dominik Šuškevič">
+    <link rel="canonical" href="https://portfolio.dominikphotofficial.lt/fotosesijos-registracija.html">
+    <meta property="og:title" content="Registracija į Fotosesiją | DP.PORTFOLIO">
+    <meta property="og:description" content="Užsiregistruokite į nemokamą asmeninę fotosesiją.">
+    <meta property="og:image" content="https://i.postimg.cc/BbnWtfcD/fotosesija_01.jpg">
+    <meta property="og:url" content="https://portfolio.dominikphotofficial.lt/fotosesijos-registracija.html">
+    <link rel="icon" href="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600;700&family=Josefin+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="preloader"><div class="spinner"></div></div>
+    <div class="site-content">
+        <header>
+            <div class="container">
+                <a href="index.html" class="logo-container">
+                    <img src="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" alt="DP Logo" class="logo-img">
+                    <span class="logo-text">DP.PORTFOLIO</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </header>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="nav-link">Albumai</a></li>
+                <li><a href="about.html" class="nav-link">Apie mus</a></li>
+                <li><a href="biography.html" class="nav-link">Biografija</a></li>
+                <li><a href="contacts.html" class="nav-link">Kontaktai</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section class="page-title-section animated">
+                <h1>Registracija į Fotosesiją</h1>
+                <div class="album-description">
+                    <p>Užpildykite formą ir aš su jumis susisieksiu. Pasiūlymas galioja nuo spalio 21 d. iki 31 d.</p>
+                </div>
+            </section>
+            <section class="content-wrapper">
+                <div class="container">
+                    <div class="registration-layout animated">
+                        <div class="form-container">
+                            <form action="https://formspree.io/f/mgvnbvaw" method="POST">
+                                <div class="form-group">
+                                    <label for="name">Jūsų Vardas</label>
+                                    <input type="text" id="name" name="Vardas" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">El. Paštas</label>
+                                    <input type="email" id="email" name="El. paštas" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefono Nr. (neprivaloma)</label>
+                                    <input type="tel" id="phone" name="Telefonas">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Jūsų idėjos ar klausimai (neprivaloma)</label>
+                                    <textarea id="message" name="Žinutė" rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="cta-button">Siųsti Registraciją</button>
+                            </form>
+                        </div>
+                        <div class="examples-container">
+                            <h3>Fotosesijų Pavyzdžiai</h3>
+                            <div class="photo-grid grid-2-cols">
+                                <div class="photo-item"><img src="https://i.postimg.cc/BbnWtfcD/fotosesija_01.jpg" alt="Fotosesijos pavyzdys"></div>
+                                <div class="photo-item"><img src="https://i.postimg.cc/VLN53BM0/LATVIJA-2025-05.jpg" alt="Fotosesijos pavyzdys"></div>
+                                <div class="photo-item"><img src="https://i.postimg.cc/m2rh0NM3/LATVIJA-2025-07.jpg" alt="Fotosesijos pavyzdys"></div>
+                                <div class="photo-item"><img src="https://i.postimg.cc/tCgkchYT/LATVIJA-2025-11.jpg" alt="Fotosesijos pavyzdys"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="container">
+                <p class="footer-credits">© <span id="year"></span> Dominikphotofficial & DP.PORTFOLIO</p>
+            </div>
+        </footer>
+    </div>
+</body>
+  </html>
