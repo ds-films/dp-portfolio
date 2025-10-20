@@ -16,7 +16,7 @@ body { font-family: var(--font-body); background-color: var(--color-background);
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 h1, h2, h3 { font-family: var(--font-heading); color: var(--color-text); font-weight: 600; }
 h1 { font-size: clamp(2.5rem, 6vw, 4rem); text-align: center; margin-bottom: 20px; letter-spacing: -1px; }
-h2 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 30px; }
+h2 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 20px; }
 h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; }
 a { color: var(--color-accent); text-decoration: none; transition: color var(--transition-fast); }
 a:hover { color: var(--color-text); }
@@ -49,7 +49,7 @@ header .container { display: flex; justify-content: space-between; align-items: 
 #nav-menu a { font-family: var(--font-heading); font-size: clamp(2rem, 8vw, 3rem); color: white; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
 #nav-menu a:hover, #nav-menu a.active { opacity: 1; }
 
-.hero { position: relative; height: 70vh; min-height: 450px; max-height: 800px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; margin-top: -91px; /* Kompensuoja header aukštį */ }
+.hero { position: relative; height: 70vh; min-height: 450px; max-height: 800px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; margin-top: -91px; }
 .hero-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
 .hero-slide.active { opacity: 1; }
@@ -64,13 +64,17 @@ header .container { display: flex; justify-content: space-between; align-items: 
 .animated { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .animated.visible { opacity: 1; transform: translateY(0); }
 
-.intro-text-section { text-align: center; max-width: 800px; margin: 0 auto 80px; }
-.intro-text-section h2 { margin-bottom: 20px; }
-.intro-text-section p { font-size: 1.2rem; color: var(--color-subtle); line-height: 1.8; }
+.offer-section { padding: 80px 0; background-color: #f9f9f9; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+.offer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.offer-text p { color: var(--color-subtle); margin-bottom: 20px; }
+.offer-dates { font-weight: 500; color: var(--color-text); }
+.cta-button { display: inline-block; background-color: var(--color-accent); color: white; padding: 12px 30px; border-radius: var(--border-radius); text-decoration: none; font-family: var(--font-heading); font-weight: 600; margin-top: 10px; transition: background-color var(--transition-fast), transform var(--transition-fast); }
+.cta-button:hover { background-color: #0b2c2c; color: white; transform: translateY(-2px); }
+.offer-gallery .carousel-container { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.section-title { text-align: center; margin-top: 80px; margin-bottom: 60px; }
 
 .album-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
 .album-card { text-decoration: none; display: block; position: relative; overflow: hidden; border-radius: var(--border-radius); border: 1px solid var(--border-color); }
-.album-card-image { overflow: hidden; }
 .album-card img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform var(--transition-medium); }
 .album-card:hover img { transform: scale(1.05); }
 .album-card h3 { font-family: var(--font-heading); color: white; position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 20px 20px; margin: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); transition: transform var(--transition-fast); z-index: 2; }
@@ -138,6 +142,8 @@ header .container { display: flex; justify-content: space-between; align-items: 
     body.home .content-wrapper { padding-top: 80px; }
     .intro-text-section { margin-bottom: 60px; }
     .intro-text-section p { font-size: 1.1rem; }
+    .offer-section { padding: 60px 0; }
+    .offer-content { grid-template-columns: 1fr; gap: 40px; }
     .lightbox-prev, .lightbox-next { opacity: 0.7; font-size: 2rem; padding: 10px; }
     .lightbox-header { top: 15px; left: 15px; right: 15px; flex-direction: column; gap: 5px; }
-}
+                 }
