@@ -51,7 +51,7 @@ header .container { display: flex; justify-content: space-between; align-items: 
 #nav-menu a { font-family: var(--font-heading); font-size: clamp(2rem, 8vw, 3rem); color: white; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
 #nav-menu a:hover, #nav-menu a.active { opacity: 1; }
 
-body:not(.home) header { position: static; border-bottom: 1px solid var(--border-color); background-color: white; backdrop-filter: none; }
+body:not(.home) header { position: static; background-color: white; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 1px solid var(--border-color); }
 body:not(.home) .logo-img { filter: none; }
 body:not(.home) .logo-text, body:not(.home) .nav-toggle span { color: var(--color-text); background-color: var(--color-text); }
 
@@ -69,7 +69,7 @@ body:not(.home) .logo-text, body:not(.home) .nav-toggle span { color: var(--colo
 .page-title-section { text-align: center; padding: 80px 0; }
 .page-title-section h1::after { content: ''; display: block; width: 80px; height: 2px; background: var(--color-accent); margin: 20px auto 0; }
 .content-wrapper { padding: 80px 0 60px; }
-.animated { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.animated { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; will-change: opacity, transform; }
 .animated.visible { opacity: 1; transform: translateY(0); }
 
 .intro-text-section { text-align: center; max-width: 800px; margin: 0 auto 80px; }
@@ -147,4 +147,4 @@ body:not(.home) .logo-text, body:not(.home) .nav-toggle span { color: var(--colo
     .intro-text-section p { font-size: 1.1rem; }
     .lightbox-prev, .lightbox-next { opacity: 0.7; font-size: 2rem; padding: 10px; }
     .lightbox-header { top: 15px; left: 15px; right: 15px; flex-direction: column; gap: 5px; }
-}
+    }
