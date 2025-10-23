@@ -18,11 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function initStickyHeader() {
         const header = document.querySelector('header');
-        if (!header) return;
+        if (!header || !document.body.classList.contains('home')) return;
 
-        // Veikia visuose puslapiuose
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
+            if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentImageIndex = 0;
         let touchStartX = 0;
         
-        const pageTitle = document.querySelector('.page-title-section h1')?.textContent || document.querySelector('.bio-name')?.textContent || 'Galerija';
+        const albumTitle = document.querySelector('.page-title-section h1')?.textContent || document.querySelector('.bio-name')?.textContent || 'Galerija';
 
         function updateLightbox() {
             const item = galleryItems[currentImageIndex];
@@ -132,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const camera = item.dataset.camera;
 
             lightboxImg.src = item.dataset.src;
-            lightboxCaption.textContent = item.querySelector('img')?.alt || pageTitle;
+            lightboxCaption.textContent = item.querySelector('img')?.alt || albumTitle;
             lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryItems.length}`;
             
             if (lightboxInfo) {
@@ -183,49 +182,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function initCarousels() {
-        const carousels = document.querySelectorAll('.carousel-container');
-        if (carousels.length === 0) return;
+    function handleBiographyCarousel() {
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (!carouselContainer) return;
 
-        carousels.forEach(carousel => {
-            const track = carousel.querySelector('.carousel-track');
-            const slides = Array.from(track.children);
-            const nextButton = carousel.querySelector('.carousel-button.next');
-            const prevButton = carousel.querySelector('.carousel-button.prev');
-            let isAuto = !nextButton && !prevButton;
-            let currentSlide = 0;
+        const track = carouselContainer.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = carouselContainer.querySelector('.carousel-button.next');
+        const prevButton = carouselContainer.querySelector('.carousel-button.prev');
+        if (slides.length <= 1) {
+            if(nextButton) nextButton.style.display = 'none';
+            if(prevButton) prevButton.style.display = 'none';
+            return;
+        };
+        let currentSlide = 0;
 
-            if (slides.length <= 1) {
-                if(nextButton) nextButton.style.display = 'none';
-                if(prevButton) prevButton.style.display = 'none';
-                return;
-            };
+        const moveToSlide = (targetSlide) => {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${slideWidth * targetSlide}px)`;
+            currentSlide = targetSlide;
+        };
 
-            const moveToSlide = (targetSlide) => {
-                const slideWidth = slides[0].getBoundingClientRect().width;
-                track.style.transform = `translateX(-${slideWidth * targetSlide}px)`;
-                currentSlide = targetSlide;
-            };
-
-            if (isAuto) {
-                setInterval(() => {
-                    const nextSlide = (currentSlide + 1) % slides.length;
-                    moveToSlide(nextSlide);
-                }, 4000);
-            } else {
-                nextButton.addEventListener('click', () => {
-                    const nextSlide = (currentSlide + 1) % slides.length;
-                    moveToSlide(nextSlide);
-                });
-
-                prevButton.addEventListener('click', () => {
-                    const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    moveToSlide(prevSlide);
-                });
-            }
-            
-            window.addEventListener('resize', () => moveToSlide(currentSlide));
+        nextButton.addEventListener('click', () => {
+            const nextSlide = (currentSlide + 1) % slides.length;
+            moveToSlide(nextSlide);
         });
+
+        prevButton.addEventListener('click', () => {
+            const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+            moveToSlide(prevSlide);
+        });
+        
+        window.addEventListener('resize', () => moveToSlide(currentSlide));
     }
 
     // --- Paleidimas ---
@@ -236,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     handleMainPage();
     initHeroSlider();
-    initCarousels();
+    handleBiographyCarousel();
     initLightbox();
     initStickyHeader();
 });
