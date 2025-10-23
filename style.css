@@ -28,8 +28,8 @@ hr.divider { border: none; height: 1px; background-color: var(--border-color); m
 .site-content { opacity: 0; transition: opacity var(--transition-medium); }
 body.loaded .site-content { opacity: 1; }
 
-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 100; padding: 30px 0; transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
-header.scrolled { position: fixed; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-bottom: 1px solid var(--border-color); }
+header { position: absolute; top: 0; left: 0; width: 100%; z-index: 100; padding: 30px 0; background-color: transparent; transition: background-color 0.4s ease, box-shadow 0.4s ease; }
+header.scrolled { position: fixed; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 header.scrolled .logo-img { filter: none; }
 header.scrolled .logo-text, header.scrolled .nav-toggle span { color: var(--color-text); background-color: var(--color-text); }
 header .container { display: flex; justify-content: space-between; align-items: center; }
@@ -51,7 +51,7 @@ header .container { display: flex; justify-content: space-between; align-items: 
 #nav-menu a { font-family: var(--font-heading); font-size: clamp(2rem, 8vw, 3rem); color: white; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
 #nav-menu a:hover, #nav-menu a.active { opacity: 1; }
 
-body:not(.home) header { position: static; background-color: white; backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 1px solid var(--border-color); }
+body:not(.home) header { position: static; border-bottom: 1px solid var(--border-color); background-color: white; backdrop-filter: none; }
 body:not(.home) .logo-img { filter: none; }
 body:not(.home) .logo-text, body:not(.home) .nav-toggle span { color: var(--color-text); background-color: var(--color-text); }
 
@@ -104,6 +104,7 @@ body:not(.home) .logo-text, body:not(.home) .nav-toggle span { color: var(--colo
 
 .text-content { max-width: 700px; margin: 0 auto; }
 .text-content p { margin-bottom: 20px; font-size: 1.1rem; }
+.contact-list { list-style: none; padding: 0; margin-top: 30px; }
 .contact-list li { margin-bottom: 15px; font-size: 1.2rem; }
 
 .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
@@ -146,4 +147,4 @@ body:not(.home) .logo-text, body:not(.home) .nav-toggle span { color: var(--colo
     .intro-text-section p { font-size: 1.1rem; }
     .lightbox-prev, .lightbox-next { opacity: 0.7; font-size: 2rem; padding: 10px; }
     .lightbox-header { top: 15px; left: 15px; right: 15px; flex-direction: column; gap: 5px; }
-    }
+}
