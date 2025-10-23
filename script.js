@@ -119,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const lightboxNext = document.querySelector('.lightbox-next');
         const lightboxCaption = document.querySelector('.lightbox-caption');
         const lightboxCounter = document.querySelector('.lightbox-counter');
-        const lightboxInfo = document.querySelector('.lightbox-info');
         let currentImageIndex = 0;
         let touchStartX = 0;
         
@@ -127,23 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function updateLightbox() {
             const item = galleryItems[currentImageIndex];
-            const author = item.dataset.author;
-            const camera = item.dataset.camera;
-
             lightboxImg.src = item.dataset.src;
-            lightboxCaption.textContent = item.querySelector('img')?.alt || albumTitle;
+            lightboxCaption.textContent = albumTitle;
             lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryItems.length}`;
-            
-            if (lightboxInfo) {
-                if (author && camera) {
-                    lightboxInfo.innerHTML = `<span>${author}</span> &bull; <span>${camera}</span>`;
-                    lightboxInfo.style.display = 'block';
-                } else {
-                    lightboxInfo.style.display = 'none';
-                }
-            }
         }
-        
+
         function openLightbox(index) {
             currentImageIndex = index;
             updateLightbox();
