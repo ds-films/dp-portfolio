@@ -23,8 +23,9 @@
 </head>
 <body class="home">
     <div id="preloader"><div class="spinner"></div></div>
-    <div class="site-content">
-        <header>
+
+    <div class="site-wrapper">
+        <header class="site-header">
             <div class="container">
                 <a href="index.html" class="logo-container">
                     <img src="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" alt="DP Logo" class="logo-img">
@@ -37,15 +38,17 @@
                 </button>
             </div>
         </header>
-        <nav id="nav-menu">
+
+        <nav id="side-nav">
             <ul>
-                <li><a href="index.html" class="nav-link">Albumai</a></li>
+                <li><a href="index.html" class="nav-link">Pradžia</a></li>
                 <li><a href="about.html" class="nav-link">Apie mus</a></li>
                 <li><a href="biography.html" class="nav-link">Biografija</a></li>
                 <li><a href="contacts.html" class="nav-link">Kontaktai</a></li>
             </ul>
         </nav>
-        <main>
+
+        <main id="main-content">
             <section class="hero animated">
                 <div class="hero-slider">
                     <div class="hero-slide active" style="background-image: url('https://i.postimg.cc/Prqy7mPt/LATVIJA-2025-04.jpg');"></div>
@@ -59,17 +62,13 @@
                     <p class="hero-tagline">Vizualinės Istorijos</p>
                 </div>
             </section>
+            
             <section class="content-wrapper">
                 <div class="container">
                     <div id="album-grid" class="album-grid"></div>
                 </div>
             </section>
         </main>
-        <footer class="site-footer">
-            <div class="container">
-                <p class="footer-credits">© <span id="year"></span> Dominikphotofficial & DP.PORTFOLIO</p>
-            </div>
-        </footer>
     </div>
 </body>
 </html>
