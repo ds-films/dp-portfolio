@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DP.PORTFOLIO | Dominik Šuškevič Photography</title>
-    <meta name="description" content="Vizualaus meno kūrėjo Dominik Šuškevič minimalistinis fotografijos portfolio. Atraskite architektūros, gamtos ir automobilių fotografijos albumus.">
-    <meta name="keywords" content="Dominik Šuškevič, fotografas, portfolio, fotografijos darbai, DP.official">
+    <meta name="description" content="Vizualaus meno kūrėjo Dominik Šuškevič fotografijos portfolio. Atraskite unikalias vizualines istorijas per architektūros, gamtos ir automobilių fotografijos albumus.">
+    <meta name="keywords" content="Dominik Šuškevič, fotografas, portfolio, meninė fotografija, vizualinės istorijos, DP.official">
     <link rel="canonical" href="https://portfolio.dominikphotofficial.lt">
     <link rel="icon" href="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" type="image/png">
     <link rel="apple-touch-icon" href="https://i.postimg.cc/Xvc3zYGK/dp-logo.png">
@@ -15,6 +15,22 @@
     <meta property="og:url" content="https://portfolio.dominikphotofficial.lt">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- NAUJA: Struktūriniai duomenys geresniam SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "DP.PORTFOLIO | Dominik Šuškevič Photography",
+      "url": "https://portfolio.dominikphotofficial.lt",
+      "creator": {
+        "@type": "Person",
+        "name": "Dominik Šuškevič",
+        "url": "https://portfolio.dominikphotofficial.lt/biography.html"
+      }
+    }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600;700&family=Josefin+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -23,9 +39,8 @@
 </head>
 <body class="home">
     <div id="preloader"><div class="spinner"></div></div>
-
-    <div class="site-wrapper">
-        <header class="site-header">
+    <div class="site-content">
+        <header>
             <div class="container">
                 <a href="index.html" class="logo-container">
                     <img src="https://i.postimg.cc/Xvc3zYGK/dp-logo.png" alt="DP Logo" class="logo-img">
@@ -38,18 +53,16 @@
                 </button>
             </div>
         </header>
-
-        <nav id="side-nav">
+        <nav id="nav-menu">
             <ul>
-                <li><a href="index.html" class="nav-link">Pradžia</a></li>
+                <li><a href="index.html" class="nav-link">Albumai</a></li>
                 <li><a href="about.html" class="nav-link">Apie mus</a></li>
                 <li><a href="biography.html" class="nav-link">Biografija</a></li>
                 <li><a href="contacts.html" class="nav-link">Kontaktai</a></li>
             </ul>
         </nav>
-
-        <main id="main-content">
-            <section class="hero animated">
+        <main>
+            <section class="hero full-screen animated">
                 <div class="hero-slider">
                     <div class="hero-slide active" style="background-image: url('https://i.postimg.cc/Prqy7mPt/LATVIJA-2025-04.jpg');"></div>
                     <div class="hero-slide" style="background-image: url('https://i.postimg.cc/XJSdqFzd/cirkliskis-13.jpg');"></div>
@@ -61,14 +74,25 @@
                     <h1>DP.PORTFOLIO</h1>
                     <p class="hero-tagline">Vizualinės Istorijos</p>
                 </div>
+                <a href="#album-grid-section" class="scroll-down-indicator">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V19M12 19L7 14M12 19L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
             </section>
             
-            <section class="content-wrapper">
+            <section id="album-grid-section" class="content-wrapper">
                 <div class="container">
+                    <div class="intro-text-section animated">
+                        <h2>Albumai</h2>
+                    </div>
                     <div id="album-grid" class="album-grid"></div>
                 </div>
             </section>
         </main>
+        <footer class="site-footer">
+            <div class="container">
+                <p class="footer-credits">© <span id="year"></span> Dominikphotofficial & DP.PORTFOLIO</p>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
